@@ -41,7 +41,11 @@
                 <quml-sa [questions]='question' [replayed]="parentConfig?.isReplayed" [baseUrl]="parentConfig?.baseUrl"
                   (showAnswerClicked)="showAnswerClicked($event, question)">
                 </quml-sa>
+                <quml-text-number-question></quml-text-number-question>
+                <quml-slider-question></quml-slider-question>
               </div>
+              <quml-text-number-question></quml-text-number-question>
+              <quml-slider-question></quml-slider-question>
             </div>
           </slide>
         </carousel>
