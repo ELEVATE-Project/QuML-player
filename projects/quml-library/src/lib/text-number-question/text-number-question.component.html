@@ -1,1 +1,83 @@
-<P>Text and Number Question component</P>
+  <section class="quml-text-number-question">
+
+    <!-- input box 1-->
+    <div class=" quml-head-container">
+        <section class="quml-container" tabindex="0">
+            <section class="sa-title">
+                Question
+            </section>
+          <!--  <section class="question" [innerHtml]="question | safeHtml"></section> -->
+         </section> 
+           
+            <!--Input of text-number-question-->
+    
+        <section>
+           
+            <input #textNumberQue (keydown)="checkForNumb($event)" type="input" placeholder="Enter your response" name="text-number-question" class="text-number-question"  (blur)="sendDataToParent(textNumberQue.value)"/>
+            <!-- <div class="submit">
+                <button class="submit-btn" (click)="submit(textNumberQue.value)">Submit </button>
+            </div> -->
+            <span class="hint-icon">
+                <button class="hint-button" (click)="toggleHintBox()">Hint</button> 
+                <div class="hint-box" [hidden]="!showHintBox">
+                    <div class="hint-content">
+                        <button class="close-button" (click)="toggleHintBox()">&times;</button>
+                        <p> Hint content here!</p>
+                    </div>
+                  </div>
+              </span>
+       
+        </section>
+    </div>
+
+    <!-- input box 2-->
+  <!--  <div class=" quml-head-container">
+        <section class="quml-container" tabindex="0">
+            <section class="sa-title">
+                Question
+            </section>
+           <section class="question" [innerHtml]="question | safeHtml"></section>
+          
+        </section>-->
+              
+        
+           
+            <!--Input of text-number-question-->
+    
+       <!-- <section>
+           
+            <input type="date" #textNumberQue1 placeholder="Enter date" name="text-number-question1" class="text-number-question"/>-->
+            <!-- <div class="submit">
+                <button class="submit-btn" (click)="submit(textNumberQue1.value)">Submit Question</button>
+            </div>-->
+               <!--  <span class="date-container">
+                <button class="date-container-button" (click)="autoDetectDate(textNumberQue1)">Auto detect</button>
+                 </span>
+       
+        </section>
+    </div>-->
+         
+
+       
+       <!--Show answer-->
+    <section class="sa-button-container">
+        <section *ngIf="!showAnswer" id="submit-answer" tabindex="0" class="sb-btn sb-btn-primary sb-btn-normal sb-btn-radius"
+        aria-label="Show Answer" (click)="showAnswerToUser()" (keydown)="onEnter($event)">
+        Show Answer
+    </section>
+    <section id="answer-container" [ngClass]="showAnswer ? 'option-container-blurred-out': 'option-container-blurred'">
+        <section class="sa-title" [attr.aria-hidden]="showAnswer ? null : true">
+            Answer
+        </section>
+        <section class="option-body" [innerHTML]="answer | safeHtml" [attr.aria-hidden]="showAnswer ? null : true"></section>
+        <ng-container *ngIf="solutions"> 
+          <section class="sa-title" [attr.aria-hidden]="showAnswer ? null : true">Solution</section>
+          <section class="solutions" *ngFor="let solution of solutions | keyvalue" [attr.aria-hidden]="showAnswer ? null : true">
+            <section [innerHTML]="solution.value | safeHtml" tabindex="-1"></section>
+          </section>
+        </ng-container>
+    </section>
+
+
+  </section>
+

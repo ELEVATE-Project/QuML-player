@@ -1,0 +1,27 @@
+<section>
+<div class=" quml-head-container">
+    <section class="quml-container" tabindex="0">
+        <section class="sa-title">
+            Question
+        </section>
+      <!--  <section class="question" [innerHtml]="question | safeHtml"></section> -->
+      
+    </section>
+          
+    
+       
+        <!--Input of text-number-question-->
+
+    <section>
+       
+        <input type="date" #textNumberQue1 placeholder="Enter date" name="text-number-question1" class="text-number-question" (blur)="sendData.emit(textNumberQue1.value)"/>
+        <!-- <div class="submit">
+            <button class="submit-btn" (click)="submit(textNumberQue1.value)">Submit Question</button>
+        </div> -->
+             <span class="date-container">
+            <button class="date-container-button" (click)="autoDetectDate(textNumberQue1)">Auto detect</button>
+             </span>
+   
+    </section>
+</div>
+</section>

@@ -39,13 +39,31 @@
               </div>
               <div *ngIf="question?.primaryCategory.toLowerCase() === 'subjective question'">
                 <quml-sa [questions]='question' [replayed]="parentConfig?.isReplayed" [baseUrl]="parentConfig?.baseUrl"
-                  (showAnswerClicked)="showAnswerClicked($event, question)">
+                  (showAnswerClicked)="showAnswerClicked($event, question)" (sendData)="sendData($event)>
                 </quml-sa>
-                <quml-text-number-question></quml-text-number-question>
-                <quml-slider-question></quml-slider-question>
               </div>
-              <quml-text-number-question></quml-text-number-question>
-              <quml-slider-question></quml-slider-question>
+              <div *ngIf="question?.primaryCategory.toLowerCase() === 'text'">
+                <quml-text-number-question [questions]='question' [replayed]="parentConfig?.isReplayed" [baseUrl]="parentConfig?.baseUrl" 
+                (showAnswerClicked)="showAnswerClicked($event, question)" (sendData)="sendData($event)">
+              </quml-text-number-question>
+              
+              </div>
+              <div *ngIf="question?.primaryCategory.toLowerCase() === 'slider'">
+                <quml-text-number-question [questions]='question' [replayed]="parentConfig?.isReplayed" [baseUrl]="parentConfig?.baseUrl" 
+                (showAnswerClicked)="showAnswerClicked($event, question)" (sendData)="sendData($event)">
+              </quml-text-number-question>
+              </div>
+              <div *ngIf="question?.primaryCategory.toLowerCase() === 'date-question'">
+                <quml-text-number-question [questions]='question' [replayed]="parentConfig?.isReplayed" [baseUrl]="parentConfig?.baseUrl" 
+                (showAnswerClicked)="showAnswerClicked($event, question)" (sendData)="sendData($event)">
+              </quml-text-number-question>
+              </div>
+
+             <quml-text-number-question></quml-text-number-question>  
+             <quml-slider-question></quml-slider-question> 
+             <quml-date-question></quml-date-question>
+             <quml-new-mcq-question></quml-new-mcq-question>
+            
             </div>
           </slide>
         </carousel>

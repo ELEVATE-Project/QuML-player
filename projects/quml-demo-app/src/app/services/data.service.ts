@@ -28,7 +28,7 @@ export class DataService {
   }
 
   getQuestionSet(identifier: string) {
-    const hierarchy = this.httpClient.get(`${this.baseUrl}${ApiEndPoints.getQuestionSetHierarchy}${identifier}`);
+    const hierarchy = this.httpClient.get(`${this.baseUrl}${ApiEndPoints.getQuestionSetHierarchy}${identifier}?mode=edit`);
     const questionSetResponse = this.httpClient.get(`${this.baseUrl}${ApiEndPoints.questionSetRead}${identifier}?fields=instructions,outcomeDeclaration`);
     return (
       forkJoin([hierarchy, questionSetResponse]).pipe(map((res: any) => {

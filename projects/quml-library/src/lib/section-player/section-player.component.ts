@@ -111,7 +111,11 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
     this.viewerService.raiseStartEvent(0);
     this.viewerService.raiseHeartBeatEvent(eventName.startPageLoaded, 'impression', 0);
   }
-
+  
+  sendData(value: any){
+    console.log(value);
+  }
+  
   private subscribeToEvents(): void {
     this.viewerService.qumlPlayerEvent
       .pipe(takeUntil(this.destroy$))

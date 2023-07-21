@@ -1,0 +1,32 @@
+<section class="quml-text-number-question">
+
+    <!-- input box 1-->
+    <div class=" quml-head-container">
+        <section class="quml-container" tabindex="0">
+            <section class="sa-title">
+                Question
+            </section>
+          <!--  <section class="question" [innerHtml]="question | safeHtml"></section> -->
+         </section> 
+           
+          <!-- multiple options -->
+          <section>
+            <div class="optionsTypes">
+          <input type="radio" value="option-1" (click)="onclick(q1.value)" name="q1" #q1 (blur)="sendData.emit(q1.value)"/>   Option-1
+        </div>
+        <div class="optionsTypes">
+            <input type="radio" value="option-2" (click)="onclick(q2.value)" name="q1" #q2/>   Option-2
+          </div>
+          <div class="optionsTypes">
+            <input type="radio" value="option-3" (click)="onclick(q3.value)" name="q1" #q3/>   Option-3
+          </div>
+          <div class="optionsTypes">
+            <input type="radio" value="option-4" (click)="onclick(q4.value)" name="q1" #q4/>   Option-4
+          </div>
+          </section>
+
+    </div>
+    <!-- <div class="submit">
+            <button class="submit-btn" (click)="submit(textNumberQue1.value)">Submit Question</button>
+        </div> -->
+</section>    
