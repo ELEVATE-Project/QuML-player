@@ -26,6 +26,12 @@ export class SliderQuestionComponent implements OnInit {
 
   onSliderChange(value: string) {
     this.sliderValue = parseInt(value);
+   
+  }
+
+  sendDataToParent(data) {
+    
+    this.showAnswerClicked.emit({data:this.answer,question:this.questions})
   }
 
   constructor( public domSanitizer: DomSanitizer, private utilService: UtilService ) { }
@@ -34,5 +40,6 @@ export class SliderQuestionComponent implements OnInit {
     this.question = this.questions?.body;
     this.answer = this.questions?.answer;
     this.solutions = this.questions?.solutions.length == 0 ? null : this.questions?.solutions;
+    console.log(this.questions);
   }
 }
