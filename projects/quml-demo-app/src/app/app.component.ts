@@ -8,7 +8,7 @@ import { DataService } from './services/data.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  contentId = 'do_21383414078631936011';
+  contentId = 'do_21384412186000588811184';
   playerConfig: any;
 
   constructor(private dataService: DataService) { }
@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
   }
 
   getPlayerEvents(event) {
-    console.log('get player events', JSON.stringify(event));
+    // console.log('get player events', JSON.stringify(event));
 
     // Store the metaData locally
     if (event.eid === 'END') {
@@ -46,6 +46,6 @@ export class AppComponent implements OnInit {
   }
 
   getTelemetryEvents(event) {
-    console.log('event is for telemetry', JSON.stringify(event));
+    // console.log('event is for telemetry', JSON.stringify(event));
   }
 }

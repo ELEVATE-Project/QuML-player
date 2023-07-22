@@ -8,28 +8,23 @@
             </section>
           <!--  <section class="question" [innerHtml]="question | safeHtml"></section> -->
          </section> 
-           
-            <!--Input of text-number-question-->
-    
-        <section>
-           
-            <input #textNumberQue (keydown)="checkForNumb($event)" type="input" placeholder="Enter your response" name="text-number-question" class="text-number-question"  (blur)="sendDataToParent(textNumberQue.value)"/>
-            <!-- <div class="submit">
-                <button class="submit-btn" (click)="submit(textNumberQue.value)">Submit </button>
-            </div> -->
-            <span class="hint-icon">
-                <button class="hint-button" (click)="toggleHintBox()">Hint</button> 
-                <div class="hint-box" [hidden]="!showHintBox">
-                    <div class="hint-content">
-                        <button class="close-button" (click)="toggleHintBox()">&times;</button>
-                        <p> Hint content here!</p>
-                    </div>
-                  </div>
-              </span>
-       
-        </section>
     </div>
-
+        
+    <section>
+        <input #textNumberQue (keydown)="checkForNumb($event,textNumberQue.value)" type="input" placeholder="Enter your response" name="text-number-question" class="text-number-question" />
+        <div class="submit">
+            <button class="submit-btn" (click)="sendDataToParent(textNumberQue.value)">Submit </button>
+        </div>
+        <!-- <span class="hint-icon">
+            <button class="hint-button" (click)="toggleHintBox()">Show Answer</button> 
+            <div class="hint-box" [hidden]="!showHintBox">
+                <div class="hint-content">
+                    <button class="close-button" (click)="toggleHintBox()">&times;</button>
+                    <p> Hint content here!</p>
+                </div>
+              </div>
+          </span> -->
+    </section>
     <!-- input box 2-->
   <!--  <div class=" quml-head-container">
         <section class="quml-container" tabindex="0">
@@ -69,9 +64,9 @@
         <section class="sa-title" [attr.aria-hidden]="showAnswer ? null : true">
             Answer
         </section>
-        <section class="option-body" [innerHTML]="answer | safeHtml" [attr.aria-hidden]="showAnswer ? null : true"></section>
+        <!-- <section class="option-body" [innerHTML]="answer | safeHtml" [attr.aria-hidden]="showAnswer ? null : true"></section> -->
         <ng-container *ngIf="solutions"> 
-          <section class="sa-title" [attr.aria-hidden]="showAnswer ? null : true">Solution</section>
+          <!-- <section class="sa-title" [attr.aria-hidden]="showAnswer ? null : true">Solution</section> -->
           <section class="solutions" *ngFor="let solution of solutions | keyvalue" [attr.aria-hidden]="showAnswer ? null : true">
             <section [innerHTML]="solution.value | safeHtml" tabindex="-1"></section>
           </section>

@@ -51,19 +51,22 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
    console.log(this.questions)
    }*/
 
-  checkForNumb(_event:KeyboardEvent){
-    console.log("event called")
-    const charCode = _event.key.charCodeAt(0);
-    console.log(charCode);
-    if((charCode== 66 || ( charCode >= 48 && charCode <=57) )){
-      this.arr = charCode;
-      //this.value = data;
-      console.log(charCode);
-      return true;
+  checkForNumb(_event:KeyboardEvent,value){
+    if(this.questions.interactions.response1.type.number == 'Yes') {
+      console.log("event called")
+      const charCode = _event.key.charCodeAt(0);
+      if((charCode== 66 || ( charCode >= 48 && charCode <=57) )){
+        this.arr = charCode;
+        //this.value = data;
+        return true;
+      }
+      else  {
+        _event.preventDefault();
+      }
     }
-    else  {
-      _event.preventDefault();
-    } 
+    else {
+      this.answer = value;
+    }
   }
 
   /*submit(inputdata: any){
@@ -72,7 +75,7 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
   }*/
 
   sendDataToParent(data) {
-    this.showAnswerClicked.emit({data:data,question:this.questions})
+    this.showAnswerClicked.emit({data:this.answer,question:this.questions})
   }
 
   ngOnInit() {
@@ -88,7 +91,7 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
 
   ngAfterViewInit() {
     this.handleKeyboardAccessibility();
-    this.utilService.updateSourceOfVideoElement(this.baseUrl, this.questions?.media, this.questions.identifier);
+    // this.utilService.updateSourceOfVideoElement(this.baseUrl, this.questions?.media, this.questions.identifier);
   }
 
   ngOnChanges() {
