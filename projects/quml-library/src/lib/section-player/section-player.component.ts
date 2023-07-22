@@ -922,7 +922,7 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
             score = val.score || 0;
             if (val.score) {
               this.progressBarClass[currentIndex].class = 'partial';
-            }
+            }""
           }
         });
       }
