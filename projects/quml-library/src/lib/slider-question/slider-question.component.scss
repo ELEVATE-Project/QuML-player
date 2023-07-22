@@ -122,3 +122,19 @@
     font-weight: bold;
     padding: 2px;
   }
+
+  .submit-btn{
+    text-align: center;
+    background: var(--primary-color);
+    color: var(--quml-btn-color);
+    font-size: .875rem;
+    font-weight: 500;
+    position: relative;
+    width: 3.75rem;
+    height: 2.25rem;
+    border: .03125rem solid var(--quml-btn-border);
+    border-radius: 1rem;
+    box-shadow: inset 0 -0.09375rem 0.0625rem #0003;
+    cursor: pointer;
+    text-align: center;
+  }
