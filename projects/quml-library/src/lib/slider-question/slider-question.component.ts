@@ -24,8 +24,7 @@ export class SliderQuestionComponent implements OnInit {
   min:number = 0;
   max:number = 0;
   step:number = 0;
-
-
+  questionName: any;
   sliderValue: number = 50;
 
   onSliderChange(value: string) {
@@ -48,5 +47,6 @@ export class SliderQuestionComponent implements OnInit {
     this.step = parseInt(this.questions?.interactions.response1.step);
     this.answer = this.questions?.answer;
     this.solutions = this.questions?.solutions.length == 0 ? null : this.questions?.solutions;
+    this.questionName = this.questions?.editorState.question;
   }
 }

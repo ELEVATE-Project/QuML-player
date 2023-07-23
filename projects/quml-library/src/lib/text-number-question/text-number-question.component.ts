@@ -19,8 +19,6 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
   @Output() showAnswerClicked = new EventEmitter<any>();
   @Output() sendData = new EventEmitter<any>();
   
-
-  
   showAnswer: any;
   solutions: any;
   question: any;
@@ -28,51 +26,31 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
   inputArray:any=[];
   charCode: any= '';
   arr: any ='';
-  //value: any= '';
-
   showHintBox: boolean = false;
   utilService: any;
+  questionName: any;
 
   toggleHintBox() {
     this.showHintBox = !this.showHintBox;
     console.log(1);
   }
 
-  /*autoDetectDate(inputElement: HTMLInputElement) {
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = ("0" + (currentDate.getMonth() + 1)).slice(-2);
-    const day = ("0" + currentDate.getDate()).slice(-2);
-    const formattedDate = `${year}-${month}-${day}`
-    inputElement.value = formattedDate;
-  }*/
-
-  /* constructor( public domSanitizer: DomSanitizer, private utilService: UtilService ) {
-   console.log(this.questions)
-   }*/
-
   checkForNumb(_event:KeyboardEvent,value){
     if(this.questions.interactions.response1.type.number == 'Yes') {
       console.log("event called")
       const charCode = _event.key.charCodeAt(0);
-      if((charCode== 66 || ( charCode >= 48 && charCode <=57) )){
-        this.arr = charCode;
-        //this.value = data;
-        return true;
-      }
-      else  {
-        _event.preventDefault();
-      }
+        if((charCode== 66 || ( charCode >= 48 && charCode <=57) )){
+          this.arr = charCode;
+          return true;
+        }
+        else  {
+          _event.preventDefault();
+        }
     }
     else {
       this.answer = value;
     }
   }
-
-  /*submit(inputdata: any){
-   // this.inputArray.push(inputdata);
-    this.sendData.emit(inputdata);
-  }*/
 
   sendDataToParent(data) {
     this.showAnswerClicked.emit({data:this.answer,question:this.questions,isCorrectAnswer:false})
@@ -83,15 +61,11 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     this.question = this.questions?.body;
     this.answer = this.questions?.answer;
     this.solutions = _.isEmpty(this.questions?.solutions) ? null : this.questions?.solutions;
-    //this.sendData.emit('data');
-
+    this.questionName = this.questions?.editorState.question;
   }
   
-  
-
   ngAfterViewInit() {
     this.handleKeyboardAccessibility();
-    // this.utilService.updateSourceOfVideoElement(this.baseUrl, this.questions?.media, this.questions.identifier);
   }
 
   ngOnChanges() {
@@ -129,21 +103,5 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
       }
     });
   }
-
-  /*checkForNumb(e:KeyboardEvent, data: any){
-    const charCode = e.key.charCodeAt(0);
-    console.log(charCode);
-  
-    if((charCode== 66 || ( charCode >= 48 && charCode <=57) )){
-      this.arr = charCode;
-      //this.value = data;
-      console.log(charCode);
-      return true;
-    }
-    else  {
-      e.preventDefault();
-    } 
-  }*/
-
 
 }

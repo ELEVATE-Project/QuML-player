@@ -30,24 +30,29 @@
     height: 100%;
     gap: 0.5rem;
     margin-bottom: 1rem;
+    margin-right: 1rem;
+    margin-top: 2rem;
   }
 
+  .question{
+    color: var(--primary-color);
+    font-size: .875rem;
+    font-weight: 500;
+  }
 
-
-
-.sa-title {
+  .sa-title {
     color: var(--primary-color);
     font-size: 0.875rem;
     font-weight: 500;
     margin: 16px 0;
     clear: both;
-}
+  }
 
-.question-container{
-  margin-top: 2.5rem;
-}
+  .question-container{
+    margin-top: 2.5rem;
+  }
 
-.close-button {
+  .close-button {
     position: absolute;
     top: 0;
     right: 0;
@@ -60,31 +65,30 @@
     font-weight: bold;
   }
 
-.date-container{
+  .date-container{
     display: flex;
     flex-direction: row;
     justify-content: center;
     position: relative;
     margin-top: 10px;
-}
+  }
 
-.date-container-button{
-    
-        text-align: center;
-        background: var(--primary-color);
-        color: var(--quml-btn-color);
-        font-size: .875rem;
-        font-weight: 500;
-        position: relative;
-        width: 10rem;
-        height: 2.25rem;
-        border: .03125rem solid var(--quml-btn-border);
-        border-radius: 1rem;
-        box-shadow: inset 0 -0.09375rem 0.0625rem #0003;
-        cursor: pointer;
-}
+  .date-container-button{  
+    text-align: center;
+    background: var(--primary-color);
+    color: var(--quml-btn-color);
+    font-size: .875rem;
+    font-weight: 500;
+    position: relative;
+    width: 10rem;
+    height: 2.25rem;
+    border: .03125rem solid var(--quml-btn-border);
+    border-radius: 1rem;
+    box-shadow: inset 0 -0.09375rem 0.0625rem #0003;
+    cursor: pointer;
+  }
 
-.text-number-question{
+  .text-number-question{
     width: 100%;
     height: 100%;
     border: 0.0625rem solid var(--quml-color-danger);
@@ -93,4 +97,4 @@
     text-align: center;
     padding: 1rem;
     margin-bottom: 16px;
-}
+  }

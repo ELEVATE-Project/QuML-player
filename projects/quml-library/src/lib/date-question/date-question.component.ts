@@ -24,6 +24,7 @@ export class DateQuestionComponent implements OnInit {
   answer: any;
   showHintBox: boolean = false;
   utilService: any;
+  questionName: any;
 
 
   toggleHintBox() {
@@ -50,6 +51,6 @@ export class DateQuestionComponent implements OnInit {
     this.question = this.questions?.body;
     this.answer = this.questions?.answer;
     this.solutions = _.isEmpty(this.questions?.solutions) ? null : this.questions?.solutions;
-
+    this.questionName = this.questions?.editorState.question;
   }
 }
