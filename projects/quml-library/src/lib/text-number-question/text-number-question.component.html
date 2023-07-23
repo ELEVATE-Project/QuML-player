@@ -11,10 +11,10 @@
     </div>
         
     <section>
-        <input #textNumberQue (keydown)="checkForNumb($event,textNumberQue.value)" type="input" placeholder="Enter your response" name="text-number-question" class="text-number-question" />
-        <div class="submit">
-            <button class="submit-btn" (click)="sendDataToParent(textNumberQue.value)">Submit </button>
-        </div>
+        <input #textNumberQue (keydown)="checkForNumb($event,textNumberQue.value)" type="input" placeholder="Enter your response" name="text-number-question" (change)="sendDataToParent(textNumberQue.value)" class="text-number-question" />
+        <!-- <div class="submit">
+            <button class="submit-btn">Submit </button>
+        </div> -->
         <!-- <span class="hint-icon">
             <button class="hint-button" (click)="toggleHintBox()">Show Answer</button> 
             <div class="hint-box" [hidden]="!showHintBox">

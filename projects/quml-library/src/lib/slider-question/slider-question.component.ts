@@ -35,7 +35,7 @@ export class SliderQuestionComponent implements OnInit {
 
   sendDataToParent(data) {
     this.sliderValue = parseInt(data);
-    this.showAnswerClicked.emit({data:this.answer,question:this.questions})
+    this.showAnswerClicked.emit({data:this.answer,question:this.questions,isCorrectAnswer:true})
   }
 
   constructor( public domSanitizer: DomSanitizer, private utilService: UtilService ) { }

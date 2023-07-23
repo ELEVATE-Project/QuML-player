@@ -116,7 +116,12 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
     this.focusOnNextButton();
     this.active = true;
     this.progressBarClass[this.myCarousel.getCurrentSlideIndex() - 1].class = 'correct';
-    this.updateScoreForShuffledQuestion();
+    if(data.isCorrectAnswer) {
+      this.updateScoreForShuffledQuestion();
+    }
+    else {
+      this.updateScoreForShuffledQuestion(0);
+    }
     /* istanbul ignore else */
     if (data.question) {
       const index = this.questions.findIndex(que => que.identifier === data.question.identifier);
@@ -452,11 +457,11 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
     }
   }
 
-  updateScoreForShuffledQuestion() {
+  updateScoreForShuffledQuestion(score=DEFAULT_SCORE) {
     const currentIndex = this.myCarousel.getCurrentSlideIndex() - 1;
 
     if (this.isShuffleQuestions) {
-      this.updateScoreBoard(currentIndex, 'correct', undefined, DEFAULT_SCORE);
+      this.updateScoreBoard(currentIndex, 'correct', undefined, score);
     }
   }
 

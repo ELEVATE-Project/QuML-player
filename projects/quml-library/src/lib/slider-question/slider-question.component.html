@@ -17,10 +17,10 @@
       </div>
       
         <section class="slidecontainer">
-          <input type="range" [min]="min" [max]="max" value="50" [step]="step" class="slider" id="myRange" #sliderInput (input)="onSliderChange(sliderInput.value)" >
-          <div class="submit">
-            <button class="submit-btn" (click)="sendDataToParent(sliderInput.value)">Submit </button>
-        </div>
+          <input type="range" [min]="min" [max]="max" value="50" [step]="step" class="slider" id="myRange" #sliderInput (input)="onSliderChange(sliderInput.value)" (click)="sendDataToParent(sliderInput.value)">
+          <!-- <div class="submit">
+            <button class="submit-btn">Submit </button>
+          </div> -->
         </section>
         <!-- <div class="submit">
             <button class="submit-btn" (click)="submit(textNumberQue1.value)">Submit Question</button>

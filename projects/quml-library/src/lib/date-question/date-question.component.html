@@ -14,7 +14,7 @@
 
     <section>
        
-        <input type="date" #textNumberQue1 placeholder="Enter date" name="text-number-question1" class="text-number-question" (blur)="sendData.emit(textNumberQue1.value)"/>
+        <input type="date" #textNumberQue1 placeholder="Enter date" name="text-number-question1" class="text-number-question" (change)="sendData.emit(textNumberQue1.value)"/>
         <!-- <div class="submit">
             <button class="submit-btn" (click)="submit(textNumberQue1.value)">Submit Question</button>
         </div> -->

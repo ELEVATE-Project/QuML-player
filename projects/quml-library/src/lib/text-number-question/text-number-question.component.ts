@@ -75,7 +75,7 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
   }*/
 
   sendDataToParent(data) {
-    this.showAnswerClicked.emit({data:this.answer,question:this.questions})
+    this.showAnswerClicked.emit({data:this.answer,question:this.questions,isCorrectAnswer:false})
   }
 
   ngOnInit() {

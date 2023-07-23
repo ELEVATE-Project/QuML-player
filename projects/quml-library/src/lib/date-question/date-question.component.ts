@@ -38,7 +38,13 @@ export class DateQuestionComponent implements OnInit {
     const day = ("0" + currentDate.getDate()).slice(-2);
     const formattedDate = `${year}-${month}-${day}`
     inputElement.value = formattedDate;
+    this.sendDataToParent(formattedDate)
   }
+
+  sendDataToParent(data) {
+    this.showAnswerClicked.emit({data:this.answer,question:this.questions,isCorrectAnswer:true})
+  }
+
   ngOnInit() {
     console.log(this.questions);
     this.question = this.questions?.body;
