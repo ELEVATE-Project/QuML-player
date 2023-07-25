@@ -10,10 +10,7 @@
       
         <section>
             <input type="date" #textNumberQue1 placeholder="Enter date" name="text-number-question1" class="text-number-question" (change)="sendData.emit(textNumberQue1.value)"/>
-                <span class="date-container">
-                    <button class="date-container-button" (click)="autoDetectDate(textNumberQue1)">Auto detect</button>
-                </span>
-   
+                <button class="date-container-button" (click)="autoDetectDate(textNumberQue1)">Auto detect</button>
         </section>
     </div>
 </section>
