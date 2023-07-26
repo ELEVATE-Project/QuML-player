@@ -27,11 +27,13 @@ export class DateQuestionComponent implements OnInit {
   questionName: any;
 
 
+  //Hint Box
   toggleHintBox() {
     this.showHintBox = !this.showHintBox;
     console.log(1);
   }
 
+  //AutoDetect Logic 
   autoDetectDate(inputElement: HTMLInputElement) {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
@@ -42,6 +44,7 @@ export class DateQuestionComponent implements OnInit {
     this.sendDataToParent(formattedDate)
   }
 
+  //Data from Child to Parent
   sendDataToParent(data) {
     this.showAnswerClicked.emit({data:this.answer,question:this.questions,isCorrectAnswer:true})
   }

@@ -1,3 +1,9 @@
+/**
+ * @name TextNumberQuestionComponent
+ * @description This component is used to display and handle a text or number input question.
+ * It allows users to enter their response and optionally shows the correct answer.
+ **/
+
 
 import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -12,34 +18,42 @@ import { UtilService } from '../util-service';
 })
 export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterViewInit {
 
-  @Input() replayed?: boolean;
-  @Input() questions?: any;
-  @Input() baseUrl: string;
-  @Output() componentLoaded = new EventEmitter<any>();
-  @Output() showAnswerClicked = new EventEmitter<any>();
-  @Output() sendData = new EventEmitter<any>();
+  @Input() replayed?: boolean; //@description Boolean flag to indicate if the question is replayed.
+  @Input() questions?: any; //@description Contains the question data.
+  @Input() baseUrl: string; //@description The base URL for the component.
+  @Output() componentLoaded = new EventEmitter<any>(); //@description EventEmitter to emit the component loaded event.
+  @Output() showAnswerClicked = new EventEmitter<any>(); //@description EventEmitter to emit the show answer clicked event.
+  @Output() sendData = new EventEmitter<any>(); //@description EventEmitter to emit the user's response data to the parent component.
   
-  showAnswer: any;
-  solutions: any;
-  question: any;
-  answer: any;
-  inputArray:any=[];
-  charCode: any= '';
-  arr: any ='';
-  showHintBox: boolean = false;
-  utilService: any;
-  questionName: any;
+  showAnswer: any; //@description Boolean flag to control the visibility of the answer section.
+  solutions: any; //@description Object containing solution data for the question.
+  question: any; //@description Contains the question content.
+  answer: any; //@description The user's response to the question.
+  inputArray:any=[]; //@description Array to store character codes for input validation.
+  charCode: any= '';//@description The character code for the current input.
+  arr: any ='';//  @description The character code for the current input.
+  showHintBox: boolean = false; // @description A variable used for input validation logic.
+  utilService: any; 
+  questionName: any; // @description of question name.
 
+  //Hint box
   toggleHintBox() {
     this.showHintBox = !this.showHintBox;
     console.log(1);
   }
-
+  
+  //Input Box logic for accepting number and text 
+  /**
+   * @description Checks for number inputs and validates the input character code.
+   * @param _event - The keyboard event.
+   * @param value - The input value.
+   * @returns {boolean} - Returns true if the input is valid, otherwise prevents default action.
+   */
   checkForNumb(_event:KeyboardEvent,value){
     if(this.questions.interactions.response1.type.number == 'Yes') {
       console.log("event called")
       const charCode = _event.key.charCodeAt(0);
-        if((charCode== 66 || ( charCode >= 48 && charCode <=57) )){
+        if((charCode== 66 || ( charCode >= 48 && charCode <=57) || charCode==32)){
           this.arr = charCode;
           return true;
         }
@@ -52,10 +66,18 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     }
   }
 
+  //Data from Child to Parent
+   /**
+   * @description Sends the user's response data to the parent component.
+   * @param data - The user's response data.
+   */
   sendDataToParent(data) {
     this.showAnswerClicked.emit({data:this.answer,question:this.questions,isCorrectAnswer:false})
   }
 
+  /**
+   * @description Lifecycle hook. Initializes the component with question data.
+   */
   ngOnInit() {
     console.log(this.questions);
     this.question = this.questions?.body;
@@ -64,10 +86,16 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     this.questionName = this.questions?.editorState.question;
   }
   
+  /**
+   * @description Lifecycle hook. Handles keyboard accessibility for the component.
+   */
   ngAfterViewInit() {
     this.handleKeyboardAccessibility();
   }
 
+  /**
+   * @description Lifecycle hook. Reacts to changes in input properties.
+   */
   ngOnChanges() {
     if (this.replayed) {
       this.showAnswer = false;
@@ -76,6 +104,9 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     }
   }
 
+  /**
+   * @description Shows the correct answer to the user.
+   */
   showAnswerToUser() {
     this.showAnswer = true;
     this.showAnswerClicked.emit({
@@ -83,6 +114,10 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     });
   }
 
+  /**
+   * @description Handles the 'Enter' key press event.
+   * @param event - The keyboard event.
+   */
   onEnter(event) {
     /* istanbul ignore else */
     if (event.keyCode === 13) {
@@ -91,6 +126,9 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     }
   }
 
+   /**
+   * @description Sets tabindex to -1 for certain elements to handle keyboard accessibility.
+   */
   handleKeyboardAccessibility() {
     const elements = Array.from(document.getElementsByClassName('option-body') as HTMLCollectionOf<Element>);
     elements.forEach((element: HTMLElement) => {

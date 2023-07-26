@@ -27,11 +27,12 @@ export class SliderQuestionComponent implements OnInit {
   questionName: any;
   sliderValue: number = 50;
 
+  //Slider value
   onSliderChange(value: string) {
     this.sliderValue = parseInt(value);
-   
   }
 
+  //Data from Child to Parent
   sendDataToParent(data) {
     this.sliderValue = parseInt(data);
     this.showAnswerClicked.emit({data:this.answer,question:this.questions,isCorrectAnswer:true})

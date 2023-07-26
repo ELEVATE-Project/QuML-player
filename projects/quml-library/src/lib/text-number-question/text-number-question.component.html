@@ -6,7 +6,10 @@
             <section class="sa-title">
                 Question
             </section>
+            <!--Rendering Question-->
             <section class="question" [innerHtml]="questionName"></section>
+
+            <!--Input for question-->
             <section>
                 <input #textNumberQue (keydown)="checkForNumb($event,textNumberQue.value)" type="input" placeholder="Enter your response" name="text-number-question" (change)="sendDataToParent(textNumberQue.value)" class="text-number-question" />
             </section>
@@ -24,6 +27,7 @@
             Answer
         </section>
        
+        <!--Solutions-->
         <ng-container *ngIf="solutions"> 
           <section class="solutions" *ngFor="let solution of solutions | keyvalue" [attr.aria-hidden]="showAnswer ? null : true">
             <section [innerHTML]="solution.value | safeHtml" tabindex="-1"></section>

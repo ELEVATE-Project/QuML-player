@@ -27,12 +27,14 @@ export class NewMcqQuestionComponent implements OnInit {
   arr: any ='';
   utilService: any;
   showHintBox: boolean = false;
+  questionName: any;
 
   ngOnInit() {
     console.log(this.questions);
     this.question = this.questions?.body;
     this.answer = this.questions?.answer;
     this.solutions = _.isEmpty(this.questions?.solutions) ? null : this.questions?.solutions;
+    this.questionName = this.questionName = this.questions?.editorState.question;
   }
 
   onclick(_value: string){

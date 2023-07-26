@@ -6,8 +6,10 @@
             </section>
         </section>
 
+        <!--Question Rendering-->
         <section class="question" [innerHtml]="questionName"></section>
       
+        <!--Input Section-->
         <section>
             <input type="date" #textNumberQue1 placeholder="Enter date" name="text-number-question1" class="text-number-question" (change)="sendData.emit(textNumberQue1.value)"/>
                 <button class="date-container-button" (click)="autoDetectDate(textNumberQue1)">Auto detect</button>

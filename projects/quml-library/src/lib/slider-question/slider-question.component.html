@@ -2,18 +2,21 @@
   <div class=" slider-head-container">
       <section class="slider-container" tabindex="0">
           <section class="sa-title">
-              Question
+            Question
           </section>
       </section>
 
+      <!--Question Render-->
       <section class="question" [innerHtml]="questionName"></section>
 
+      <!--Slider value-->
       <div class="slider-container">
         <div class="slider-value">
           <p class="slider-value-input">{{ sliderValue}}</p>
         </div>
       </div>
       
+      <!--Max,Min,Step values of slider-->
       <section class="slidecontainer">
         <input type="range" [min]="min" [max]="max" value="50" [step]="step" class="slider" id="myRange" #sliderInput (input)="onSliderChange(sliderInput.value)" (click)="sendDataToParent(sliderInput.value)">
       </section>
