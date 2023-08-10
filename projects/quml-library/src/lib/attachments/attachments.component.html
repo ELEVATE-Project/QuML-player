@@ -1,0 +1,43 @@
+    <!--Working Code-->
+  <!-- Attachments Section -->
+<section *ngIf="showEvidence !== 'No'">
+    <label for="fileInput" class="custom-file-input1">+</label>
+    <input type="file" id="fileInput" style="display: none" (click)="handletermsForm()" (change)="onFileSelected($event)" accept=".doc,.docx,.pdf,.jpg,.jpeg,.png,.gif,.mp4,.avi,.mov"
+     multiple />
+<section>
+      <p class="type">Files</p>
+    </section>
+  </section> 
+
+  <!--new code for dialog box-->
+  <section *ngIf="termsDialogOpen" class="terms-form">
+    <section class="termsConditionForm">
+        <form #termsForm = "ngForm" (ngSubmit)="logInForm(termsForm)">
+            <section class="dialogBoxHeading"> Upload Evidences</section>
+            <label>
+                <input type="checkbox" class="form-check-input" name="termsField" ngModel />I confrim that the Content submitted by me comply with the terms and policies of Sunbird, including Sunbird's <a href="#">Content Policy</a>. I have made sure that I do not violate others copyright, privacy or third party rights.
+            </label>
+            <section *ngIf="termsForm.value.termsField!=true">
+               <p style="color: red;"> Mandatory field </p>
+            </section>
+            <section class="buttons-for-termBox">
+                <button type="button" (click)="cancelTermsDialog()" class="doNotUplaodBtn">Do not upload</button>
+                <button type="submit" class="uploadBtn" [disabled]="termsForm.value.termsField!=true">Upload</button>
+            </section>
+        </form>
+    </section>
+  </section>
+  
+  <!-- Show the selected file -->
+  <section *ngIf="selectFile" class="selectFileSection"> 
+    
+     <!-- For Images -->
+    <img *ngIf="isImageType(selectFile)" [src]="selectFile" alt="Selected Image" class="imageFile" /> 
+  
+    <!-- For Videos -->
+    <video *ngIf="isVideoType(selectFile)" [src]="selectFile" controls class="videoFile"></video> 
+  
+    <!-- For Documents -->
+    <p *ngIf="isDocumentType(selectFile)">Selected Document: {{ getFileName(selectFile) }}</p>
+  </section> 
+  

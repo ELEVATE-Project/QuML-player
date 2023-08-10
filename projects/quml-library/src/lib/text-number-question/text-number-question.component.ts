@@ -35,11 +35,19 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
   showHintBox: boolean = false; // @description A variable used for input validation logic.
   utilService: any; 
   questionName: any; // @description of question name.
+  showPopUpBox: boolean = false; //@description A variable used for input validation logic.
+  showRemarkValue: boolean = false;
+  showRemarks: string ;
+  showEvidence: string ;
+  selectFile: any;
+  remark: string; 
+  maxLength: number;
+  selectedFile: File;
+  
 
   //Hint box
   toggleHintBox() {
     this.showHintBox = !this.showHintBox;
-    console.log(1);
   }
   
   //Input Box logic for accepting number and text 
@@ -84,6 +92,9 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     this.answer = this.questions?.answer;
     this.solutions = _.isEmpty(this.questions?.solutions) ? null : this.questions?.solutions;
     this.questionName = this.questions?.editorState.question;
+    this.showRemarks = this.questions?.responseDeclaration.showRemarks;
+    this.showEvidence = this.questions?.responseDeclaration.showEvidence;
+    this.maxLength = this.questions?.interactions.response1.validation.limit.maxLength;
   }
   
   /**
@@ -142,4 +153,43 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     });
   }
 
+  popUpBox(){
+    this.showPopUpBox = !this.showPopUpBox;
+  }
+
+  showRemark(){
+    this.showRemarkValue = true;
+    this.showPopUpBox = false;
+
+  }
+
+  handleTextareaValue(data: string){
+    this.remark = data;
+  }
+
+  onSelectedFileSend(file: File){
+    console.log(file);
+    this.selectedFile = file;
+  }
+
+  /*Code of attachments from here */
+  isImageType(fileData: any): boolean {
+    return fileData && /^data:image/.test(fileData);
+  }
+
+  isVideoType(fileData: any): boolean{
+    return fileData && /^data:video/.test(fileData);
+  }
+
+  isDocumentType(fileData: any): boolean {
+    return fileData && /^data:(application\/msword|application\/vnd.openxmlformats-officedocument.wordprocessingml.document|application\/pdf)/.test(fileData);
+  }
+
+  getFileName(fileData: any): string {
+    const startIndex = fileData.indexOf(';name=') + 6;
+    const endIndex = fileData.indexOf(';', startIndex);
+    return fileData.substring(startIndex, endIndex);
+  }
+
+  
 }

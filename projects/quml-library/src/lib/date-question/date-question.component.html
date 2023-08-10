@@ -1,3 +1,4 @@
+<!--Date Question Types-->
 <section>
     <div class=" quml-head-container">
         <section class="quml-container" tabindex="0">
@@ -12,7 +13,29 @@
         <!--Input Section-->
         <section>
             <input type="date" #textNumberQue1 placeholder="Enter date" name="text-number-question1" class="text-number-question" (change)="sendData.emit(textNumberQue1.value)"/>
+
+            <!--Auto Detect Date button-->
                 <button class="date-container-button" (click)="autoDetectDate(textNumberQue1)">Auto detect</button>
         </section>
+
+         <!--Add Remark Button-->
+         <quml-add-remarks [showPopUpBox]="showPopUpBox" [showRemarkValue]="showRemarkValue" [showRemarks]="showRemarks" [maxLength]="maxLength" (textAreaValue)="handleTextareaValue($event)" ></quml-add-remarks>
+
+         <!--Attcahmenst Button-->
+         <quml-attachments [showEvidence]="showEvidence" (selectFileEmit)="onSelectedFileSend($event)"></quml-attachments>
+        <!--Add Remark Button-->
+        <!-- <span class="addRemark">
+            <button class="addRemarkBtn" (click)="popUpBox()">Add Remark</button>
+                <div class="hint-box" [hidden]="!showPopUpBox">
+                    <div class="hint-content">
+                        <div class="cross-btn">
+                            <button class="close-button" (click)="popUpBox()">&times;</button>
+                        </div>
+                        <div class="submitContainer">
+                            <button class="submit-btn">Submit</button>
+                        </div>
+                    </div>
+                </div>
+        </span>  -->
     </div>
 </section>

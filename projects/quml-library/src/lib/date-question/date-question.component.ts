@@ -1,3 +1,9 @@
+/**
+ * @name DateQuestionComponent
+ * @description This component is used to display and handle date input question.
+ * It allows users to enter Date or auto detect date and optionally shows the correct answer.
+ **/
+
 import { Component, EventEmitter, OnInit,AfterViewInit, Input, OnChanges, Output } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as _ from 'lodash-es';
@@ -7,7 +13,7 @@ import { UtilService } from '../util-service';
 @Component({
   selector: 'quml-date-question',
   templateUrl: './date-question.component.html',
-  styleUrls: ['./date-question.component.css']
+  styleUrls: ['./date-question.component.scss']
 })
 export class DateQuestionComponent implements OnInit {
 
@@ -18,22 +24,26 @@ export class DateQuestionComponent implements OnInit {
   @Output() showAnswerClicked = new EventEmitter<any>();
   @Output() sendData = new EventEmitter<any>();
 
-  showAnswer: any;
-  solutions: any;
-  question: any;
-  answer: any;
-  showHintBox: boolean = false;
+  showAnswer: any; //@description Boolean flag to control the visibility of the answer section.
+  solutions: any; //@description Object containing solution data for the question.
+  question: any; //@description Contains the question content.
+  answer: any; //@description The user's response to the question.
+  showHintBox: boolean = false; // @description Hint Box when user click on hint button 
   utilService: any;
-  questionName: any;
+  questionName: any; //@description Rendering question name from question Data.
+  showPopUpBox: boolean = false; //@description A variable used for input validation logic.
+  showEvidence: boolean = false;
+  showRemarkValue: boolean = false;
+  showRemarks: boolean = false;
+  maxLength: number;
 
 
-  //Hint Box
+  //Hint Box toggle
   toggleHintBox() {
     this.showHintBox = !this.showHintBox;
-    console.log(1);
   }
 
-  //AutoDetect Logic 
+  //AutoDetect Date Logic  
   autoDetectDate(inputElement: HTMLInputElement) {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
@@ -49,11 +59,25 @@ export class DateQuestionComponent implements OnInit {
     this.showAnswerClicked.emit({data:this.answer,question:this.questions,isCorrectAnswer:true})
   }
 
+   /**
+   * @description Lifecycle hook. Reacts to changes in input properties.
+   */
   ngOnInit() {
     console.log(this.questions);
     this.question = this.questions?.body;
     this.answer = this.questions?.answer;
     this.solutions = _.isEmpty(this.questions?.solutions) ? null : this.questions?.solutions;
     this.questionName = this.questions?.editorState.question;
+  }
+  popUpBox(){
+    this.showPopUpBox = !this.showPopUpBox;
+  }
+  
+  handleTextareaValue(data: string){
+    console.log("works");
+  }
+  
+  onSelectedFileSend($event){
+    console.log("selectFile works")
   }
 }

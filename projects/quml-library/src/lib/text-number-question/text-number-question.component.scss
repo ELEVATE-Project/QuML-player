@@ -95,12 +95,18 @@
     text-align: center;
   }
 
+  .container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
   .hint-icon{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    //flex-direction: row;
+    justify-content: flex-end;
     position: relative;
-    margin-top: 10px;
+    top: 10px;
   }
 
   .hint-box {
@@ -115,6 +121,7 @@
     border-radius: 1rem;
     width: 28rem;
     height: 14rem;
+    z-index: 1;
   }
   
   .hint-content {
@@ -137,6 +144,7 @@
     box-shadow: inset 0 -0.09375rem 0.0625rem #0003;
     cursor: pointer;
     text-align: center;
+    bottom: -35px;
   }
 
 .question{
@@ -144,4 +152,141 @@
   font-size: .875rem;
   font-weight: 500;
 }
+.cross-btn{
+  display: flex;
+  justify-content: flex-end;
+}
+.close-button{
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--quml-color-danger);
+  color: #eee;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  border: .03125rem solid var(--quml-btn-border);
+  
+}
+.addRemark{
+  display: flex;
+  justify-content: flex-end;
+}
 
+.addRemarkBtn{
+  text-align: center;
+  background: var(--primary-color);
+  color: var(--quml-btn-color);
+  font-size: .875rem;
+  font-weight: 500;
+  position: relative;
+  width: 6.75rem;
+  height: 2.25rem;
+  border: .03125rem solid var(--quml-btn-border);
+  border-radius: 1rem;
+  box-shadow: inset 0 -0.09375rem 0.0625rem #0003;
+  cursor: pointer;
+  text-align: center;
+}
+
+.submitContainer{
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+ // margin-bottom: 3px;
+}
+.submit-btn{
+  text-align: center;
+  background: var(--primary-color);
+  color: var(--quml-btn-color);
+  font-size: .875rem;
+  font-weight: 500;
+  position: relative;
+  width: 5.75rem;
+  height: 2.25rem;
+  border: .03125rem solid var(--quml-btn-border);
+  border-radius: 1rem;
+  box-shadow: inset 0 -0.09375rem 0.0625rem #0003;
+  cursor: pointer;
+  text-align: center;
+  bottom: -35px;
+}
+
+.custom-file-input{
+  color: var(--quml-heder-text-color);
+  font-size: .875rem;
+  font-weight: 500;
+}
+
+.inputField1{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  top: 10px;
+  border: 0.0625rem solid var(--quml-color-danger);
+  border-radius: 20px;
+  text-align: center;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+input[type=file] {
+  display: none;
+}
+
+.custom-file-input1{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #807e81;
+  color: #2757a1; 
+  font-size: x-large;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  box-shadow: inset 0 -0.09375rem 0.0625rem #0003;
+}
+
+.type{
+  color: #2757a1;
+  font-size: medium;
+  font-weight: 500;
+  position: relative;
+  font-family: var(--font-stack-en);
+}
+
+.remarksHeading{
+  color: var(--primary-color);
+  font-size: .875rem;
+  font-weight: 500;
+  clear: both;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.remarkValue{
+  font-size: .775rem;
+  font-weight: 400;
+  clear: both;
+  display:flex;
+  justify-content: space-between;
+  background: #eae8d9;
+}
+
+.remarkValueText{
+  margin-top: 8px;
+  margin-bottom: 1rem;
+  margin-left: 5px;
+}
+
+.editIcon{
+  width: 2rem;
+  margin-top: 15px;
+  height: 1rem;
+  margin-left: 20px;
+}
+
+svg path{
+  fill: #6c6962;
+}

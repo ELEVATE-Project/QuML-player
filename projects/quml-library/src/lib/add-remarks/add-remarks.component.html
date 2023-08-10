@@ -1,0 +1,18 @@
+  <!--Add Remark Button-->
+<section *ngIf= "showRemarks !=='No'" class="addRemark">
+    <ng-container *ngIf="!remarkSubmitted">
+        <button class="addRemarkBtn" (click)="popUpBox()">Add Remark</button>
+    </ng-container>
+        <section class="hint-box" [hidden]="!showPopUpBox">
+            <section class="hint-content">
+                <section class="inputContainer">
+                    <section class="textarea-heading">Add Remarks</section>
+                    <textarea id="message" rows="" cols="" placeholder="Add remarks here..." #inputField class="inputFieldSection" maxlength="maxLength" (keydown)="textAreaKeyDown($event)" ></textarea>
+                </section>
+            </section>
+            <section class="submitContainer">
+                <button class="cancle-button" (click)="popUpBox()">Cancel</button>
+                <button class="submit-button" (click)="showRemark(inputField.value)">Add</button>
+            </section>
+        </section>   
+</section>

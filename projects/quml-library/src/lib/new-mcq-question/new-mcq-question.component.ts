@@ -30,7 +30,6 @@ export class NewMcqQuestionComponent implements OnInit {
   questionName: any;
 
   ngOnInit() {
-    console.log(this.questions);
     this.question = this.questions?.body;
     this.answer = this.questions?.answer;
     this.solutions = _.isEmpty(this.questions?.solutions) ? null : this.questions?.solutions;

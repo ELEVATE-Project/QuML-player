@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'quml-hint',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hint.component.css']
 })
 export class HintComponent implements OnInit {
+  @Input() showHintBox: boolean;
 
   constructor() { }
 
   ngOnInit() {
   }
-
+  toggleHintBox() {
+    this.showHintBox = !this.showHintBox;
+  }
 }

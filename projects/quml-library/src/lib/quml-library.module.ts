@@ -41,7 +41,12 @@ import { ProgressIndicatorsComponent } from './progress-indicators/progress-indi
 import { TextNumberQuestionComponent } from './text-number-question/text-number-question.component';
 import { SliderQuestionComponent } from './slider-question/slider-question.component';
 import { NewMcqQuestionComponent } from './new-mcq-question/new-mcq-question.component';
-import { DateQuestionComponent } from './date-question/date-question.component'
+import { DateQuestionComponent } from './date-question/date-question.component';
+import { AddRemarksComponent } from './add-remarks/add-remarks.component';
+import { AttachmentsComponent } from './attachments/attachments.component';
+import { FormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -84,11 +89,15 @@ import { DateQuestionComponent } from './date-question/date-question.component'
     SliderQuestionComponent,
     NewMcqQuestionComponent,
     DateQuestionComponent,
+    AddRemarksComponent,
+    AttachmentsComponent,
   ],
+
   imports: [
     CommonModule,
     CarouselModule,
-    SunbirdPlayerSdkModule
+    SunbirdPlayerSdkModule,
+    FormsModule
   ],
   providers: [
     QumlLibraryService
