@@ -1,13 +1,5 @@
 @import "../../../../../node_modules/@project-sunbird/sb-styles/assets/mixins/mixins";
-
-::ng-deep :root {
-  --quml-scoreboard-sub-title: #6d7278;
-  --quml-scoreboard-skipped: #969696;
-  --quml-scoreboard-unattempted: #575757;
-  --quml-color-success: #08bc82;
-  --quml-color-danger: #f1635d;
-  --quml-color-primary-contrast: #333;
-}
+@import'../../../../../projects/quml-library/src/lib/assets/styles/quml-parent.scss';
 
 .scoreboard {
   display: flex;

@@ -23,6 +23,7 @@ export class SaComponent implements OnInit, OnChanges, AfterViewInit {
   constructor( public domSanitizer: DomSanitizer, private utilService: UtilService ) { }
 
   ngOnInit() {
+    console.log(this.questions);
     this.question = this.questions?.body;
     this.answer = this.questions?.answer;
     this.solutions = _.isEmpty(this.questions?.solutions) ? null : this.questions?.solutions;

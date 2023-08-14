@@ -1,0 +1,31 @@
+  <!--new code for dialog box-->
+  <section *ngIf="termsDialogOpen" class="terms-form">
+    <section class="termsConditionForm">
+        <form #termsForm = "ngForm" (ngSubmit)="logInForm(termsForm)">
+            <section class="dialogBoxHeading"> Upload Evidences</section>
+            <label>
+                <input type="checkbox" class="form-check-input" name="termsField" ngModel /> I confirm that the Content submitted by me comply with the terms and policies of Sunbird, including Sunbird's <a href="#">Content Policy</a>. I have made sure that I do not violate others copyright, privacy or third party rights.
+            </label>
+            <section class="buttons-for-termBox">
+                    <button type="button" (click)="cancelTermsDialog()" class="doNotUplaodBtn">Do not upload</button>
+                    <button type="submit" class="uploadBtn" [disabled]="termsForm.value.termsField!=true" (click)="inputFileField.click()">Upload</button>
+                        <input type="file" #inputFileField style="display: none" (change)="onFileSelected($event) " accept=".png, .doc, .mov, .pdf, .vid, .jpg, .img "/>
+            </section>
+        </form>
+    </section>
+  </section>
+
+   <!-- Show the selected file -->
+   <section *ngIf="selectFile" class="selectFileSection"> 
+    
+    <!-- For Images -->
+   <img *ngIf="isImageType(selectFile)" [src]="selectFile" alt="Selected Image" class="imageFile" /> 
+ 
+   <!-- For Videos -->
+   <video *ngIf="isVideoType(selectFile)" [src]="selectFile" controls class="videoFile"></video> 
+ 
+   <!-- For Documents -->
+   <p *ngIf="isDocumentType(selectFile)">Selected Document: {{ getFileName(selectFile) }}</p>
+ </section> 
+
+

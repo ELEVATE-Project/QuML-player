@@ -7,7 +7,7 @@
             <section class="hint-content">
                 <section class="inputContainer">
                     <section class="textarea-heading">Add Remarks</section>
-                    <textarea id="message" rows="" cols="" placeholder="Add remarks here..." #inputField class="inputFieldSection" maxlength="maxLength" (keydown)="textAreaKeyDown($event)" ></textarea>
+                    <textarea id="message" rows="" cols="" placeholder="Add remarks here..." #inputField class="inputFieldSection" [maxLength]="maxLength" (keydown)="textAreaKeyDown($event)" ></textarea>
                 </section>
             </section>
             <section class="submitContainer">
@@ -16,3 +16,5 @@
             </section>
         </section>   
 </section>
+
+<quml-show-remarks [inputFieldValue]="inputFieldValue" (popUpValueEmit)="handlePopUpValue($event)"></quml-show-remarks>

@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 @Component({
   selector: 'quml-hint',
   templateUrl: './hint.component.html',
-  styleUrls: ['./hint.component.css']
+  styleUrls: ['./hint.component.scss']
 })
 export class HintComponent implements OnInit {
   @Input() showHintBox: boolean;

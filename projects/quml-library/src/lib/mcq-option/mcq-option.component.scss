@@ -1,15 +1,5 @@
 @import '../../../../../node_modules/@project-sunbird/sb-styles/assets/mixins/mixins';
-::ng-deep :root {
-  --quml-btn-border: #ccc;
-  --quml-color-gray: #666;
-  --quml-checkmark: #cdcdcd;
-  --quml-color-primary-shade: rgba(0, 0, 0, .1);
-  --quml-color-success: #08BC82;
-  --quml-color-danger: #F1635D;
-  --quml-option-card-bg: #fff;
-  --quml-option-selected-checkmark:#fff;
-  --quml-option-selected-checkmark-icon:#fff;
-}
+@import'../../../../../projects/quml-library/src/lib/assets/styles/quml-parent.scss';
 
 .quml-mcq-options {
   align-items: center;

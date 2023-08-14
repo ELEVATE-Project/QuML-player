@@ -1,12 +1,5 @@
 @import '../../../../../node_modules/@project-sunbird/sb-styles/assets/mixins/mixins';
-::ng-deep :root {
-  --quml-btn-border: #ccc;
-  --quml-color-gray: #666;
-  --quml-checkmark: #cdcdcd;
-  --quml-color-primary-shade: rgba(0, 0, 0, .1);
-  --quml-option-card-bg: #fff;
-  --quml-option-selected-checkmark:#ffff;
-}
+@import'../../../../../projects/quml-library/src/lib/assets/styles/quml-parent.scss';
 
  .quml-mcq-option-card {
    position: relative;

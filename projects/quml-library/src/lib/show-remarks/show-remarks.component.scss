@@ -1,0 +1,35 @@
+@import'../../../../../projects/quml-library/src/lib/assets/styles/quml-parent.scss';
+
+.remarksHeading{
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .remarkValue{
+    font-size: 0.7rem;
+    font-weight: 400;
+    display:flex;
+    justify-content: space-between;
+    background: #eae8d9;
+  }
+  
+  .remarkValueText{
+    margin-top: 8px;
+    margin-bottom: 1rem;
+    margin-left: 5px;
+  }
+  
+  .editIcon{
+    width: 2rem;
+    margin-top: 15px;
+    height: 1rem;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  
+  svg path{
+    fill: #6c6962;
+  }

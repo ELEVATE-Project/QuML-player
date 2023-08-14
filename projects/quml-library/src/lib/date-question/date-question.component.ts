@@ -36,6 +36,7 @@ export class DateQuestionComponent implements OnInit {
   showRemarkValue: boolean = false;
   showRemarks: boolean = false;
   maxLength: number;
+  remark: string; 
 
 
   //Hint Box toggle
@@ -74,10 +75,12 @@ export class DateQuestionComponent implements OnInit {
   }
   
   handleTextareaValue(data: string){
-    console.log("works");
+  this.remark= data;
   }
   
   onSelectedFileSend($event){
     console.log("selectFile works")
   }
+
+
 }

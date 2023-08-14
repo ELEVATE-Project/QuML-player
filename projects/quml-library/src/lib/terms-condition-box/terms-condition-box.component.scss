@@ -1,0 +1,103 @@
+@import '../../../../../node_modules/@project-sunbird/sb-styles/assets/mixins/mixins';
+@import'../../../../../projects/quml-library/src/lib/assets/styles/quml-parent.scss';
+
+
+.imageSection{
+  background-color: red;
+}
+
+.selectFileSection{
+  display: flex;
+  justify-content: center;
+}
+
+.imageFile{
+  vertical-align: middle;
+  border-style: none;
+  width: 25rem;
+}
+
+.videoFile{
+  vertical-align: middle;
+  border-style: none;
+  width: 50rem;
+}
+
+.termsConditionForm{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f2f2ea;
+  border: 1px solid var(--quml-btn-border);
+  padding: 10px;
+  border-radius: 1rem;
+  width: 80rem;
+  height: 12rem;
+  z-index: 1;
+  display: flex;
+  margin: 20px;
+}
+
+
+.dialogBoxHeading{
+   display: flex;
+   justify-content: center;
+   color: #252420;
+   font-size: medium;
+}
+
+.buttons-for-termBox{
+  display: flex;
+  justify-content: center;
+}
+
+.doNotUplaodBtn{
+  background:  var(--primary-color);
+  color: var( --quml-main-bg);
+  font-family: var(--font-stack-en);
+  font-weight: 400;
+  width: 20%;
+  border: 1px solid var(--quml-btn-border);
+  margin: 10px 15px;
+  border-radius: 2rem;
+  cursor: pointer;
+  height: 2rem;
+  padding: 5px;
+  font-size: 13px;
+}
+
+.uploadBtn:hover{
+    box-shadow: 0 2px 3px #0003;
+}
+
+.uploadBtn{
+  background: white;
+  color: black;
+  font-family: var(--font-stack-en);
+  font-weight: 400;
+  width: 20%;
+  border: 1px solid var(--primary-color);
+  margin: 10px 15px;
+  border-radius: 2rem;
+  cursor: pointer;
+  height: 2rem;
+  padding: 5px;
+  font-size: 13px;
+}
+
+.doNotUplaodBtn:hover{
+    box-shadow: 0 2px 3px #0003;
+}
+
+a{
+  color: var(--primary-color);
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    margin-top: 10px;
+}
+
+

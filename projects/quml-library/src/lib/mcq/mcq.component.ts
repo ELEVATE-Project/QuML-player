@@ -16,6 +16,7 @@ export class McqComponent implements OnInit, AfterViewInit {
   @Input() shuffleOptions?: boolean;
   @Input() question?: any;
   @Input() identifier: any;
+  @Input() questions?: any; 
   @Input() layout?: string;
   @Input() replayed: boolean;
   @Input() tryAgain?: boolean;
@@ -39,6 +40,7 @@ export class McqComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    console.log(this.questions);
     this.numberOfCorrectOptions = _.castArray(this.question.responseDeclaration.response1.correctResponse.value).length;
     if (this.question?.solutions) {
       this.solutions = this.question.solutions;

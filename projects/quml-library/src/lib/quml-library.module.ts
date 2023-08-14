@@ -45,6 +45,9 @@ import { DateQuestionComponent } from './date-question/date-question.component';
 import { AddRemarksComponent } from './add-remarks/add-remarks.component';
 import { AttachmentsComponent } from './attachments/attachments.component';
 import { FormsModule } from '@angular/forms';
+import { TermsConditionBoxComponent } from './terms-condition-box/terms-condition-box.component';
+import { ShowRemarksComponent } from './show-remarks/show-remarks.component';
+
 
 
 
@@ -91,6 +94,8 @@ import { FormsModule } from '@angular/forms';
     DateQuestionComponent,
     AddRemarksComponent,
     AttachmentsComponent,
+    TermsConditionBoxComponent,
+    ShowRemarksComponent,
   ],
 
   imports: [

@@ -43,6 +43,7 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
   remark: string; 
   maxLength: number;
   selectedFile: File;
+  nonMatchSizeInBytes: string;
   
 
   //Hint box
@@ -172,24 +173,6 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     this.selectedFile = file;
   }
 
-  /*Code of attachments from here */
-  isImageType(fileData: any): boolean {
-    return fileData && /^data:image/.test(fileData);
-  }
-
-  isVideoType(fileData: any): boolean{
-    return fileData && /^data:video/.test(fileData);
-  }
-
-  isDocumentType(fileData: any): boolean {
-    return fileData && /^data:(application\/msword|application\/vnd.openxmlformats-officedocument.wordprocessingml.document|application\/pdf)/.test(fileData);
-  }
-
-  getFileName(fileData: any): string {
-    const startIndex = fileData.indexOf(';name=') + 6;
-    const endIndex = fileData.indexOf(';', startIndex);
-    return fileData.substring(startIndex, endIndex);
-  }
 
   
 }

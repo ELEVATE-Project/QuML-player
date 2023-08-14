@@ -7,7 +7,7 @@ import { UtilService } from '../util-service';
 @Component({
   selector: 'quml-new-mcq-question',
   templateUrl: './new-mcq-question.component.html',
-  styleUrls: ['./new-mcq-question.component.css']
+  styleUrls: ['./new-mcq-question.component.scss']
 })
 export class NewMcqQuestionComponent implements OnInit {
 
@@ -28,15 +28,28 @@ export class NewMcqQuestionComponent implements OnInit {
   utilService: any;
   showHintBox: boolean = false;
   questionName: any;
+  showPopUpBox: boolean = false; //@description A variable used for input validation logic.
+  showRemarkValue: boolean = false;
+  showRemarks: string ;
+  showEvidence: string ;
+  selectFile: any;
+  remark: string; 
+  maxLength: number;
+  selectedFile: File;
 
   ngOnInit() {
     this.question = this.questions?.body;
     this.answer = this.questions?.answer;
     this.solutions = _.isEmpty(this.questions?.solutions) ? null : this.questions?.solutions;
-    this.questionName = this.questionName = this.questions?.editorState.question;
+    this.questionName = this.questions?.editorState.question;
   }
 
-  onclick(_value: string){
+  onclick(_value: string, event: Event){
     console.log(_value);
+    console.log(event);
+  }
+
+  handleTextareaValue(data: string){
+    this.remark = data;
   }
 }

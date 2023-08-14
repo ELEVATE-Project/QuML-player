@@ -12,17 +12,18 @@ export class AddRemarksComponent {
   @Input() showRemarks: string;
   @Input() maxLength: number;
   @Output() textAreaValue = new EventEmitter<any>();
-  @Output() maxLengthEmit: number;
   @Output() remarkSubmittedEmit = new EventEmitter<boolean>();
   charCount: number = 0;
   isCharLimitExceeded: boolean ;
   remarkSubmitted: boolean = false;
+  inputFieldValue: string;
 
   popUpBox(){
     this.showPopUpBox = !this.showPopUpBox;
   }
 
   showRemark(data: string){
+    this.inputFieldValue = data;
     this.showRemarkValue = true;
     this.showPopUpBox = false;
     this.textAreaValue.emit(data);
@@ -34,5 +35,9 @@ export class AddRemarksComponent {
     if(_event.key === ' ') {
       _event.preventDefault();
   }
+  }
+
+  handlePopUpValue(event: Event){
+    this.showPopUpBox = true;
   }
 }
