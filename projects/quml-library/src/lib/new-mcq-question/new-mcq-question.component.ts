@@ -9,35 +9,6 @@ import { UtilService } from '../util-service';
   templateUrl: './new-mcq-question.component.html',
   styleUrls: ['./new-mcq-question.component.css']
 })
-export class NewMcqQuestionComponent implements OnInit {
+export class NewMcqQuestionComponent  {
 
-  @Input() replayed?: boolean;
-  @Input() questions?: any;
-  @Input() baseUrl: string;
-  @Output() componentLoaded = new EventEmitter<any>();
-  @Output() showAnswerClicked = new EventEmitter<any>();
-  @Output() sendData = new EventEmitter<any>();
-
-  showAnswer: any;
-  solutions: any;
-  question: any;
-  answer: any;
-  inputArray:any=[];
-  charCode: any= '';
-  arr: any ='';
-  utilService: any;
-  showHintBox: boolean = false;
-  questionName: any;
-
-  ngOnInit() {
-    console.log(this.questions);
-    this.question = this.questions?.body;
-    this.answer = this.questions?.answer;
-    this.solutions = _.isEmpty(this.questions?.solutions) ? null : this.questions?.solutions;
-    this.questionName = this.questionName = this.questions?.editorState.question;
-  }
-
-  onclick(_value: string){
-    console.log(_value);
-  }
 }

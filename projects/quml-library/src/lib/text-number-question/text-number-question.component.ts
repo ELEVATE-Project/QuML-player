@@ -43,12 +43,6 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
   }
   
   //Input Box logic for accepting number and text 
-  /**
-   * @description Checks for number inputs and validates the input character code.
-   * @param _event - The keyboard event.
-   * @param value - The input value.
-   * @returns {boolean} - Returns true if the input is valid, otherwise prevents default action.
-   */
   checkForNumb(_event:KeyboardEvent,value){
     if(this.questions.interactions.response1.type.number == 'Yes') {
       console.log("event called")
@@ -67,17 +61,12 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
   }
 
   //Data from Child to Parent
-   /**
-   * @description Sends the user's response data to the parent component.
-   * @param data - The user's response data.
-   */
   sendDataToParent(data) {
     this.showAnswerClicked.emit({data:this.answer,question:this.questions,isCorrectAnswer:false})
   }
 
-  /**
-   * @description Lifecycle hook. Initializes the component with question data.
-   */
+  //Lifecycle hook. Initializes the component with question data.
+  
   ngOnInit() {
     console.log(this.questions);
     this.question = this.questions?.body;
@@ -86,16 +75,16 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     this.questionName = this.questions?.editorState.question;
   }
   
-  /**
-   * @description Lifecycle hook. Handles keyboard accessibility for the component.
-   */
+  
+   // Lifecycle hook. Handles keyboard accessibility for the component.
+  
   ngAfterViewInit() {
     this.handleKeyboardAccessibility();
   }
 
-  /**
-   * @description Lifecycle hook. Reacts to changes in input properties.
-   */
+  
+   // Lifecycle hook. Reacts to changes in input properties.
+   
   ngOnChanges() {
     if (this.replayed) {
       this.showAnswer = false;
@@ -104,9 +93,9 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     }
   }
 
-  /**
-   * @description Shows the correct answer to the user.
-   */
+  
+   // Shows the correct answer to the user.
+  
   showAnswerToUser() {
     this.showAnswer = true;
     this.showAnswerClicked.emit({
@@ -114,10 +103,9 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     });
   }
 
-  /**
-   * @description Handles the 'Enter' key press event.
-   * @param event - The keyboard event.
-   */
+  
+  // Handles the 'Enter' key press event.
+  
   onEnter(event) {
     /* istanbul ignore else */
     if (event.keyCode === 13) {
@@ -126,9 +114,8 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     }
   }
 
-   /**
-   * @description Sets tabindex to -1 for certain elements to handle keyboard accessibility.
-   */
+   // Sets tabindex to -1 for certain elements to handle keyboard accessibility.
+   
   handleKeyboardAccessibility() {
     const elements = Array.from(document.getElementsByClassName('option-body') as HTMLCollectionOf<Element>);
     elements.forEach((element: HTMLElement) => {

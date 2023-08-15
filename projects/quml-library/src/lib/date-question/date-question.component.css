@@ -1,30 +1,12 @@
 @import '../../../../../node_modules/@project-sunbird/sb-styles/assets/mixins/mixins';
-
-::ng-deep :root {
-    --quml-scoreboard-sub-title: #6d7278;
-    --quml-scoreboard-skipped: #969696;
-    --quml-scoreboard-unattempted: #575757;
-    --quml-color-success: #08bc82;
-    --quml-color-danger: #f1635d;
-    --quml-color-primary-contrast: #333;
-    --quml-btn-border: #ccc;
-    --quml-heder-text-color: #6250f5;
-    --quml-header-bg-color: #c2c2c2;
-    --quml-mcq-title-txt: #131415;
-    --quml-zoom-btn-txt: #eee;
-    --quml-zoom-btn-hover: #f2f2f2;
-    --quml-main-bg: #fff;
-    --quml-btn-color: #fff;
-    --quml-question-bg: #fff;
-  }
+@import '../../../../../projects/quml-library/src/lib/assets/styles/quml-parent.css';
 
   .quml-head-container{
     background: var(--quml-main-bg);
     display: flow-root;
     border-radius: 0.25rem;
-    border: 0.0625rem solid var(--quml-btn-border);
+    border: 1px solid var(--quml-btn-border);
     padding: 1rem;
-    box-shadow: 0 0.125rem 0.75rem 0 var(--quml-color-primary-shade);
     align-items: center;
     justify-content: space-between;
     height: 100%;
@@ -36,13 +18,13 @@
 
   .question{
     color: var(--primary-color);
-    font-size: .875rem;
+    font-size: 12px;
     font-weight: 500;
   }
 
   .sa-title {
     color: var(--primary-color);
-    font-size: 0.875rem;
+    font-size: 12px;
     font-weight: 500;
     margin: 16px 0;
     clear: both;
@@ -68,12 +50,12 @@
   .date-container-button{  
     background: var(--primary-color);
     color: var(--quml-btn-color);
-    font-size: .975rem;
+    font-size: 13px;
     font-weight: 500;
     position: relative;
     width: 10rem;
     height: 3.75rem;
-    border: .03125rem solid var(--quml-btn-border);
+    border: 1px solid var(--quml-btn-border);
     border-radius: 3rem;
     cursor: pointer;
     margin-left: 2rem;
@@ -82,7 +64,7 @@
   .text-number-question{
     width: 70%;
     height: 100%;
-    border: 0.0625rem solid var(--quml-color-danger);
+    border: 1px solid var(--quml-color-danger);
     text-align: center;
     padding: 1rem;
     margin-bottom: 16px;

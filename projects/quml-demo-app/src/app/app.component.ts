@@ -35,8 +35,6 @@ export class AppComponent implements OnInit {
   }
 
   getPlayerEvents(event) {
-    // console.log('get player events', JSON.stringify(event));
-
     // Store the metaData locally
     if (event.eid === 'END') {
       let qumlMetaDataConfig = event.metaData;
@@ -46,6 +44,5 @@ export class AppComponent implements OnInit {
   }
 
   getTelemetryEvents(event) {
-    // console.log('event is for telemetry', JSON.stringify(event));
   }
 }
