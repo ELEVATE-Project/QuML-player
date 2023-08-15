@@ -12,9 +12,6 @@ export class AddRemarksComponent {
   @Input() showRemarks: string;
   @Input() maxLength: number;
   @Output() textAreaValue = new EventEmitter<any>();
-  @Output() remarkSubmittedEmit = new EventEmitter<boolean>();
-  charCount: number = 0;
-  isCharLimitExceeded: boolean ;
   remarkSubmitted: boolean = false;
   inputFieldValue: string;
 
@@ -28,7 +25,6 @@ export class AddRemarksComponent {
     this.showPopUpBox = false;
     this.textAreaValue.emit(data);
     this.remarkSubmitted = true;
-    this.remarkSubmittedEmit.emit(true);
   }
 
   textAreaKeyDown(_event: KeyboardEvent){
@@ -37,7 +33,7 @@ export class AddRemarksComponent {
   }
   }
 
-  handlePopUpValue(event: Event){
+  handlePopUpValue(){
     this.showPopUpBox = true;
   }
 }

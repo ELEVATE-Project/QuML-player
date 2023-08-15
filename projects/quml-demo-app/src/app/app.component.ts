@@ -35,7 +35,6 @@ export class AppComponent implements OnInit {
   }
 
   getPlayerEvents(event) {
-    // console.log('get player events', JSON.stringify(event));
 
     // Store the metaData locally
     if (event.eid === 'END') {
@@ -46,6 +45,6 @@ export class AppComponent implements OnInit {
   }
 
   getTelemetryEvents(event) {
-    // console.log('event is for telemetry', JSON.stringify(event));
+    
   }
 }
