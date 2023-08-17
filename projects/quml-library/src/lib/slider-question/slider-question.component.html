@@ -32,17 +32,8 @@
 
      <!--Attachments Button-->
      <quml-attachments [showEvidence]="showEvidence" (selectFileEmit)="onChildFileSelected($event)"></quml-attachments>
-     <section *ngIf="selectedFile" class="selectFileSection"> >
-       <!-- For Images -->
-      <img *ngIf="isImageType(selectedFile)" [src]="selectedFile" alt="Selected Image" class="imageFile" /> 
-    
-      <!-- For Videos -->
-      <video *ngIf="isVideoType(selectedFile)" [src]="selectedFile" controls class="videoFile"></video>
-    
-      <!-- For Documents -->
-      <p *ngIf="isDocumentType(selectedFile)">Selected Document: {{ getFileName(selectedFile) }}</p>
-    </section> 
 
+     <!--Show Attached Files-->
     <quml-show-remarks [remark]="remark"></quml-show-remarks>
         
   </div>

@@ -880,10 +880,10 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
 
   onAnswerKeyDown(event: KeyboardEvent) {
     /* istanbul ignore else */
-    if (event.key === 'Enter') {
+    /*if (event.key === 'Enter') {
       event.stopPropagation();
       this.getSolutions();
-    }
+    }*/
   }
 
   showAnswerClicked(event, question?) {

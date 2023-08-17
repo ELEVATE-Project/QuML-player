@@ -37,6 +37,7 @@ export class DateQuestionComponent implements OnInit {
   showRemarks: boolean = false;
   maxLength: number;
   remark: string; 
+  selectedFile: File;
 
 
   //Hint Box toggle
@@ -78,8 +79,8 @@ export class DateQuestionComponent implements OnInit {
   this.remark= data;
   }
   
-  onSelectedFileSend($event){
-    console.log("selectFile works")
+  onSelectedFileSend(file: File){
+    this.selectedFile = file;
   }
 
 
