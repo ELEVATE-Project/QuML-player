@@ -42,6 +42,11 @@ import { QuestionCursor } from '../../../quml-library/src/lib/quml-question-curs
 import { QuestionCursorImplementationService } from './question-cursor-implementation.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProgressIndicatorsComponent } from '../../../quml-library/src/lib/progress-indicators/progress-indicators.component';
+import { TextNumberQuestionComponent } from '../../../quml-library/src/lib/text-number-question/text-number-question.component';
+import { SliderQuestionComponent } from '../../../quml-library/src/lib/slider-question/slider-question.component';
+import { NewMcqQuestionComponent } from 'projects/quml-library/src/lib/new-mcq-question/new-mcq-question.component';
+import { DateQuestionComponent } from 'projects/quml-library/src/lib/date-question/date-question.component';
+
 
 @NgModule({
     declarations: [
@@ -79,7 +84,11 @@ import { ProgressIndicatorsComponent } from '../../../quml-library/src/lib/progr
         MenuComponent,
         SafeHtmlPipe,
         SectionPlayerComponent,
-        ProgressIndicatorsComponent
+        ProgressIndicatorsComponent,
+        TextNumberQuestionComponent,
+        SliderQuestionComponent,
+        NewMcqQuestionComponent,
+        DateQuestionComponent
     ],
     imports: [
         BrowserModule,

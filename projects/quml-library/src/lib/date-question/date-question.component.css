@@ -1,0 +1,72 @@
+@import '../../../../../node_modules/@project-sunbird/sb-styles/assets/mixins/mixins';
+@import '../../../../../projects/quml-library/src/lib/assets/styles/quml-parent.css';
+
+  .quml-head-container{
+    background: var(--quml-main-bg);
+    display: flow-root;
+    border-radius: 0.25rem;
+    border: 1px solid var(--quml-btn-border);
+    padding: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    margin-top: 2rem;
+  }
+
+  .question{
+    color: var(--primary-color);
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .sa-title {
+    color: var(--primary-color);
+    font-size: 12px;
+    font-weight: 500;
+    margin: 16px 0;
+    clear: both;
+  }
+
+  .question-container{
+    margin-top: 2.5rem;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color:#f1635d;
+    font-weight: bold;
+  }
+
+  .date-container-button{  
+    background: var(--primary-color);
+    color: var(--quml-btn-color);
+    font-size: 13px;
+    font-weight: 500;
+    position: relative;
+    width: 10rem;
+    height: 3.75rem;
+    border: 1px solid var(--quml-btn-border);
+    border-radius: 3rem;
+    cursor: pointer;
+    margin-left: 2rem;
+  }
+
+  .text-number-question{
+    width: 70%;
+    height: 100%;
+    border: 1px solid var(--quml-color-danger);
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 16px;
+    background-color: #ede5f4;
+  }

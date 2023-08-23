@@ -1,0 +1,41 @@
+<section class="quml-text-number-question">
+
+    <!-- input box 1-->
+    <div class=" quml-head-container">
+        <section class="quml-container" tabindex="0">
+            <section class="sa-title">
+                Question
+            </section>
+            <!--Rendering Question-->
+            <section class="question" [innerHtml]="questionName"></section>
+
+            <!--Input for question-->
+            <section>
+                <input #textNumberQue (keydown)="checkForNumb($event,textNumberQue.value)" type="input" placeholder="Enter your response" name="text-number-question" (change)="sendDataToParent(textNumberQue.value)" class="text-number-question" />
+            </section>
+        </section>
+    </div>
+   
+       <!--Show answer-->
+    <section class="sa-button-container">
+        <section *ngIf="!showAnswer" id="submit-answer" tabindex="0" class="sb-btn sb-btn-primary sb-btn-normal sb-btn-radius"
+        aria-label="Show Answer" (click)="showAnswerToUser()" (keydown)="onEnter($event)">
+        Show Answer
+    </section>
+    <section id="answer-container" [ngClass]="showAnswer ? 'option-container-blurred-out': 'option-container-blurred'">
+        <section class="sa-title" [attr.aria-hidden]="showAnswer ? null : true">
+            Answer
+        </section>
+       
+        <!--Solutions-->
+        <ng-container *ngIf="solutions"> 
+          <section class="solutions" *ngFor="let solution of solutions | keyvalue" [attr.aria-hidden]="showAnswer ? null : true">
+            <section [innerHTML]="solution.value | safeHtml" tabindex="-1"></section>
+          </section>
+        </ng-container>
+
+    </section>
+
+
+</section>
+

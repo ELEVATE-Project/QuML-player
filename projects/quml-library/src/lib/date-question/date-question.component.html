@@ -1,0 +1,18 @@
+<section>
+    <div class=" quml-head-container">
+        <section class="quml-container" tabindex="0">
+            <section class="sa-title">
+                Question
+            </section>
+        </section>
+
+        <!--Question Rendering-->
+        <section class="question" [innerHtml]="questionName"></section>
+      
+        <!--Input Section-->
+        <section>
+            <input type="date" #textNumberQue1 placeholder="Enter date" name="text-number-question1" class="text-number-question" (change)="sendData.emit(textNumberQue1.value)"/>
+                <button class="date-container-button" (click)="autoDetectDate(textNumberQue1)">Auto detect</button>
+        </section>
+    </div>
+</section>

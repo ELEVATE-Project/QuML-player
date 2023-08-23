@@ -111,7 +111,28 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
     this.viewerService.raiseStartEvent(0);
     this.viewerService.raiseHeartBeatEvent(eventName.startPageLoaded, 'impression', 0);
   }
-
+  
+  handleSendData(data){
+    this.focusOnNextButton();
+    this.active = true;
+    this.progressBarClass[this.myCarousel.getCurrentSlideIndex() - 1].class = 'correct';
+    if(data.isCorrectAnswer) {
+      this.updateScoreForShuffledQuestion();
+    }
+    else {
+      this.updateScoreForShuffledQuestion(0);
+    }
+    /* istanbul ignore else */
+    if (data.question) {
+      const index = this.questions.findIndex(que => que.identifier === data.question.identifier);
+      /* istanbul ignore else */
+      if (index > -1) {
+        this.questions[index].isAnswerShown = true;
+        this.viewerService.updateSectionQuestions(this.sectionConfig.metadata.identifier, this.questions);
+      }
+    }
+  }
+  
   private subscribeToEvents(): void {
     this.viewerService.qumlPlayerEvent
       .pipe(takeUntil(this.destroy$))
@@ -311,10 +332,10 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
 
     /* istanbul ignore else */
     if (this.myCarousel.getCurrentSlideIndex() > 0 &&
-      this.questions[this.myCarousel.getCurrentSlideIndex() - 1].qType === QuestionType.mcq && this.currentOptionSelected) {
+      this.questions[this.myCarousel.getCurrentSlideIndex() - 1]?.qType === QuestionType.mcq && this.currentOptionSelected) {
       const option = this.currentOptionSelected && this.currentOptionSelected['option'] ? this.currentOptionSelected['option'] : undefined;
       const identifier = this.questions[this.myCarousel.getCurrentSlideIndex() - 1].identifier;
-      const qType = this.questions[this.myCarousel.getCurrentSlideIndex() - 1].qType;
+      const qType = this.questions[this.myCarousel.getCurrentSlideIndex() - 1]?.qType;
       this.viewerService.raiseResponseEvent(identifier, qType, option);
     }
 
@@ -436,11 +457,11 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
     }
   }
 
-  updateScoreForShuffledQuestion() {
+  updateScoreForShuffledQuestion(score=DEFAULT_SCORE) {
     const currentIndex = this.myCarousel.getCurrentSlideIndex() - 1;
 
     if (this.isShuffleQuestions) {
-      this.updateScoreBoard(currentIndex, 'correct', undefined, DEFAULT_SCORE);
+      this.updateScoreBoard(currentIndex, 'correct', undefined, score);
     }
   }
 
@@ -619,9 +640,9 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
     const key = selectedQuestion.responseDeclaration ? this.utilService.getKeyValue(Object.keys(selectedQuestion.responseDeclaration)) : '';
     this.slideDuration = Math.round((new Date().getTime() - this.initialSlideDuration) / 1000);
     const getParams = () => {
-      if (selectedQuestion.qType.toUpperCase() === QuestionType.mcq && selectedQuestion?.editorState?.options) {
+      if (selectedQuestion?.qType?.toUpperCase() === QuestionType.mcq && selectedQuestion?.editorState?.options) {
         return selectedQuestion.editorState.options;
-      } else if (selectedQuestion.qType.toUpperCase() === QuestionType.mcq && !_.isEmpty(selectedQuestion?.editorState)) {
+      } else if (selectedQuestion?.qType?.toUpperCase() === QuestionType.mcq && !_.isEmpty(selectedQuestion?.editorState)) {
         return [selectedQuestion?.editorState];
       } else {
         return [];
@@ -631,7 +652,7 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
       'id': selectedQuestion.identifier,
       'title': selectedQuestion.name,
       'desc': selectedQuestion.description,
-      'type': selectedQuestion.qType.toLowerCase(),
+      'type': selectedQuestion?.qType?.toLowerCase(),
       'maxscore': key.length === 0 ? 0 : selectedQuestion.outcomeDeclaration.maxScore.defaultValue || 0,
       'params': getParams()
     };
@@ -642,7 +663,7 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
     }
 
     /* istanbul ignore else */
-    if (!this.optionSelectedObj && !this.isAssessEventRaised && selectedQuestion.qType.toUpperCase() !== QuestionType.sa) {
+    if (!this.optionSelectedObj && !this.isAssessEventRaised && selectedQuestion?.qType?.toUpperCase() !== QuestionType.sa) {
       this.isAssessEventRaised = true;
       this.viewerService.raiseAssesEvent(edataItem, currentIndex + 1, 'No', 0, [], this.slideDuration);
     }
