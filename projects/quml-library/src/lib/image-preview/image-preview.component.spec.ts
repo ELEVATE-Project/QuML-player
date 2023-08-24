@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ShowRemarksComponent } from './show-remarks.component';
+import { ImagePreviewComponent } from './image-preview.component';
 
-describe('ShowRemarksComponent', () => {
-  let component: ShowRemarksComponent;
-  let fixture: ComponentFixture<ShowRemarksComponent>;
+describe('ImagePreviewComponent', () => {
+  let component: ImagePreviewComponent;
+  let fixture: ComponentFixture<ImagePreviewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ShowRemarksComponent ]
+      declarations: [ ImagePreviewComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ShowRemarksComponent);
+    fixture = TestBed.createComponent(ImagePreviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -7,7 +7,10 @@
             <section class="hint-content">
                 <section class="inputContainer">
                     <section class="textarea-heading">Add Remarks</section>
-                    <textarea id="message" rows="" cols="" placeholder="Add remarks here..." #inputField class="inputFieldSection" [maxLength]="maxLength" (keydown)="textAreaKeyDown($event)" ></textarea>
+                    <textarea id="message" rows="" cols="" placeholder="Add remarks here..." #inputField class="inputFieldSection" [maxLength]="maxLength" (keydown)="textAreaKeyDown($event)" (keydown.enter)="$event.preventDefault()"></textarea>
+                </section>
+                <section>
+                    <p style="color: var(--quml-color-danger)">Maximum character limit {{maxLength}}</p>
                 </section>
             </section>
             <section class="submitContainer">
@@ -17,4 +20,10 @@
         </section>   
 </section>
 
-<quml-show-remarks [inputFieldValue]="inputFieldValue" (popUpValueEmit)="handlePopUpValue()"></quml-show-remarks>
+
+<!--Show remark -->
+<section *ngIf="remarkLength!= 0 ">
+<quml-show-remark [inputFieldValue]="inputFieldValue" [remarkSubmitted]="remarkSubmitted" (valueEmitOfRemarks)="handlePopUpValue()"></quml-show-remark>
+</section>
+
+

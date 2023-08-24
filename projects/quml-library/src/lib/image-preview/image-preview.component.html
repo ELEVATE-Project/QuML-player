@@ -1,0 +1,19 @@
+<!--Preview Images-->
+<section *ngIf="imagePopUp != false">
+<section class="preview-box">
+    <section class="preview-content">
+        <section class="preview-container">
+            <section class="previewArea-heading">Preview Images</section>
+        </section>
+        <section>
+            <img [src]="previewFile" alt="Preview-Image" class="previewImg">
+        </section>
+    </section>
+    <section class="btn-container">
+        <button class="update-image" (click)="inputFileField.click()">Update</button>
+        <input type="file" #inputFileField style="display: none" (change)="updateImg($event)"  accept=".png, .doc, .mov, .pdf, .vid, .jpg, .img "/>
+        <button class="upload-image" (click)="uploadImg()">Upload</button>
+    </section>
+</section>
+</section>
+

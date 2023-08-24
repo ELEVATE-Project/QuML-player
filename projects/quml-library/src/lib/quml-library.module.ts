@@ -46,9 +46,8 @@ import { AddRemarksComponent } from './add-remarks/add-remarks.component';
 import { AttachmentsComponent } from './attachments/attachments.component';
 import { FormsModule } from '@angular/forms';
 import { TermsConditionBoxComponent } from './terms-condition-box/terms-condition-box.component';
-import { ShowRemarksComponent } from './show-remarks/show-remarks.component';
-
-
+import { ShowRemarkComponent } from './show-remark/show-remark.component';
+import { ImagePreviewComponent } from './image-preview/image-preview.component';
 
 
 @NgModule({
@@ -95,14 +94,16 @@ import { ShowRemarksComponent } from './show-remarks/show-remarks.component';
     AddRemarksComponent,
     AttachmentsComponent,
     TermsConditionBoxComponent,
-    ShowRemarksComponent,
+    ShowRemarkComponent,
+    ImagePreviewComponent
+
   ],
 
   imports: [
     CommonModule,
     CarouselModule,
     SunbirdPlayerSdkModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     QumlLibraryService

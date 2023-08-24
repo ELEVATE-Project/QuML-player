@@ -45,6 +45,7 @@
    justify-content: center;
    color: #252420;
    font-size: medium;
+   font-weight: bold;
 }
 
 .buttons-for-termBox{
@@ -100,4 +101,19 @@ label {
     margin-top: 10px;
 }
 
+.document-container{
+  display: flex;
+  justify-content: flex-start;
+  height: auto;
+  width: auto;
+  border: 1px solid var(--quml-btn-border);
+  border-radius: 1rem;
+}
 
+.svg-pdf-icon{
+  margin: 20px 40px 20px 40px ;
+}
+
+.document{
+  margin: 30px;
+}

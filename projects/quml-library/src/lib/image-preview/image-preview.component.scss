@@ -1,0 +1,78 @@
+@import '../../../../../node_modules/@project-sunbird/sb-styles/assets/mixins/mixins';
+@import'../../../../../projects/quml-library/src/lib/assets/styles/quml-parent.scss';
+
+.update-image{
+    background:  var(--primary-color);
+    color: var( --quml-main-bg);
+    font-family: var(--font-stack-en);
+    font-weight: 400;
+    width: 20%;
+    border: 1px solid var(--quml-btn-border);
+    margin: 10px 15px;
+    border-radius: 2rem;
+    cursor: pointer;
+    height: 2rem;
+    padding: 5px;
+    font-size: 13px;
+  }
+  
+  .update-image:hover{
+      box-shadow: 0 2px 3px #0003;
+  }
+  
+  .upload-image{
+    background: white;
+    color: black;
+    font-family: var(--font-stack-en);
+    font-weight: 400;
+    width: 20%;
+    border: 1px solid var(--primary-color);
+    margin: 10px 15px;
+    border-radius: 2rem;
+    cursor: pointer;
+    height: 2rem;
+    padding: 5px;
+    font-size: 13px;
+  }
+  
+  .upload-image:hover{
+      box-shadow: 0 2px 3px #0003;
+  }
+  
+  .preview-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid var(--quml-btn-border);
+    padding: 10px;
+    border-radius: 1rem;
+    width: 40rem;
+    height: 30rem;
+    z-index: 1;
+    box-shadow: 5px 5px 4px var(--quml-btn-border);
+    padding: 1rem;
+  }
+  
+  .preview-content {
+    position: relative;
+    text-align: center;
+    margin: 7px;
+  }
+
+  .preview-container{
+    display: flex;
+    justify-content: center;
+    color : var(--primary-color);
+  }
+  .previewImg{
+    width: auto;
+    height: 350px;
+    margin: 7px;
+  }
+
+  .btn-container{
+    display: flex;
+    justify-content: space-around;
+  }

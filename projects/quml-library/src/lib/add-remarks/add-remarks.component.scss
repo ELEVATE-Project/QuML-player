@@ -11,8 +11,9 @@
     padding: 10px;
     border-radius: 1rem;
     width: 28rem;
-    height: 14rem;
+    height: 17rem;
     z-index: 1;
+    box-shadow: 5px 5px 4px var(--quml-btn-border);
   }
   
   .hint-content {
@@ -47,13 +48,14 @@
   width: 6.75rem;
   border: 1px solid var(--quml-btn-border);
   border-radius: 1rem;
-  box-shadow: 0 5px 3px #0003;
+  box-shadow: 4px 4px 3px var(--quml-btn-border);
   cursor: pointer;
   text-align: center;
   height: 2rem;
   padding: 0.3rem;
   font-size: 0.75rem;
   bottom: 1px;
+  margin: 8px 0;
 }
 
 .submitContainer{
@@ -64,11 +66,6 @@
 
 .inputContainer{
   margin: 20px;
-}
-
-.inputValueField{
-  display: flex;
-  justify-content: center;
 }
 
 .custom-file-input{
@@ -113,6 +110,10 @@ input[type=file] {
   font-size: 0.85rem;
 }
 
+.cancle-button:hover{
+  box-shadow: 0 2px 3px #0003;
+}
+
 .submit-button{
   background:  var(--primary-color);
   color: var( --quml-main-bg);
@@ -128,9 +129,52 @@ input[type=file] {
   font-size: 0.85rem
 }
 
+.submit-button:hover{
+  box-shadow: 0 2px 3px #0003;
+}
+
 .textarea-heading{
   color: var(--primary-color);
   font-size: 0.8rem;
   font-weight: 500;
   margin: 10px;
+}
+
+.remarksHeading{
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.remarkValue{
+  display:flex;
+  justify-content: flex-start;
+  margin-bottom: 16px;
+}
+
+.remarkContainer{
+  background: #eae8d9;
+  width: auto;
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 1rem;
+}
+
+.remarkValueText{
+ margin: 20px;
+ background: #eae8d9;
+ white-space: normal;
+ max-width: 100%;
+ font-weight: 500;
+}
+
+.editIcon{
+  width: 2rem;
+  margin: 20px;
+  height: 1rem;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+svg path{
+  fill: #6c6962;
 }

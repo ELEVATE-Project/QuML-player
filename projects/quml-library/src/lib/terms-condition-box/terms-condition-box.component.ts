@@ -1,5 +1,6 @@
-import { Component, Input, Output, EventEmitter} from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild, ElementRef} from '@angular/core';
 import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'quml-terms-condition-box',
@@ -7,18 +8,32 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./terms-condition-box.component.scss']
 })
 export class TermsConditionBoxComponent {
+
+  @ViewChild('inputFileField') inputFileField!: ElementRef<HTMLInputElement>;
+
   enableFilesSection : boolean  = false;
   selectFile: File;
+  fileName: string;
   nonMatchedSize: boolean;
   nonMatchSizeInBytes: string;
+  imageDataUrl: File;
+  fileUpload: boolean;
+  file: any;
+  imagePopUp : boolean;
+
   @Input() termsDialogOpen: boolean;
   @Output() selectFileEmit = new EventEmitter<any>();
   @Output() nonMatchedSizeEmit = new EventEmitter<any>();
 
 
-
   cancelTermsDialog() {
     this.termsDialogOpen = false;
+  }
+
+  triggerInputClick() {
+    if (this.inputFileField) {
+      this.inputFileField.nativeElement.click();
+    }
   }
 
   logInForm(termsForm : NgForm){
@@ -33,10 +48,11 @@ onFileSelected(event: Event){
   this.termsDialogOpen = false;
     const inputElement = event.target as HTMLInputElement;
     if (inputElement.files && inputElement.files.length > 0) {
-      const file = inputElement.files[0];
-      const maxSizeInBytes =  (1024 * 1024 * 1024);//5KB 20480
-      if(file.size <= maxSizeInBytes){
-      this.readFile(file);
+      this.file = inputElement.files[0];
+      const maxSizeInBytes = (1024*1024*1024) //20480 ;
+      if(this.file.size <= maxSizeInBytes){
+      this.readFile(this.file);
+      this.fileName = this.file.name;
       }
       else{
         this.nonMatchedSizeEmit.emit(true);
@@ -44,17 +60,17 @@ onFileSelected(event: Event){
     }
 }
 
-
   readFile(file: File) {
     const reader = new FileReader();
     reader.onload = (event: any) => {
-      this.selectFile = event.target.result;
+    this.imageDataUrl = event.target.result;
+    this.selectFile = this.imageDataUrl;
     };
     reader.readAsDataURL(file);
   }
 
   isImageType(fileData: any): boolean {
-    console.log(fileData);
+    this.imagePopUp = true;
     return fileData && /^data:image/.test(fileData);
   }
 
@@ -62,15 +78,19 @@ onFileSelected(event: Event){
     return fileData && /^data:video/.test(fileData);
   }
 
-  isDocumentType(fileData: any): boolean {
+  isDocumentType(fileData: any, fileName: string): boolean{
     return fileData && /^data:(application\/msword|application\/vnd.openxmlformats-officedocument.wordprocessingml.document|application\/pdf)/.test(fileData);
   }
 
-  getFileName(fileData: any): string {
-    const startIndex = fileData.indexOf(';name=') + 6;
-    const endIndex = fileData.indexOf(';', startIndex);
-    return fileData.substring(startIndex, endIndex);
+  handleUploadEmit(){
+    this.fileUpload = true;
   }
+ 
+  handleUpdateEmit(event : Event){
+   this.onFileSelected(event);
+   console.log("it works");
+  }
+
 
 }
 

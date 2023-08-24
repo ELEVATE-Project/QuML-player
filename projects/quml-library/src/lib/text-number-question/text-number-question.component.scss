@@ -5,13 +5,14 @@
   .quml-head-container{
     background: var(--quml-main-bg);
     display: flow-root;
-    border-radius: 0.25rem;
     border: 1px solid var(--quml-btn-border);
     padding: 1rem;
     height: 100%;
     margin-bottom: 1rem;
     margin-right: 1rem;
     margin-top: 2rem;
+    border-radius: 2rem;
+    box-shadow: 5px 5px 4px var(--quml-btn-border);
   }
 
   .sa-title {
@@ -60,10 +61,12 @@
     text-align: center;
     padding: 1rem;
     margin-bottom: 16px;
+    margin-top: 16px;
   }
 
 .question{
   color: var(--primary-color);
   font-size: 0.8rem;
   font-weight: 500;
+  margin: 8px;
 }

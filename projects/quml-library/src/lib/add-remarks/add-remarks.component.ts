@@ -14,17 +14,21 @@ export class AddRemarksComponent {
   @Output() textAreaValue = new EventEmitter<any>();
   remarkSubmitted: boolean = false;
   inputFieldValue: string;
+  remarkLength: number;
 
   popUpBox(){
     this.showPopUpBox = !this.showPopUpBox;
   }
 
   showRemark(data: string){
+    this.remarkLength = data.length;
+
+    if(this.remarkLength != 0){
+      this.remarkSubmitted = true;
+      this.showRemarkValue = true;
+    }
     this.inputFieldValue = data;
-    this.showRemarkValue = true;
     this.showPopUpBox = false;
-    this.textAreaValue.emit(data);
-    this.remarkSubmitted = true;
   }
 
   textAreaKeyDown(_event: KeyboardEvent){
