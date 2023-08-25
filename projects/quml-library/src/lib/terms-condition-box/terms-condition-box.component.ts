@@ -11,20 +11,16 @@ export class TermsConditionBoxComponent {
 
   @ViewChild('inputFileField') inputFileField!: ElementRef<HTMLInputElement>;
 
-  enableFilesSection : boolean  = false;
+  @Input() termsDialogOpen: boolean;
+  @Output() nonMatchedSizeEmit = new EventEmitter<any>();
+
   selectFile: File;
   fileName: string;
-  nonMatchedSize: boolean;
-  nonMatchSizeInBytes: string;
   imageDataUrl: File;
   fileUpload: boolean;
   file: any;
   imagePopUp : boolean;
-
-  @Input() termsDialogOpen: boolean;
-  @Output() selectFileEmit = new EventEmitter<any>();
-  @Output() nonMatchedSizeEmit = new EventEmitter<any>();
-
+  enableFilesSection: boolean;
 
   cancelTermsDialog() {
     this.termsDialogOpen = false;
@@ -88,9 +84,7 @@ onFileSelected(event: Event){
  
   handleUpdateEmit(event : Event){
    this.onFileSelected(event);
-   console.log("it works");
   }
-
 
 }
 

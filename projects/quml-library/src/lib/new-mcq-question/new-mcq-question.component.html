@@ -1,1 +1,44 @@
 <!-- MCQ Question types-->
+<section class="quml-text-number-question">
+
+  <!-- input box 1-->
+    <div class=" quml-head-container">
+   <section class="quml-container" tabindex="0">
+      <section class="sa-title">
+        Question
+      </section>
+      <section class="question" [innerHtml]="questionName | safeHtml">
+        <p class="question">Full form of URL is ? </p>
+      </section> 
+      <p>{{primaryCategory}}</p>
+    </section> 
+             
+<!-- multiple options -->
+<section class="mcqOptions">
+  <div class="optionsTypes">
+    <input type="radio" value="option-1" (click)="onclick(q1.value)" name="q1" #q1/> Uniform Resource Locator
+  </div>
+        
+  <div class="optionsTypes">
+    <input type="radio" value="option-2" (click)="onclick(q2.value)" name="q1" #q2/> Uniform Resource Link
+  </div>
+        
+  <div class="optionsTypes">
+    <input type="radio" value="option-3" (click)="onclick(q3.value)" name="q1" #q3/> on the floor
+  </div>
+        
+  <div class="optionsTypes">
+    <input type="radio" value="option-4" (click)="onclick(q4.value)" name="q1" #q4/> gertdvd
+  </div>
+         
+</section>
+
+ <!--Add Remark Button-->
+ <quml-add-remarks [showPopUpBox]="showPopUpBox" [showRemarkValue]="showRemarkValue" [showRemarks]="showRemarks" [maxLength]="maxLength" ></quml-add-remarks>
+
+ <!--Attachments Button-->
+ <quml-attachments [showEvidence]="showEvidence" ></quml-attachments>
+  
+    </div>
+  </section>    
+  

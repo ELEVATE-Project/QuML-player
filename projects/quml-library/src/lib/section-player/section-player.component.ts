@@ -9,6 +9,7 @@ import { ViewerService } from '../services/viewer-service/viewer-service';
 import { eventName, pageId, TelemetryType, Cardinality, QuestionType } from '../telemetry-constants';
 import { DEFAULT_SCORE } from '../player-constants';
 import { UtilService } from '../util-service';
+import { SlickCarouselComponent } from 'ngx-slick-carousel';
 
 @Component({
   selector: 'quml-section-player',
@@ -29,6 +30,8 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
   @Output() showScoreBoard = new EventEmitter<any>();
 
   @ViewChild('myCarousel', { static: false }) myCarousel: CarouselComponent;
+ // @ViewChild('myCarousel', { static: false }) myCarousel: SlickCarouselComponent;
+  @ViewChild('slickModal') slickModal: SlickCarouselComponent;
   @ViewChild('imageModal', { static: true }) imageModal: ElementRef;
   @ViewChild('questionSlide', { static: false }) questionSlide: ElementRef;
 
@@ -98,6 +101,38 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
     private cdRef: ChangeDetectorRef,
     public errorService: ErrorService
   ) { }
+
+  afterChange(event: any) {
+    this.currentSlideIndex = event.currentSlide;
+    this.initialSlideDuration = new Date().getTime();
+    this.isAssessEventRaised = false;
+    const questionElement = document.querySelector('li.progressBar-border') as HTMLElement;
+    const progressBarContainer = document.querySelector(".lanscape-mode-right") as HTMLElement;
+
+    /* istanbul ignore else */
+    if (progressBarContainer && questionElement && !this.parentConfig.isReplayed) {
+      this.utilService.scrollParentToChild(progressBarContainer, questionElement);
+    }
+
+    const contentElement: HTMLElement = document.querySelector(".landscape-content");
+    if (contentElement) {
+      contentElement.scrollTop = 0;
+    }
+
+    this.viewerService.pauseVideo();
+  }
+
+  /* for slick library */
+
+ /* getCurrentSlideIndex():any {
+    console.log('Current Slide Index:', this.currentSlideIndex);
+    return (this.currentSlideIndex);
+  }*/
+
+ /* getCurrentSlideIndex() {
+    const currentIndex = this.slickModal.currentIndex;
+    console.log('Current Slide Index:', currentIndex);
+  }*/
 
   ngOnChanges(changes: SimpleChanges): void {
     /* istanbul ignore else */

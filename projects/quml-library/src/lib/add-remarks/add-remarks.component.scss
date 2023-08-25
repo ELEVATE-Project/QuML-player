@@ -1,7 +1,7 @@
 @import '../../../../../node_modules/@project-sunbird/sb-styles/assets/mixins/mixins';
 @import'../../../../../projects/quml-library/src/lib/assets/styles/quml-parent.scss';
 
-  .hint-box {
+  .remark-box {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -16,7 +16,7 @@
     box-shadow: 5px 5px 4px var(--quml-btn-border);
   }
   
-  .hint-content {
+  .remark-content {
     position: relative;
     text-align: center;
     margin: 7px;
@@ -58,7 +58,7 @@
   margin: 8px 0;
 }
 
-.submitContainer{
+.buttonsContainer{
   display: flex;
   justify-content: center;
   position: relative;

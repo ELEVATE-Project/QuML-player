@@ -1,13 +1,13 @@
 <!--Slider Question Types-->
 <section class="slider-question-class">
-  <div class=" slider-head-container">
+  <section class=" slider-head-container">
       <section class="slider-container" tabindex="0">
           <section class="sa-title">
             Question
           </section>
       </section>
 
-       <!--Hint button-->
+      <!--Hint button-->
        <section>
         <quml-hint [showHintBox]="showHintBox"></quml-hint>
       </section>
@@ -16,11 +16,11 @@
       <section class="question" [innerHtml]="questionName"></section>
 
       <!--Slider value-->
-      <div class="slider-container">
-        <div class="slider-value">
+      <section class="slider-container">
+        <section class="slider-value">
           <p class="slider-value-input">{{ sliderValue}}</p>
-        </div>
-      </div>
+        </section>
+      </section>
       
       <!--Max,Min,Step values of slider-->
       <section class="slidecontainer">
@@ -30,12 +30,9 @@
       <!--Add Remark Button-->
       <quml-add-remarks [showPopUpBox]="showPopUpBox" [maxLength]="maxLength" [showRemarkValue]="showRemarkValue" [showRemarks]="showRemarks" (textAreaValue)="handleTextareaValue($event)"></quml-add-remarks>
 
-     <!--Attachments Button-->
-     <quml-attachments [showEvidence]="showEvidence" (selectFileEmit)="onChildFileSelected($event)"></quml-attachments>
-
-     <!--Show Attached Files-->
-    <!--<quml-show-remarks [remark]="remark"></quml-show-remarks> -->
-        
-  </div>
+      <!--Attachments Button-->
+      <quml-attachments [showEvidence]="showEvidence" ></quml-attachments>  
+      
+    </section>
 </section>        
   

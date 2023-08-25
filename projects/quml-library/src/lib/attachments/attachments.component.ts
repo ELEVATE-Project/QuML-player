@@ -1,10 +1,4 @@
-import { Component , Input, Output} from '@angular/core';
-import { EventEmitter } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { NgForm } from '@angular/forms';
-import { NgModel } from '@angular/forms';
-
-
+import { Component , Input} from '@angular/core';
 
 @Component({
   selector: 'quml-attachments',
@@ -13,17 +7,11 @@ import { NgModel } from '@angular/forms';
 })
 
 export class AttachmentsComponent {
-  selectFile: File;
-  nonMatchSizeInBytes: string ;
   nonMatchedSize: boolean = false;
   termsDialogOpen: boolean = false ;
-  enableFilesSection: boolean = false; 
-  isChangeEnabled : boolean = false;
-  @Input() showEvidence: string;
-  @Output() selectFileEmit: EventEmitter<File>= new EventEmitter<File>();
-  termsForm: NgForm;
   nonMatchedSizeValue : string;
 
+  @Input() showEvidence: string;
  
   handletermsForm(){
     this.termsDialogOpen = !this.termsDialogOpen;

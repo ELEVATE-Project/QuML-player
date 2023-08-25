@@ -1,14 +1,8 @@
-/**
- * @name TextNumberQuestionComponent
- * @description This component is used to display and handle a text or number input question.
- * It allows users to enter their response and optionally shows the correct answer.
- **/
-
+// This component is used to display and handle a text or number input question.
+// It allows users to enter their response and optionally shows the correct answer.
 
 import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import * as _ from 'lodash-es';
-import { UtilService } from '../util-service';
 
 
 @Component({
@@ -74,9 +68,7 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     this.showAnswerClicked.emit({data:this.answer,question:this.questions,isCorrectAnswer:false})
   }
 
-
-   //Initializes the component with question data.
-
+  //Initializes the component with question data.
   ngOnInit() {
     console.log(this.questions);
     this.question = this.questions?.body;
@@ -88,14 +80,12 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     this.maxLength = this.questions?.interactions.response1.validation.limit.maxLength;
   }
   
-// Handles keyboard accessibility for the component.
-   
+  // Handles keyboard accessibility for the component. 
   ngAfterViewInit() {
     this.handleKeyboardAccessibility();
   }
 
   // Reacts to changes in input properties.
-   
   ngOnChanges() {
     if (this.replayed) {
       this.showAnswer = false;
@@ -104,9 +94,7 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     }
   }
 
-  
   // Shows the correct answer to the user.
-  
   showAnswerToUser() {
     this.showAnswer = true;
     this.showAnswerClicked.emit({
@@ -115,8 +103,7 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
   }
 
   
-  // Handles the 'Enter' key press event.
-  
+  // Handles the 'Enter' key press event.  
   onEnter(event) {
     /* istanbul ignore else */
     if (event.keyCode === 13) {
@@ -126,29 +113,17 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
   }
 
   // Sets tabindex to -1 for certain elements to handle keyboard accessibility.
-   
   handleKeyboardAccessibility() {
     const elements = Array.from(document.getElementsByClassName('option-body') as HTMLCollectionOf<Element>);
     elements.forEach((element: HTMLElement) => {
-      /* istanbul ignore else */
+    /* istanbul ignore else */
       if (element.offsetHeight) {
         const children = Array.from(element.querySelectorAll("a"));
         children.forEach((child: HTMLElement) => {
-            child.setAttribute('tabindex', '-1');
+        child.setAttribute('tabindex', '-1');
         });
       }
     });
   }
 
-
-  handleTextareaValue(data: string){
-    this.remark = data;
-  }
-
-  onSelectedFileSend(file: File){
-    this.selectedFile = file;
-  }
-
-
-  
 }

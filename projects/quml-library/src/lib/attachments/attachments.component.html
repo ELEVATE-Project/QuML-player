@@ -1,21 +1,21 @@
 
-  <!-- Attachments Section -->
+<!-- Attachments Section -->
 <section *ngIf="showEvidence !== 'No'">
-    <button class="file-input-btn"  (click)="handletermsForm()">
-       +
-     </button>
-    <section>
-      <p class="type">Files</p>
-    </section>
-    <section *ngIf="nonMatchedSize">
-      <p class="alert">{{nonMatchedSizeValue}}</p>
-    </section>
-  </section> 
-
-  <!--new code for dialog box-->
-  <section *ngIf="termsDialogOpen">
-    <quml-terms-condition-box [termsDialogOpen]="termsDialogOpen" (nonMatchedSizeEmit)="handleNonMatchedSize()" ></quml-terms-condition-box>
+  <button class="file-input-btn"  (click)="handletermsForm()">
+    +
+  </button>
+  <section>
+    <p class="type">Files</p>
   </section>
+  <section *ngIf="nonMatchedSize">
+    <p class="alert">{{nonMatchedSizeValue}}</p>
+  </section>
+</section> 
+
+<!--terms-condition dialog-box -->
+<section *ngIf="termsDialogOpen">
+  <quml-terms-condition-box [termsDialogOpen]="termsDialogOpen" (nonMatchedSizeEmit)="handleNonMatchedSize()" ></quml-terms-condition-box>
+</section>
   
 
   

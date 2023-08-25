@@ -13,15 +13,18 @@
     <div class="landscape-mode">
       <div class="lanscape-mode-left">
         <div class="current-slide" *ngIf="currentSlideIndex !== 0">
-          {{myCarousel.getCurrentSlideIndex()}}/{{noOfQuestions}}
+          {{myCarousel.getCurrentSlideIndex()}}/{{noOfQuestions}} 
+             <!--  {{slickModal.currentIndex}}  -->
         </div>
         <div *ngIf="currentSolutions && showUserSolution">
           <quml-ans (click)="getSolutions()" (keydown)="onAnswerKeyDown($event)"></quml-ans>
         </div>
       </div>
       <div class="landscape-content">
+       <!--<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (afterChange)="afterChange($event)" > -->
         <carousel class="landscape-center" [interval]="0" [showIndicators]="false" [noWrap]="true" #myCarousel
-          (activeSlideChange)="activeSlideChange($event)">
+          (activeSlideChange)="activeSlideChange($event)"> 
+          <!--<ngx-carousel-item>-->
           <slide>
             <quml-startpage
               [instructions]="showRootInstruction ? parentConfig?.instructions : sectionConfig.metadata?.instructions"
@@ -30,6 +33,8 @@
               [contentName]="showRootInstruction ? parentConfig?.contentName : parentConfig?.isSectionsAvailable ? sectionConfig?.metadata?.name : parentConfig?.contentName">
             </quml-startpage>
           </slide>
+          <!--</ngx-carousel-item>-->
+        <!--<ngx-carousel-item *ngFor="let question of questions; let i= index" #questionSlide>-->
           <slide *ngFor="let question of questions; let i= index" #questionSlide>
             <div [id]="question.identifier">
               <div *ngIf="question?.primaryCategory.toLowerCase() === 'multiple choice question'">
@@ -58,12 +63,15 @@
                   (showAnswerClicked)="sendData($event)" (sendData)="sendData($event)">
                 </quml-date-question>
               </div>
-
-              <quml-new-mcq-question></quml-new-mcq-question>
-            
-            </div>
+              <div *ngIf="question?.primaryCategory.toLowerCase() === 'multiselect multiple choice '"></div>
+                <quml-new-mcq-question [questions]='question' [replayed]="parentConfig?.isReplayed" [baseUrl]="parentConfig?.baseUrl" 
+                (showAnswerClicked)="sendData($event)" (sendData)="sendData($event)" >
+                </quml-new-mcq-question>
+              </div>
           </slide>
-        </carousel>
+         <!-- </ngx-carousel-item> -->
+        </carousel> 
+      <!--</ngx-slick-carousel>-->
       </div>
       <div class="lanscape-mode-right">
         <ul>

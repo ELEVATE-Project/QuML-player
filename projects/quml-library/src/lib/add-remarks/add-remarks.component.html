@@ -3,21 +3,25 @@
     <ng-container *ngIf="!remarkSubmitted">
         <button class="addRemarkBtn" (click)="popUpBox()">Add Remark</button>
     </ng-container>
-        <section class="hint-box" [hidden]="!showPopUpBox">
-            <section class="hint-content">
-                <section class="inputContainer">
-                    <section class="textarea-heading">Add Remarks</section>
+    <section class="remark-box" [hidden]="!showPopUpBox">
+        <section class="remark-content">
+
+        <!-- textarea container for adding remarks-->
+            <section class="inputContainer">
+                <section class="textarea-heading">Add Remarks</section>
                     <textarea id="message" rows="" cols="" placeholder="Add remarks here..." #inputField class="inputFieldSection" [maxLength]="maxLength" (keydown)="textAreaKeyDown($event)" (keydown.enter)="$event.preventDefault()"></textarea>
-                </section>
-                <section>
-                    <p style="color: var(--quml-color-danger)">Maximum character limit {{maxLength}}</p>
-                </section>
             </section>
-            <section class="submitContainer">
-                <button class="cancle-button" (click)="popUpBox()">Cancel</button>
-                <button class="submit-button" (click)="showRemark(inputField.value)">Add</button>
+            <section>
+                <p style="color: var(--quml-color-danger)">Maximum character limit {{maxLength}}</p>
             </section>
-        </section>   
+        </section>
+
+        <!--container for cancle / add buttons-->
+        <section class="buttonsContainer">
+            <button class="cancle-button" (click)="popUpBox()">Cancel</button>
+            <button class="submit-button" (click)="showRemark(inputField.value)">Add</button>
+        </section>
+    </section>   
 </section>
 
 

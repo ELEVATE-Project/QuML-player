@@ -4,6 +4,7 @@ import { QumlLibraryComponent } from './quml-library.component';
 import { McqComponent } from './mcq/mcq.component';
 import { SaComponent } from './sa/sa.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HeaderComponent } from './header/header.component';
 import { McqQuestionComponent } from './mcq-question/mcq-question.component';
 import { McqOptionComponent } from './mcq-option/mcq-option.component';
@@ -48,6 +49,7 @@ import { FormsModule } from '@angular/forms';
 import { TermsConditionBoxComponent } from './terms-condition-box/terms-condition-box.component';
 import { ShowRemarkComponent } from './show-remark/show-remark.component';
 import { ImagePreviewComponent } from './image-preview/image-preview.component';
+
 
 
 @NgModule({
@@ -104,6 +106,7 @@ import { ImagePreviewComponent } from './image-preview/image-preview.component';
     CarouselModule,
     SunbirdPlayerSdkModule,
     FormsModule,
+    SlickCarouselModule
   ],
   providers: [
     QumlLibraryService

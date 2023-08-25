@@ -11,7 +11,6 @@ export class AddRemarksComponent {
   @Input() showRemarkValue: boolean;
   @Input() showRemarks: string;
   @Input() maxLength: number;
-  @Output() textAreaValue = new EventEmitter<any>();
   remarkSubmitted: boolean = false;
   inputFieldValue: string;
   remarkLength: number;
@@ -22,7 +21,6 @@ export class AddRemarksComponent {
 
   showRemark(data: string){
     this.remarkLength = data.length;
-
     if(this.remarkLength != 0){
       this.remarkSubmitted = true;
       this.showRemarkValue = true;
@@ -34,7 +32,7 @@ export class AddRemarksComponent {
   textAreaKeyDown(_event: KeyboardEvent){
     if(_event.key === ' ') {
       _event.preventDefault();
-  }
+    }
   }
 
   handlePopUpValue(){

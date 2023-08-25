@@ -2,19 +2,20 @@
 <section class="quml-text-number-question">
 
     <!-- input box 1-->
-    <div class=" quml-head-container">
+    <section class=" quml-head-container">
         <section class="quml-container" tabindex="0">
-            <!--Question heading-->
-        <div class="container">
-            <section class="sa-title">
-                Question
-            </section>
 
-            <!--Hint button-->
-            <section>
-                <quml-hint [showHintBox]="showHintBox"></quml-hint>
+            <!--Question heading-->
+            <section class="container">
+                <section class="sa-title">
+                    Question
+                </section>
+
+                <!--Hint button-->
+                <section>
+                    <quml-hint [showHintBox]="showHintBox"></quml-hint>
+                </section>
             </section>
-        </div>
 
             <!--Rendering Question-->
             <section class="question" [innerHtml]="questionName"></section>
@@ -26,31 +27,29 @@
         </section>
             
         <!--Add Remark Button-->
-        <quml-add-remarks [showPopUpBox]="showPopUpBox" [showRemarkValue]="showRemarkValue" [showRemarks]="showRemarks" [maxLength]="maxLength" (textAreaValue)="handleTextareaValue($event)" ></quml-add-remarks>
+        <quml-add-remarks [showPopUpBox]="showPopUpBox" [showRemarkValue]="showRemarkValue" [showRemarks]="showRemarks" [maxLength]="maxLength" ></quml-add-remarks>
 
         <!--Attachments Button-->
-        <quml-attachments [showEvidence]="showEvidence" (selectFileEmit)="onSelectedFileSend($event)"></quml-attachments>
+        <quml-attachments [showEvidence]="showEvidence" ></quml-attachments>
    
        <!--Show answer-->
-    <section class="sa-button-container">
-        <section *ngIf="!showAnswer" id="submit-answer" tabindex="0" class="sb-btn sb-btn-primary sb-btn-normal sb-btn-radius"
-        aria-label="Show Answer" (click)="showAnswerToUser()" (keydown)="onEnter($event)">
-        Show Answer
-    </section>
-    <section id="answer-container" [ngClass]="showAnswer ? 'option-container-blurred-out': 'option-container-blurred'">
-        <section class="sa-title" [attr.aria-hidden]="showAnswer ? null : true">
-            Answer
-        </section>
+        <section class="sa-button-container">
+            <section *ngIf="!showAnswer" id="submit-answer" tabindex="0" class="sb-btn sb-btn-primary sb-btn-normal sb-btn-radius"
+            aria-label="Show Answer" (click)="showAnswerToUser()" (keydown)="onEnter($event)">
+                Show Answer
+            </section>
+            <section id="answer-container" [ngClass]="showAnswer ? 'option-container-blurred-out': 'option-container-blurred'">
+                <section class="sa-title" [attr.aria-hidden]="showAnswer ? null : true">
+                    Answer
+            </section>
        
         <!--Solutions-->
         <ng-container *ngIf="solutions"> 
-          <section class="solutions" *ngFor="let solution of solutions | keyvalue" [attr.aria-hidden]="showAnswer ? null : true">
-            <section [innerHTML]="solution.value | safeHtml" tabindex="-1"></section>
-          </section>
+            <section class="solutions" *ngFor="let solution of solutions | keyvalue" [attr.aria-hidden]="showAnswer ? null : true">
+                <section [innerHTML]="solution.value | safeHtml" tabindex="-1"></section>
+            </section>
         </ng-container>
 
     </section>
-
-
 </section>
 

@@ -19,7 +19,7 @@ input[type=file] {
 }
 
 .type{
-  color: #2757a1;
+  color: var(--primary-color);
   font-size: medium;
   font-weight: 500;
   font-family: var(--font-stack-en);

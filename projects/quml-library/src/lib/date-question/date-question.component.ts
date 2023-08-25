@@ -61,9 +61,7 @@ export class DateQuestionComponent implements OnInit {
     this.showAnswerClicked.emit({data:this.answer,question:this.questions,isCorrectAnswer:true})
   }
 
-   /**
-   * @description Lifecycle hook. Reacts to changes in input properties.
-   */
+  // Reacts to changes in input properties.
   ngOnInit() {
     console.log(this.questions);
     this.question = this.questions?.body;
