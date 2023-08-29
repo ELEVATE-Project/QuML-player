@@ -1,4 +1,4 @@
-// This component is used to display and handle a text or number input question.
+// This component is used to display and handle text or number input question.
 // It allows users to enter their response and optionally shows the correct answer.
 
 import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
@@ -12,33 +12,29 @@ import * as _ from 'lodash-es';
 })
 export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterViewInit {
 
-  @Input() replayed?: boolean; //@description Boolean flag to indicate if the question is replayed.
-  @Input() questions?: any; //@description Contains the question data.
-  @Input() baseUrl: string; //@description The base URL for the component.
-  @Output() componentLoaded = new EventEmitter<any>(); //@description EventEmitter to emit the component loaded event.
-  @Output() showAnswerClicked = new EventEmitter<any>(); //@description EventEmitter to emit the show answer clicked event.
-  @Output() sendData = new EventEmitter<any>(); //@description EventEmitter to emit the user's response data to the parent component.
+  @Input() replayed?: boolean; // Boolean flag to indicate if the question is replayed.
+  @Input() questions?: any; // Contains the question data.
+  @Input() baseUrl: string; // The base URL for the component.
+  @Output() componentLoaded = new EventEmitter<any>(); // EventEmitter to emit the component loaded event.
+  @Output() showAnswerClicked = new EventEmitter<any>(); // EventEmitter to emit the show answer clicked event.
+  @Output() sendDat= new EventEmitter<any>(); // EventEmitter to emit the user's response datto the parent component.
   
-  showAnswer: any; //@description Boolean flag to control the visibility of the answer section.
-  solutions: any; //@description Object containing solution data for the question.
-  question: any; //@description Contains the question content.
-  answer: any; //@description The user's response to the question.
-  inputArray:any=[]; //@description Array to store character codes for input validation.
-  charCode: any= '';//@description The character code for the current input.
-  arr: any ='';//  @description The character code for the current input.
-  showHintBox: boolean = false; // @description A variable used for input validation logic.
+  showAnswer: any; // Boolean flag to control the visibility of the answer section.
+  solutions: any; // Object containing solution datfor the question.
+  question: any; // Contains the question content.
+  answer: any; // The user's response to the question.
+  inputArray:any=[]; // Array to store character codes for input validation.
+  charCode: any= '';// The character code for the current input.
+  arr: any ='';//   The character code for the current input.
+  showHintBox: boolean = false; //  Variable used for input validation logic.
   utilService: any; 
-  questionName: any; // @description of question name.
-  showPopUpBox: boolean = false; //@description A variable used for input validation logic.
-  showRemarkValue: boolean = false;
-  showRemarks: string ;
-  showEvidence: string ;
-  selectFile: any;
-  remark: string; 
-  maxLength: number;
-  selectedFile: File;
-  nonMatchSizeInBytes: string;
-  
+  questionName: any; // Variable for showing of question name.
+  showPopUpBox: boolean = false; // Variable used for showing PopUp Box.
+  showRemarkValue: boolean = false; // Variable used for showing Remark value.
+  showRemarks: string ; // Variable used for showremarks.
+  showEvidence: string ; // Variable used for showing Evidence.
+  remark: string; // Variable used for setting value of datin remark.
+  maxLength: number; // Variable used for setting max length value.
 
   //Hint box
   toggleHintBox() {
@@ -63,7 +59,7 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     }
   }
 
-  //Data from Child to Parent
+  //Datfrom Child to Parent
   sendDataToParent(data) {
     this.showAnswerClicked.emit({data:this.answer,question:this.questions,isCorrectAnswer:false})
   }
@@ -116,6 +112,7 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
   handleKeyboardAccessibility() {
     const elements = Array.from(document.getElementsByClassName('option-body') as HTMLCollectionOf<Element>);
     elements.forEach((element: HTMLElement) => {
+
     /* istanbul ignore else */
       if (element.offsetHeight) {
         const children = Array.from(element.querySelectorAll("a"));

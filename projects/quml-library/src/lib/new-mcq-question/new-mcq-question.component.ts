@@ -31,6 +31,7 @@ export class NewMcqQuestionComponent implements OnInit {
   maxLength: any;
   showPopUpBox: boolean = false; 
   showRemarkValue: boolean = false;
+  cardinality: any ;
 
 
   ngOnInit() {
@@ -45,6 +46,8 @@ export class NewMcqQuestionComponent implements OnInit {
       this.showRemarks = this.questions?.responseDeclaration.showRemarks;
       this.showEvidence = this.questions?.responseDeclaration.showEvidence;
       this.maxLength = this.questions?.remarks.maxLength;
+      this.cardinality = this.questions?.responseDeclaration.response1.cardinality;
+
     }
   }
 

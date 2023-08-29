@@ -1,7 +1,6 @@
 import { Component, Input, Output, EventEmitter, ViewChild, ElementRef} from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-
 @Component({
   selector: 'quml-terms-condition-box',
   templateUrl: './terms-condition-box.component.html',
@@ -9,82 +8,95 @@ import { NgForm } from '@angular/forms';
 })
 export class TermsConditionBoxComponent {
 
-  @ViewChild('inputFileField') inputFileField!: ElementRef<HTMLInputElement>;
+// ViewChild to get a reference to the file input element
+@ViewChild('inputFileField') inputFileField!: ElementRef<HTMLInputElement>;
 
-  @Input() termsDialogOpen: boolean;
-  @Output() nonMatchedSizeEmit = new EventEmitter<any>();
+// Input property to control the visibility of the terms and conditions dialog box
+@Input() termsDialogOpen: boolean;
 
-  selectFile: File;
-  fileName: string;
-  imageDataUrl: File;
-  fileUpload: boolean;
-  file: any;
-  imagePopUp : boolean;
-  enableFilesSection: boolean;
+// Output event to emit the non-matched size information
+@Output() nonMatchedSizeEmit = new EventEmitter<any>();
 
-  cancelTermsDialog() {
+// Variables to store information about the selected file
+selectFile: File;
+fileName: string;
+imageDataUrl: File;
+fileUpload: boolean;
+file: any;
+imagePopUp: boolean;
+enableFilesSection: boolean;
+
+// Function to cancel the terms and conditions dialog box
+cancelTermsDialog() {
+  this.termsDialogOpen = false;
+}
+
+// Function to trigger the file input click event
+triggerInputClick() {
+  if (this.inputFileField) {
+    this.inputFileField.nativeElement.click();
+  }
+}
+
+// Function to handle the terms and conditions form submission
+logInForm(termsForm: NgForm) {
+  this.enableFilesSection = true;
+  if (termsForm.value.termsField == "true") {
     this.termsDialogOpen = false;
   }
-
-  triggerInputClick() {
-    if (this.inputFileField) {
-      this.inputFileField.nativeElement.click();
-    }
-  }
-
-  logInForm(termsForm : NgForm){
-    this.enableFilesSection = true;
-    if (termsForm.value.termsField=="true") {
-      this.termsDialogOpen = false; 
-    }
-
 }
 
-onFileSelected(event: Event){
+// Function to handle the selection of a file
+onFileSelected(event: Event) {
   this.termsDialogOpen = false;
-    const inputElement = event.target as HTMLInputElement;
-    if (inputElement.files && inputElement.files.length > 0) {
-      this.file = inputElement.files[0];
-      const maxSizeInBytes = (1024*1024*1024) //20480 ;
-      if(this.file.size <= maxSizeInBytes){
+  const inputElement = event.target as HTMLInputElement;
+  if (inputElement.files && inputElement.files.length > 0) {
+    this.file = inputElement.files[0];
+    const maxSizeInBytes = (1024 * 1024 * 1024) //20480 ;
+    if (this.file.size <= maxSizeInBytes) {
       this.readFile(this.file);
       this.fileName = this.file.name;
-      }
-      else{
-        this.nonMatchedSizeEmit.emit(true);
-      }
+    } else {
+      // Emit event for non-matched file size
+      this.nonMatchedSizeEmit.emit(true);
     }
+  }
 }
 
-  readFile(file: File) {
-    const reader = new FileReader();
-    reader.onload = (event: any) => {
+// Function to read and process the selected file
+readFile(file: File) {
+  const reader = new FileReader();
+  reader.onload = (event: any) => {
     this.imageDataUrl = event.target.result;
     this.selectFile = this.imageDataUrl;
-    };
-    reader.readAsDataURL(file);
-  }
-
-  isImageType(fileData: any): boolean {
-    this.imagePopUp = true;
-    return fileData && /^data:image/.test(fileData);
-  }
-
-  isVideoType(fileData: any): boolean{
-    return fileData && /^data:video/.test(fileData);
-  }
-
-  isDocumentType(fileData: any, fileName: string): boolean{
-    return fileData && /^data:(application\/msword|application\/vnd.openxmlformats-officedocument.wordprocessingml.document|application\/pdf)/.test(fileData);
-  }
-
-  handleUploadEmit(){
-    this.fileUpload = true;
-  }
- 
-  handleUpdateEmit(event : Event){
-   this.onFileSelected(event);
-  }
-
+  };
+  reader.readAsDataURL(file);
 }
 
+// Function to check if the file type is an image
+isImageType(fileData: any): boolean {
+  this.imagePopUp = true;
+  return fileData && /^data:image/.test(fileData);
+}
+
+// Function to check if the file type is a video
+isVideoType(fileData: any): boolean {
+  return fileData && /^data:video/.test(fileData);
+}
+
+// Function to check if the file type is a document
+isDocumentType(fileData: any, fileName: string): boolean {
+  return fileData && /^data:(application\/msword|application\/vnd.openxmlformats-officedocument.wordprocessingml.document|application\/pdf)/.test(fileData);
+}
+
+// Function to handle the upload event
+handleUploadEmit() {
+  this.fileUpload = true;
+}
+
+// Function to handle the update event
+handleUpdateEmit(event: Event) {
+  this.onFileSelected(event);
+}
+
+}

@@ -1,33 +1,42 @@
-  <!--Add Remark Button-->
-<section *ngIf= "showRemarks !=='No'" class="addRemark">
+    <!-- Add Remark Button -->
+<section *ngIf="showRemarks !== 'No'" class="addRemark">
+    <!-- Container for adding remark button -->
     <ng-container *ngIf="!remarkSubmitted">
+        <!-- Button to trigger the remark popup -->
         <button class="addRemarkBtn" (click)="popUpBox()">Add Remark</button>
     </ng-container>
-    <section class="remark-box" [hidden]="!showPopUpBox">
-        <section class="remark-content">
 
-        <!-- textarea container for adding remarks-->
+    <!-- Popup box for adding a remark -->
+    <section class="remark-box" [hidden]="!showPopUpBox">
+        <!-- Content within the remark popup box -->
+        <section class="remark-content">
+            <!-- Textarea container for adding remarks -->
             <section class="inputContainer">
+                <!-- Heading for the textarea section -->
                 <section class="textarea-heading">Add Remarks</section>
-                    <textarea id="message" rows="" cols="" placeholder="Add remarks here..." #inputField class="inputFieldSection" [maxLength]="maxLength" (keydown)="textAreaKeyDown($event)" (keydown.enter)="$event.preventDefault()"></textarea>
+                <!-- Textarea input field for adding remarks -->
+                <textarea id="message" rows="" cols="" placeholder="Add remarks here..." #inputField class="inputFieldSection" [maxLength]="maxLength" (keydown)="textAreaKeyDown($event)" (keydown.enter)="$event.preventDefault()"></textarea>
             </section>
+            <!-- Section displaying maximum character limit for remarks -->
             <section>
                 <p style="color: var(--quml-color-danger)">Maximum character limit {{maxLength}}</p>
             </section>
         </section>
 
-        <!--container for cancle / add buttons-->
+        <!-- Container for cancel / add buttons -->
         <section class="buttonsContainer">
+            <!-- Button to cancel and close the popup -->
             <button class="cancle-button" (click)="popUpBox()">Cancel</button>
+            <!-- Button to submit the entered remark -->
             <button class="submit-button" (click)="showRemark(inputField.value)">Add</button>
         </section>
-    </section>   
+    </section>
 </section>
 
-
-<!--Show remark -->
-<section *ngIf="remarkLength!= 0 ">
-<quml-show-remark [inputFieldValue]="inputFieldValue" [remarkSubmitted]="remarkSubmitted" (valueEmitOfRemarks)="handlePopUpValue()"></quml-show-remark>
+<!-- Show remark section -->
+<section *ngIf="remarkLength != 0">
+    <!-- Component to display the submitted remarks -->
+    <quml-show-remark [inputFieldValue]="inputFieldValue" [remarkSubmitted]="remarkSubmitted" (valueEmitOfRemarks)="handlePopUpValue()"></quml-show-remark>
 </section>
 
 

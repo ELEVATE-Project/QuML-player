@@ -14,7 +14,7 @@
     </section> 
              
 <!-- multiple options -->
-<section class="mcqOptions">
+<section *ngIf="cardinality == 'single'"class="mcqOptions">
   <div class="optionsTypes">
     <input type="radio" value="option-1" (click)="onclick(q1.value)" name="q1" #q1/> Uniform Resource Locator
   </div>
@@ -32,6 +32,25 @@
   </div>
          
 </section>
+
+<!--Multiselect question-->
+<section *ngIf="cardinality == 'multiple'" class="mcqOptions">
+<div class="optionsTypes">  
+<input type="checkbox"  name="checkbox" (click)="onclick(q1.value)" name="q1" #q1  tabindex="-1" >Uniform Resource Locator
+</div>
+<div class="optionsTypes">
+<input type="checkbox"  name="checkbox" (click)="onclick(q1.value)" name="q1" #q2  tabindex="-1" > Uniform Resource Link
+</div>
+<div class="optionsTypes">
+<input type="checkbox"  name="checkbox" (click)="onclick(q1.value)" name="q1" #q3  tabindex="-1" > on the floor
+</div>
+<div class="optionsTypes">
+<input type="checkbox"  name="checkbox" (click)="onclick(q1.value)" name="q1" #q4  tabindex="-1" > gertdvd
+</div>
+
+</section>        
+
+<quml-mcq-option></quml-mcq-option>
 
  <!--Add Remark Button-->
  <quml-add-remarks [showPopUpBox]="showPopUpBox" [showRemarkValue]="showRemarkValue" [showRemarks]="showRemarks" [maxLength]="maxLength" ></quml-add-remarks>

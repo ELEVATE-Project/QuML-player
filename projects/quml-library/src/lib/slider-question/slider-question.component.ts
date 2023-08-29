@@ -13,31 +13,30 @@ import { UtilService } from '../util-service';
 })
 export class SliderQuestionComponent implements OnInit {
 
-  @Input() questions?: any;//@description Contains the question data.
-  @Input() replayed?: boolean;//@description Boolean flag to indicate if the question is replayed.
-  @Input() baseUrl: string;//@description The base URL for the component.
-  @Output() componentLoaded = new EventEmitter<any>();  //@description EventEmitter to emit the component loaded event.
-  @Output() showAnswerClicked = new EventEmitter<any>(); //@description EventEmitter to emit the show answer clicked event.
-  @Output() sendData = new EventEmitter<any>(); //@description EventEmitter to emit the user's response data to the parent component.
+  @Input() questions?: any;// Contains the question data.
+  @Input() replayed?: boolean;// Boolean flag to indicate if the question is replayed.
+  @Input() baseUrl: string;// The base URL for the component.
+  @Output() componentLoaded = new EventEmitter<any>();  // EventEmitter to emit the component loaded event.
+  @Output() showAnswerClicked = new EventEmitter<any>(); // EventEmitter to emit the show answer clicked event.
+  @Output() sendData = new EventEmitter<any>(); // EventEmitter to emit the user's response data to the parent component.
 
-  showAnswer: false; //@description Boolean flag to control the visibility of the answer section.
-  solutions: any; //@description Object containing solution data for the question.
-  question: any; //@description Contains the question content.
-  answer: any; //@description The user's response to the question. 
-  min:number = 0; //@description about min value of slider 
-  max:number = 0;//@description about max value of slider
-  step:number = 0; //@description about number of steps slider
+  showAnswer: false; // Boolean flag to control the visibility of the answer section.
+  solutions: any; // Object containing solution data for the question.
+  question: any; // Contains the question content.
+  answer: any; // The user's response to the question. 
+  min: number = 0; // variable for setting min value of slider 
+  max: number = 0;// variable for setting max value of slider
+  step: number = 0; // variable for setting number of steps slider
   questionName: any; //variable which will render question name 
   sliderValue: number = 50; // variable for setting value of slider
-  showPopUpBox: boolean = false; //@description A variable used for input validation logic.
-  showRemarks: string ;
-  showEvidence: string ;
-  showRemarkValue: boolean = false;
-  inputField: HTMLInputElement | undefined;
-  remark: string;
-  showHintBox: boolean = false; 
-  maxLength: number;
-  selectedFile: File;
+  showPopUpBox: boolean = false; // variable used for input validation logic.
+  showRemarks: string ; // variable for showing remarks
+  showEvidence: string ; // variable for showing evidence
+  showRemarkValue: boolean = false; // variable for showing remark value
+  inputField: HTMLInputElement | undefined; // 
+  remark: string; // variable declared for storing data of remarks section
+  showHintBox: boolean = false; // variable for showing hint-box
+  maxLength: number; // variable for setting maxLength
 
   //Slider value update on change 
   onSliderChange(value: string) {

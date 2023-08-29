@@ -1,20 +1,25 @@
-
 <!-- Attachments Section -->
 <section *ngIf="showEvidence !== 'No'">
-  <button class="file-input-btn"  (click)="handletermsForm()">
-    +
+  <!-- Button to trigger handling terms form -->
+  <button class="file-input-btn" (click)="handletermsForm()">
+    + <!-- Plus sign icon for adding attachments -->
   </button>
+  
+  <!-- Section for displaying the type label -->
   <section>
     <p class="type">Files</p>
   </section>
+  
+  <!-- Section to show alert for non-matched size -->
   <section *ngIf="nonMatchedSize">
     <p class="alert">{{nonMatchedSizeValue}}</p>
   </section>
-</section> 
+</section>
 
-<!--terms-condition dialog-box -->
+<!-- Terms and Conditions Dialog Box -->
 <section *ngIf="termsDialogOpen">
-  <quml-terms-condition-box [termsDialogOpen]="termsDialogOpen" (nonMatchedSizeEmit)="handleNonMatchedSize()" ></quml-terms-condition-box>
+  <!-- Component for displaying terms and conditions dialog box -->
+  <quml-terms-condition-box [termsDialogOpen]="termsDialogOpen" (nonMatchedSizeEmit)="handleNonMatchedSize()"></quml-terms-condition-box>
 </section>
   
 

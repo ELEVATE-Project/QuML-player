@@ -32,7 +32,7 @@
         <!--Attachments Button-->
         <quml-attachments [showEvidence]="showEvidence" ></quml-attachments>
    
-       <!--Show answer-->
+       <!--Show answer Section-->
         <section class="sa-button-container">
             <section *ngIf="!showAnswer" id="submit-answer" tabindex="0" class="sb-btn sb-btn-primary sb-btn-normal sb-btn-radius"
             aria-label="Show Answer" (click)="showAnswerToUser()" (keydown)="onEnter($event)">
@@ -43,7 +43,7 @@
                     Answer
             </section>
        
-        <!--Solutions-->
+        <!--Section for Solutions-->
         <ng-container *ngIf="solutions"> 
             <section class="solutions" *ngFor="let solution of solutions | keyvalue" [attr.aria-hidden]="showAnswer ? null : true">
                 <section [innerHTML]="solution.value | safeHtml" tabindex="-1"></section>

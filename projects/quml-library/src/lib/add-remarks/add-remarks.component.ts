@@ -6,36 +6,53 @@ import { Component, Input, Output, EventEmitter} from '@angular/core';
   templateUrl: './add-remarks.component.html',
   styleUrls: ['./add-remarks.component.scss']
 })
+
 export class AddRemarksComponent {
-  @Input() showPopUpBox: boolean;
-  @Input() showRemarkValue: boolean;
-  @Input() showRemarks: string;
-  @Input() maxLength: number;
+  // Input properties received from parent component
+  @Input() showPopUpBox: boolean; // Controls the visibility of the popup box
+  @Input() showRemarkValue: boolean; // Indicates if a remark is shown
+  @Input() showRemarks: string; // Specifies the visibility of remarks
+  @Input() maxLength: number; // Maximum character length for a remark
+
+  // State variable to track if a remark has been submitted
   remarkSubmitted: boolean = false;
+
+  // Variable to hold the value of the input field for remarks
   inputFieldValue: string;
+
+  // Variable to hold the length of the entered remark
   remarkLength: number;
 
-  popUpBox(){
+  // Function to toggle the visibility of the popup box
+  popUpBox() {
     this.showPopUpBox = !this.showPopUpBox;
   }
 
-  showRemark(data: string){
+  // Function to handle the submission of a remark
+  showRemark(data: string) {
     this.remarkLength = data.length;
-    if(this.remarkLength != 0){
+    
+    // If a remark is not empty, mark it as submitted and set the showRemarkValue flag
+    if (this.remarkLength != 0) {
       this.remarkSubmitted = true;
       this.showRemarkValue = true;
     }
+    
+    // Store the entered remark value and hide the popup box
     this.inputFieldValue = data;
     this.showPopUpBox = false;
   }
 
-  textAreaKeyDown(_event: KeyboardEvent){
-    if(_event.key === ' ') {
+  // Function to handle keyboard events in the textarea
+  textAreaKeyDown(_event: KeyboardEvent) {
+    // Prevent the default behavior of the space key
+    if (_event.key === ' ') {
       _event.preventDefault();
     }
   }
 
-  handlePopUpValue(){
+  // Function to handle the popup value from a child component
+  handlePopUpValue() {
     this.showPopUpBox = true;
   }
 }
