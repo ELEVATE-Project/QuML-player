@@ -35,6 +35,7 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
   showEvidence: string ; // Variable used for showing Evidence.
   remark: string; // Variable used for setting value of datin remark.
   maxLength: number; // Variable used for setting max length value.
+  hints: any; // Variable used for seeting value of hint. 
 
   //Hint box
   toggleHintBox() {
@@ -66,7 +67,6 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
 
   //Initializes the component with question data.
   ngOnInit() {
-    console.log(this.questions);
     this.question = this.questions?.body;
     this.answer = this.questions?.answer;
     this.solutions = _.isEmpty(this.questions?.solutions) ? null : this.questions?.solutions;
@@ -74,6 +74,7 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     this.showRemarks = this.questions?.responseDeclaration.showRemarks;
     this.showEvidence = this.questions?.responseDeclaration.showEvidence;
     this.maxLength = this.questions?.interactions.response1.validation.limit.maxLength;
+    this.hints = this.questions?.hints;
   }
   
   // Handles keyboard accessibility for the component. 

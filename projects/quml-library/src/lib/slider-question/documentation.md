@@ -24,9 +24,13 @@ sliderValue: number: A property that holds the current value of the slider.
 
 ## Methods
 onSliderChange(value: string): A method that is triggered when the slider value changes. It updates the sliderValue property based on the new value.
+
 sendDataToParent(data: any): A method that is triggered when the user clicks the slider to send the selected sliderValue to the parent component using the showAnswerClicked output event.
+
 Lifecycle Hook
 ngOnInit(): A lifecycle hook that is executed when the component is initialized. It initializes the component properties with the input values.
+
+popUpBox(): A method called for toggling the value of showPopUpBox, which will set the boolean value of showPopUpBox as true or false.
 
 ## Template
 This component is designed to be used in Angular applications to handle slider-based questions. The template displays the question, slider input, and related elements. The onSliderChange() method is used to update the sliderValue property when the slider is moved, and the sendDataToParent() method is used to emit the showAnswerClicked event when the user clicks on the slider to send the selected value to the parent component.

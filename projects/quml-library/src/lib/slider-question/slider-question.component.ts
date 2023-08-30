@@ -66,15 +66,18 @@ export class SliderQuestionComponent implements OnInit {
     this.maxLength = this.questions?.remarks.maxLength;
   }
 
+  // Function to handle the popUp box
   popUpBox(){
     this.showPopUpBox = !this.showPopUpBox;
   }
-
+  
+  // Function for setting the values of variables 
   showRemark(){
     this.showRemarkValue = true;
     this.showPopUpBox = false;
   }
 
+  // Function for storing the value of remark with data
   handleTextareaValue(data: string){
     this.remark = data;
   }

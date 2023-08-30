@@ -2,28 +2,34 @@
 <section>
     <section class=" quml-head-container">
         <section class="quml-container" tabindex="0">
-            <section class="sa-title">
-                Question
+            <!--Question heading-->
+            <section class="container">
+                <section class="sa-title">
+                    Question
+                </section>
+
+                <!--Hint button-->
+                <section>
+                    <quml-hint [showHintBox]="showHintBox" [hints]="hints"></quml-hint>
+                </section>
             </section>
         </section>
 
-        <!--Question Rendering-->
-        <section class="question" [innerHtml]="questionName"></section>
-      
+    <!--Question Rendering-->
+    <section class="question" [innerHtml]="questionName"></section>     
         <!--Input Section-->
         <section>
             <!-- Input field for entering a date -->
             <input type="date" #textNumberQue1 placeholder="Enter date" name="text-number-question1" class="text-number-question" (change)="sendData.emit(textNumberQue1.value)"/>
-
-            <!--Auto Detect Date button-->
+                <!--Auto Detect Date button-->
                 <button class="date-container-button" (click)="autoDetectDate(textNumberQue1)">Auto detect</button>
         </section>
 
-         <!--Add Remark Button-->
-         <quml-add-remarks [showPopUpBox]="showPopUpBox" [showRemarkValue]="showRemarkValue" [showRemarks]="showRemarks" [maxLength]="maxLength" (textAreaValue)="handleTextareaValue($event)" ></quml-add-remarks>
+        <!--Add Remark Button-->
+        <quml-add-remarks [showPopUpBox]="showPopUpBox" [showRemarkValue]="showRemarkValue" [showRemarks]="showRemarks" [maxLength]="maxLength" (textAreaValue)="handleTextareaValue($event)" ></quml-add-remarks>
 
-         <!--Attachments Button-->
-         <quml-attachments [showEvidence]="showEvidence" (selectFileEmit)="onSelectedFileSend($event)"></quml-attachments>
+        <!--Attachments Button-->
+        <quml-attachments [showEvidence]="showEvidence" (selectFileEmit)="onSelectedFileSend($event)"></quml-attachments>
  
     </section>
 </section>

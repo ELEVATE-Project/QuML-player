@@ -52,7 +52,8 @@ onFileSelected(event: Event) {
   const inputElement = event.target as HTMLInputElement;
   if (inputElement.files && inputElement.files.length > 0) {
     this.file = inputElement.files[0];
-    const maxSizeInBytes = (1024 * 1024 * 1024) //20480 ;
+    const maxSizeInBytes = 20480 ;
+    // Condition for matched file size
     if (this.file.size <= maxSizeInBytes) {
       this.readFile(this.file);
       this.fileName = this.file.name;
@@ -76,17 +77,22 @@ readFile(file: File) {
 // Function to check if the file type is an image
 isImageType(fileData: any): boolean {
   this.imagePopUp = true;
-  return fileData && /^data:image/.test(fileData);
+  return fileData && fileData.startsWith('data:image');
 }
 
 // Function to check if the file type is a video
 isVideoType(fileData: any): boolean {
-  return fileData && /^data:video/.test(fileData);
+  return fileData && fileData.startsWith('data:video');
 }
 
 // Function to check if the file type is a document
 isDocumentType(fileData: any, fileName: string): boolean {
-  return fileData && /^data:(application\/msword|application\/vnd.openxmlformats-officedocument.wordprocessingml.document|application\/pdf)/.test(fileData);
+  //return fileData && /^data:(application\/msword|application\/vnd.openxmlformats-officedocument.wordprocessingml.document|application\/pdf)/.test(fileData);
+  return fileData && (
+    fileData.startsWith('data:application/msword') ||
+    fileData.startsWith('data:application/vnd.openxmlformats-officedocument.wordprocessingml.document') ||
+    fileData.startsWith('data:application/pdf')
+  );
 }
 
 // Function to handle the upload event
@@ -98,5 +104,4 @@ handleUploadEmit() {
 handleUpdateEmit(event: Event) {
   this.onFileSelected(event);
 }
-
 }

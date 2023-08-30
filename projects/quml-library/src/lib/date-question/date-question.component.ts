@@ -1,14 +1,9 @@
-/**
- * @name DateQuestionComponent
- * @description This component is used to display and handle date input question.
- * It allows users to enter Date or auto detect date and optionally shows the correct answer.
- **/
+//  This component is used to display and handle date input question.
+//  It allows users to enter Date or auto detect date and optionally shows the correct answer.
+
 
 import { Component, EventEmitter, OnInit,AfterViewInit, Input, OnChanges, Output } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import * as _ from 'lodash-es';
-import { UtilService } from '../util-service';
-
 
 @Component({
   selector: 'quml-date-question',
@@ -42,6 +37,8 @@ export class DateQuestionComponent implements OnInit {
   showRemarks: boolean = false;
   maxLength: number;
   remark: string;
+  hints: any;
+  
   selectedFile: File; // Variable to store selected file
 
 
@@ -68,11 +65,11 @@ export class DateQuestionComponent implements OnInit {
 
   // Initializes component and sets question-related data
   ngOnInit() {
-    console.log(this.questions);
     this.question = this.questions?.body;
     this.answer = this.questions?.answer;
     this.solutions = _.isEmpty(this.questions?.solutions) ? null : this.questions?.solutions;
     this.questionName = this.questions?.editorState.question;
+    this.hints = this.questions?.hints;
   }
 
   // Toggles the visibility of the popup box

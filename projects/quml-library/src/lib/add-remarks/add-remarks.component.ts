@@ -1,5 +1,4 @@
-import { Component, Input, Output, EventEmitter} from '@angular/core';
-
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'quml-add-remarks',
@@ -37,7 +36,6 @@ export class AddRemarksComponent {
       this.remarkSubmitted = true;
       this.showRemarkValue = true;
     }
-    
     // Store the entered remark value and hide the popup box
     this.inputFieldValue = data;
     this.showPopUpBox = false;

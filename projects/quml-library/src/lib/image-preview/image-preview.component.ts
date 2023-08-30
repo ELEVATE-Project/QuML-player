@@ -26,15 +26,16 @@ export class ImagePreviewComponent implements OnChanges{
   readFile(dataUrl: any) {
     this.previewFile = dataUrl;
   }
- 
-    updateImg(event: Event){
-      this.imagePopUp = false;
-      this.updateEmit.emit(event);
-    }
 
-    uploadImg(){
-      this.finalUploadEmit.emit();
-      this.imagePopUp = false;
-    }
+  uploadImg(){
+    this.finalUploadEmit.emit();
+    this.imagePopUp = false;
+  }
+  
+  cancleUpload(){
+    this.imagePopUp = false;
+  }
+ 
+
 }
 
