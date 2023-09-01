@@ -37,6 +37,7 @@ export class SliderQuestionComponent implements OnInit {
   remark: string; // variable declared for storing data of remarks section
   showHintBox: boolean = false; // variable for showing hint-box
   maxLength: number; // variable for setting maxLength
+  hints: any;
 
   //Slider value update on change 
   onSliderChange(value: string) {
@@ -64,6 +65,7 @@ export class SliderQuestionComponent implements OnInit {
     this.showRemarks = this.questions?.responseDeclaration.showRemarks;
     this.showEvidence = this.questions?.responseDeclaration.showEvidence;
     this.maxLength = this.questions?.remarks.maxLength;
+    this.hints = this.questions?.hint;
   }
 
   // Function to handle the popUp box

@@ -9,7 +9,7 @@ import { ViewerService } from '../services/viewer-service/viewer-service';
 import { eventName, pageId, TelemetryType, Cardinality, QuestionType } from '../telemetry-constants';
 import { DEFAULT_SCORE } from '../player-constants';
 import { UtilService } from '../util-service';
-import { SlickCarouselComponent } from 'ngx-slick-carousel';
+
 
 @Component({
   selector: 'quml-section-player',
@@ -31,7 +31,7 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
 
   @ViewChild('myCarousel', { static: false }) myCarousel: CarouselComponent;
  // @ViewChild('myCarousel', { static: false }) myCarousel: SlickCarouselComponent;
-  @ViewChild('slickModal') slickModal: SlickCarouselComponent;
+
   @ViewChild('imageModal', { static: true }) imageModal: ElementRef;
   @ViewChild('questionSlide', { static: false }) questionSlide: ElementRef;
 

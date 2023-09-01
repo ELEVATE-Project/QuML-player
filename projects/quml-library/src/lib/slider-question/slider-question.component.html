@@ -1,21 +1,15 @@
 <!--Slider Question Types-->
 <section class="slider-question-class">
   <section class=" slider-head-container">
-      <section class="slider-container" tabindex="0">
-        <!--Section for showing question title -->
-          <section class="sa-title">
-            Question
-          </section>
-      </section>
-
-      <!--Hint button-->
-       <section>
-        <quml-hint [showHintBox]="showHintBox"></quml-hint>
-      </section>
-
+    <section class="quml-container" tabindex="0">
       <!--Question Render-->
       <section class="question" [innerHtml]="questionName"></section>
 
+      <!--Hint button-->
+      
+        <quml-hint [showHintBox]="showHintBox" [hints]="hints"></quml-hint>
+    
+    </section>
       <!--Slider value-->
       <section class="slider-container">
         <section class="slider-value">

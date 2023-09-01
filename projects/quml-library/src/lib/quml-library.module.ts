@@ -4,7 +4,6 @@ import { QumlLibraryComponent } from './quml-library.component';
 import { McqComponent } from './mcq/mcq.component';
 import { SaComponent } from './sa/sa.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HeaderComponent } from './header/header.component';
 import { McqQuestionComponent } from './mcq-question/mcq-question.component';
 import { McqOptionComponent } from './mcq-option/mcq-option.component';
@@ -105,8 +104,8 @@ import { ImagePreviewComponent } from './image-preview/image-preview.component';
     CommonModule,
     CarouselModule,
     SunbirdPlayerSdkModule,
-    FormsModule,
-    SlickCarouselModule
+    FormsModule
+
   ],
   providers: [
     QumlLibraryService

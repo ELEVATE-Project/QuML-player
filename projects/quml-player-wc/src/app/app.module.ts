@@ -3,8 +3,8 @@ import { DoBootstrap, Injector, NgModule } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
 import { SunbirdPlayerSdkModule } from '@project-sunbird/sunbird-player-sdk-v9';
-//import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+
 import { MainPlayerComponent } from '../../../quml-library/src/lib/main-player/main-player.component';
 import { QumlLibraryComponent } from '../../../quml-library/src/lib/quml-library.component';
 import { McqComponent } from '../../../quml-library/src/lib/mcq/mcq.component';
@@ -94,10 +94,10 @@ import { DateQuestionComponent } from 'projects/quml-library/src/lib/date-questi
     imports: [
         BrowserModule,
         CommonModule,
-      //  CarouselModule.forRoot(),
+        CarouselModule.forRoot(),
         SunbirdPlayerSdkModule,
         HttpClientModule,
-        SlickCarouselModule
+     
     ],
     providers: [{ provide: QuestionCursor, useClass: QuestionCursorImplementationService }]
 })

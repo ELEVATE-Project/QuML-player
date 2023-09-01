@@ -7,7 +7,7 @@ import { QuestionCursorImplementationService } from './question-cursor-implement
 import { QumlLibraryModule, QuestionCursor } from '@project-sunbird/sunbird-quml-player';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
+
 
 @NgModule({
   declarations: [
@@ -19,8 +19,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     CarouselModule.forRoot(),
     HttpClientModule, 
     ReactiveFormsModule,
-    FormsModule,
-    SlickCarouselModule
+    FormsModule
   ],
   providers: [{
     provide: QuestionCursor,
