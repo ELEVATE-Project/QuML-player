@@ -16,6 +16,9 @@
         <section class="cross-btn">
             <button class="close-button" (click)="toggleHintBox()">&times;</button>
         </section>
-        <p> Hint content here!</p>
+        <p class="hint-title">Hint Content</p>
+    </section>
+    <section *ngFor = "let hint of hints?.value?.nestedValue | keyvalue">
+        <p >{{ hint.value.en }}</p>
     </section>
 </span>

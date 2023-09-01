@@ -7,6 +7,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 })
 export class HintComponent implements OnInit {
   @Input() showHintBox: boolean;
+  @Input() hints: any;
 
   constructor() { }
 

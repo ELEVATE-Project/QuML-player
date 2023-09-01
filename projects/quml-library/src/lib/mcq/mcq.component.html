@@ -1,5 +1,5 @@
 <!-- Default Layout-->
-<div class="quml-mcq layoutDefault" *ngIf="layout=='DEFAULT'" ><!--*ngIf="layout=='DEFAULT'"-->
+<div class="quml-mcq layoutDefault" *ngIf="layout=='DEFAULT'" >
     <div class="quml-mcq--question mb-16">
         <quml-mcq-question [mcqQuestion]="mcqQuestion" [layout]="layout" (showPopup)="showPopup()"></quml-mcq-question>
     </div>
@@ -24,6 +24,7 @@
     </div>
 </div>
 <!--End of Grid Layout-->
+
 <!--Image Multi Grid Layout-->
 <div class="quml-mcq layoutMultiImageGrid" *ngIf="layout==='MULTIIMAGEGRID'">
     <div class="imageqa-wrapper image-grid">
@@ -55,6 +56,7 @@
     </div>
 </div>
 <!--End of Image QA Grid Layout-->
+
 <!--Image QOption Layout-->
 <div class="quml-mcq layoutImageOption" *ngIf="layout=='IMAGEQOPTION'">
     <div class="columnBlock questionBlock quml-mcq--question mb-16">

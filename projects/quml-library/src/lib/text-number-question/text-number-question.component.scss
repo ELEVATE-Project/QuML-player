@@ -6,18 +6,19 @@
     background: var(--quml-main-bg);
     display: flow-root;
     border: 1px solid var(--quml-btn-border);
-    padding: 1.5rem;
+    padding: 2.5rem;
     height: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     margin-right: 1rem;
     margin-top: 2rem;
+    margin-left: 1rem;
     border-radius: 2rem;
     box-shadow: 5px 5px 4px var(--quml-btn-border);
   }
 
   .sa-title {
     color: var(--primary-color);
-    font-size: 0.8rem;
+    font-size: 14px;
     font-weight: 500;
     margin: 16px 0;
     clear: both;

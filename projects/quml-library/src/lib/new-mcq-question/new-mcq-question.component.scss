@@ -7,9 +7,10 @@
   border: 1px solid var(--quml-btn-border);
   padding: 1.5rem;
   height: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   margin-right: 1rem;
   margin-top: 2rem;
+  margin-left: 1rem;
   border-radius: 2rem;
   box-shadow: 5px 5px 4px var(--quml-btn-border);
 }
@@ -25,8 +26,8 @@
 .question{
   color: var(--primary-color);
   font-size: var(--p-font-size);
-  margin: 16px 0;
   font-weight: 500;
+  margin-bottom: 2rem;
 }
 
 .optionTypes{
@@ -36,9 +37,18 @@
 .optionsTypes input[type="radio"] {
     background: var(--primary-color);
     color: var(--primary-color);
-    width: 16px;
+    width: 15px;
     position: relative;
-    height: 15px;
+    height: 1rem;
+    top: 2px;
+  }
+
+  .optionsTypes input[type="checkbox"] {
+    background: var(--primary-color);
+    color: var(--primary-color);
+    width: 15px;
+    position: relative;
+    height: 1rem;
     top: 2px;
   }
 
@@ -46,9 +56,17 @@
   font-family: var(--font-stack-en);
   font-size: 1rem;
   font-weight: 500;
-  line-height: 2.5;
   color: var(--gray-800);
   text-align: left;
 }
 
+.option-container {
+  display: inline-flex; 
+  height: 1.5rem;
+}
+
+.optionValue{
+  margin-left: 1rem;
+  font-weight: 500;
+}
   

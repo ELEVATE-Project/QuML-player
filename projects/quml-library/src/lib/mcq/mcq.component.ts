@@ -40,7 +40,6 @@ export class McqComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    console.log(this.questions);
     this.numberOfCorrectOptions = _.castArray(this.question.responseDeclaration.response1.correctResponse.value).length;
     if (this.question?.solutions) {
       this.solutions = this.question.solutions;

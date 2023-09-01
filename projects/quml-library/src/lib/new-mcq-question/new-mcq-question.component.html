@@ -2,62 +2,54 @@
 <section class="quml-text-number-question">
 
   <!-- input box 1-->
-    <div class=" quml-head-container">
-   <section class="quml-container" tabindex="0">
-      <section class="sa-title">
-        Question
-      </section>
+  <div class=" quml-head-container">
+    <section class="quml-container" tabindex="0">
+      <section class="container">
+        <section class="sa-title">
+          Question
+        </section>
+      
+        <!--Hint button-->
+        <section>
+          <quml-hint [showHintBox]="showHintBox" [hints]="hints"></quml-hint>
+        </section>
+      </section>  
       <section class="question" [innerHtml]="questionName | safeHtml">
-        <p class="question">Full form of URL is ? </p>
       </section> 
-      <p>{{primaryCategory}}</p>
     </section> 
              
 <!-- multiple options -->
-<section *ngIf="cardinality == 'single'"class="mcqOptions">
-  <div class="optionsTypes">
-    <input type="radio" value="option-1" (click)="onclick(q1.value)" name="q1" #q1/> Uniform Resource Locator
+<section *ngIf="cardinality == 'single'" class = "mcqOption">
+  <div class="container" *ngFor="let option of options ; let i = index" >
+    <div class="optionsTypes">
+      <label class="option-container">
+        <input type="radio" [value]= "option.value" (click)="onclick(option.value)" name="'option'+i" #valueRef />
+        <p [innerHtml] = "option.label | safeHtml" class="optionValue"></p>
+      </label>
+    </div>
   </div>
-        
-  <div class="optionsTypes">
-    <input type="radio" value="option-2" (click)="onclick(q2.value)" name="q1" #q2/> Uniform Resource Link
-  </div>
-        
-  <div class="optionsTypes">
-    <input type="radio" value="option-3" (click)="onclick(q3.value)" name="q1" #q3/> on the floor
-  </div>
-        
-  <div class="optionsTypes">
-    <input type="radio" value="option-4" (click)="onclick(q4.value)" name="q1" #q4/> gertdvd
-  </div>
-         
 </section>
+
 
 <!--Multiselect question-->
 <section *ngIf="cardinality == 'multiple'" class="mcqOptions">
-<div class="optionsTypes">  
-<input type="checkbox"  name="checkbox" (click)="onclick(q1.value)" name="q1" #q1  tabindex="-1" >Uniform Resource Locator
-</div>
-<div class="optionsTypes">
-<input type="checkbox"  name="checkbox" (click)="onclick(q1.value)" name="q1" #q2  tabindex="-1" > Uniform Resource Link
-</div>
-<div class="optionsTypes">
-<input type="checkbox"  name="checkbox" (click)="onclick(q1.value)" name="q1" #q3  tabindex="-1" > on the floor
-</div>
-<div class="optionsTypes">
-<input type="checkbox"  name="checkbox" (click)="onclick(q1.value)" name="q1" #q4  tabindex="-1" > gertdvd
-</div>
-
-</section>        
-
-<quml-mcq-option></quml-mcq-option>
-
- <!--Add Remark Button-->
- <quml-add-remarks [showPopUpBox]="showPopUpBox" [showRemarkValue]="showRemarkValue" [showRemarks]="showRemarks" [maxLength]="maxLength" ></quml-add-remarks>
-
- <!--Attachments Button-->
- <quml-attachments [showEvidence]="showEvidence" ></quml-attachments>
-  
+  <div class="container" *ngFor="let option of options ; let i = index" >
+    <div class="optionsTypes">
+      <label class="option-container">
+        <input type="checkbox" [value]= "option.value" (click)="onclick(option.value)" name="'option'+i" #valueRef />
+        <p [innerHtml] = "option.label | safeHtml" class="optionValue"></p>
+      </label>
     </div>
-  </section>    
+  </div>
+</section>   
+
+
+<!--Add Remark Button-->
+<quml-add-remarks [showPopUpBox]="showPopUpBox" [showRemarkValue]="showRemarkValue" [showRemarks]="showRemarks" [maxLength]="maxLength" ></quml-add-remarks>
+
+<!--Attachments Button-->
+<quml-attachments [showEvidence]="showEvidence" ></quml-attachments>
+  
+  </div>
+</section>    
   
