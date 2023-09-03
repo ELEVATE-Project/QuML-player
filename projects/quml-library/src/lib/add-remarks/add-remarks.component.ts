@@ -22,6 +22,10 @@ export class AddRemarksComponent {
   // Variable to hold the length of the entered remark
   remarkLength: number;
 
+  dustbinIcon: boolean = false;
+  showIcon: boolean = false;
+  showAddRemarkBtn: boolean = true;
+
   // Function to toggle the visibility of the popup box
   popUpBox() {
     this.showPopUpBox = !this.showPopUpBox;
@@ -41,6 +45,19 @@ export class AddRemarksComponent {
     this.showPopUpBox = false;
   }
 
+  // showRemark1(data: Text){
+  //   this.remarkLength = data.length;
+  //   this.dustbinIcon = true;
+  //   console.log(this.remarkLength);
+  // }
+
+  onTextareaInput(inputField: HTMLTextAreaElement) {
+   // Check if textarea has content
+   // this.showIcon = inputField.value.trim().length > 0;
+    this.showAddRemarkBtn = false;
+    this.showIcon = true;
+  }
+
   // Function to handle keyboard events in the textarea
   textAreaKeyDown(_event: KeyboardEvent) {
     // Prevent the default behavior of the space key
@@ -52,5 +69,9 @@ export class AddRemarksComponent {
   // Function to handle the popup value from a child component
   handlePopUpValue() {
     this.showPopUpBox = true;
+  }
+
+  clearTextarea(){
+    console.log("cleared");
   }
 }

@@ -15,6 +15,10 @@ export class AttachmentsComponent {
   // Variable to hold the message for non-matched size alert
   nonMatchedSizeValue: string;
 
+  pdfIconDisplay: boolean;
+  imageIconDisplay: boolean;
+  videoIconDisplay: boolean;
+
   // Input property received from the parent component
   @Input() showEvidence: string;
 
@@ -32,6 +36,34 @@ export class AttachmentsComponent {
     // Set the message for non-matched size alert
     this.nonMatchedSizeValue = "File limit exceeds its maximum size (20 KB)";
   }
+
+  pdfIconEmit(_data : Event){
+     this.pdfIconDisplay = true;
+  }
+
+  videoIconEmit(_data : Event){
+    this.videoIconDisplay = true;
+  }
+
+  imageIconHandle(_data : Event){
+    this.imageIconDisplay = true;
+  }
+
+  closeVidIconHandle(){
+    this.videoIconDisplay = !this.videoIconDisplay;
+    console.log("closed");
+  }
+
+  closeImgIconHandle(){
+    this.imageIconDisplay = !this.imageIconDisplay;
+    console.log("closed");
+  }
+
+  closePdfIconHandle(){
+    this.pdfIconDisplay = !this.pdfIconDisplay;
+    console.log("closed");
+  }
+
 }
 
 

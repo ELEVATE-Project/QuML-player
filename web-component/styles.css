@@ -1645,7 +1645,7 @@ h6, .sb-h6 {
 
 p,
 .sb-para {
-  font-size: var(--p-font-size);
+  font-size: 1.1rem;
   line-height: calc(var(--p-font-size) * var(--line-height-value));
 }
 
@@ -4673,6 +4673,7 @@ button.sb-btn:focus {
   text-transform: inherit;
   text-decoration: none;
 }
+
 .sb-btn:hover {
   opacity: 1;
 }
@@ -5073,8 +5074,8 @@ button.sb-btn:focus {
 
 .sb-btn-normal {
   height: 2rem;
-  padding: 0.5rem 1rem;
-  font-size: 0.75rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 13.5px;
 }
 
 .sb-btn-sm {

@@ -39,21 +39,21 @@
 }
 
 .addRemarkBtn{
-  text-align: center;
   background: var(--primary-color);
   color: var(--quml-btn-color);
   font-family: var(--font-stack-en);
   font-weight: 400;
   position: relative;
-  width: 6.75rem;
   border: 1px solid var(--quml-btn-border);
-  border-radius: 1rem;
+  border-radius: 2rem;
   box-shadow: 4px 4px 3px var(--quml-btn-border);
   cursor: pointer;
   text-align: center;
-  height: 2rem;
-  padding: 0.3rem;
-  font-size: 0.75rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 13.5px;
   bottom: 1px;
   margin: 8px 0;
 }
@@ -66,8 +66,14 @@
 
 .inputContainer{
   margin: 20px;
+  width: auto;
+  height: auto;
 }
 
+.inputBox{
+  width: 100%;
+  height: auto;
+}
 .custom-file-input{
   color: var(--quml-heder-text-color);
   font-size: 0.8rem;
@@ -138,6 +144,12 @@ input[type=file] {
   font-size: 0.8rem;
   font-weight: 500;
   margin: 10px;
+}
+
+.textAreaContainer{
+  width: 100%;
+  border-radius: 9px;
+  margin-bottom: 15px;
 }
 
 .remarksHeading{

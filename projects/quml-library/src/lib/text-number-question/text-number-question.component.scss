@@ -16,6 +16,7 @@
     box-shadow: 5px 5px 4px var(--quml-btn-border);
   }
 
+
   .sa-title {
     color: var(--primary-color);
     font-size: 18px;
@@ -65,8 +66,14 @@
     margin-top: 16px;
   }
 
+  .quml-container{
+    display: flex;
+    justify-content: space-between;
+  }
 .question{
   color: var(--primary-color);
-  font-size: 0.8rem;
   font-weight: 500;
+  p{
+    font-size: 1.1rem !important;
+  }
 }

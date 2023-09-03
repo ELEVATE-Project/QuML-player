@@ -5,7 +5,7 @@
   background: var(--quml-main-bg);
   display: flow-root;
   border: 1px solid var(--quml-btn-border);
-  padding: 1.5rem;
+  padding: 2.5rem;
   height: 100%;
   margin-bottom: 2rem;
   margin-right: 1rem;
@@ -27,11 +27,15 @@
   color: var(--primary-color);
   font-size: var(--p-font-size);
   font-weight: 500;
-  margin-bottom: 2rem;
 }
 
 .optionTypes{
     padding: 2rem;
+}
+
+.quml-container{
+  display: flex;
+  justify-content: space-between;
 }
 
 .optionsTypes input[type="radio"] {
@@ -63,6 +67,8 @@
 .option-container {
   display: inline-flex; 
   height: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .optionValue{

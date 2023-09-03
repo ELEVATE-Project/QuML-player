@@ -23,20 +23,46 @@
   width: 50rem;
 }
 
+.crossContainer{
+  display: flex;
+  justify-content: flex-end;
+  border: none;
+  height: 20px;
+}
+
+.crossSection{
+  padding: 0px 0px 0px 0px;
+  border: none;
+  background-color: transparent;
+  font-weight: 700;
+  font-size: 16px;
+}
+
 .termsConditionForm{
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #f2f2ea;
+  background-color: #eae8d9;
   border: 1px solid var(--quml-btn-border);
-  padding: 10px;
-  border-radius: 1rem;
-  width: 80rem;
-  height: 12rem;
+  box-shadow: 6px 6px 6px var(--quml-btn-border);
+  padding: 2px 18px 2px 18px;
+  width: 32rem;
+  height: auto;
   z-index: 1;
   display: flex;
   margin: 20px;
+}
+
+.termsContent{
+  font-weight: 450;
+  font-size: 15px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.form-check-input{
+  margin-right: 20px;
 }
 
 
@@ -48,47 +74,64 @@
    font-weight: bold;
 }
 
+.crossBar{
+  color: black;
+  border: none;
+  background-color: transparent;
+
+}
+
+.cross-button{
+  display: flex;
+  justify-content: flex-end;
+}
+
 .buttons-for-termBox{
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  margin-bottom: 15px;
 }
 
 .doNotUplaodBtn{
-  background:  var(--primary-color);
-  color: var( --quml-main-bg);
-  font-family: var(--font-stack-en);
-  font-weight: 400;
-  width: 20%;
-  border: 1px solid var(--quml-btn-border);
-  margin: 10px 15px;
-  border-radius: 2rem;
-  cursor: pointer;
-  height: 2rem;
-  padding: 5px;
-  font-size: 13px;
-}
+  background: var(--primary-color);
+    color: var(--quml-main-bg);
+    font-family: var(--font-stack-en);
+    font-weight: 400;
+    width: auto;
+    border: 1px solid var(--quml-btn-border);
+    margin: 10px 15px;
+    border-radius: 2rem;
+    cursor: pointer;
+    padding: 10px 26px;
+    font-size: 13.5px;
+    box-shadow: 5px 5px 2px var(--gray-100);
+} 
 
 .uploadBtn:hover{
-    box-shadow: 0 2px 3px #0003;
+  background-color: #015dc1;
+}
+
+.uploadBtn:disabled{
+  background-color: #bebcbe;
 }
 
 .uploadBtn{
-  background: white;
-  color: black;
-  font-family: var(--font-stack-en);
-  font-weight: 400;
-  width: 20%;
-  border: 1px solid var(--primary-color);
-  margin: 10px 15px;
-  border-radius: 2rem;
-  cursor: pointer;
-  height: 2rem;
-  padding: 5px;
-  font-size: 13px;
+  background: var(--primary-color);
+    color: var(--quml-main-bg);
+    font-family: var(--font-stack-en);
+    font-weight: 400;
+    width: auto;
+    border: 1px solid var(--quml-btn-border);
+    margin: 10px 15px;
+    border-radius: 2rem;
+    cursor: pointer;
+    padding: 10px 26px;
+    font-size: 13.5px;
+    box-shadow: 5px 5px 2px var(--gray-100);
 }
 
 .doNotUplaodBtn:hover{
-    box-shadow: 0 2px 3px #0003;
+    background-color: #015dc1;
 }
 
 a{
@@ -96,9 +139,11 @@ a{
 }
 
 label {
-    display: inline-block;
-    margin-bottom: 0.5rem;
-    margin-top: 10px;
+  display: flex;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .document-container{

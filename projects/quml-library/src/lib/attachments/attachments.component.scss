@@ -7,16 +7,17 @@ input[type=file] {
 
 .file-input-btn{
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #807e81;
+  padding: 1px 20px;
+  background-color: #a9a9a9;
   color: #2757a1; 
-  font-size: x-large;
-  font-weight: bold;
+  font-size: medium;
+  font-weight: 500;
   border: none;
   cursor: pointer;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 65px;
 }
+
 
 .type{
   color: var(--primary-color);
@@ -31,4 +32,56 @@ input[type=file] {
   font-size: medium;
   font-weight: 400;
   font-family: var(--font-stack-en);
+}
+
+.attachments-container{
+  display:flex;
+  justify-content: flex-start;
+}
+
+.icons{
+  margin-left: 15px;
+  margin-right: 15px;
+  z-index: 0;
+}
+
+.iconCloseBtn{
+  z-index: 1;
+  background-color: #525252;
+  border: 5px solid white;
+  color: #fff;
+  padding: 0 12px;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 9px #525252;
+  cursor: pointer;
+  position: relative;
+  bottom: 49px;
+  right: 10px;
+  font-size: small;
+  font-weight: 500;
+  padding-bottom: 2px;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: relative;
+}
+
+.iconCloseBtnPdf{
+  z-index: 1;
+  background-color: #525252;
+  border: 5px solid white;
+  color: #fff;
+  padding: 0 12px;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 9px #525252;
+  cursor: pointer;
+  position: relative;
+  bottom: 9px;
+  right: 4px;
+  font-size: small;
+  font-weight: 500;
+  padding-bottom: 2px;
 }

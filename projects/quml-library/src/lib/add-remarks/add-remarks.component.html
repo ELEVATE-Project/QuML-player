@@ -1,42 +1,89 @@
 <!-- Add Remark Button -->
-<section *ngIf="showRemarks !== 'No'" class="addRemark">
+<!-- <section *ngIf="showRemarks !== 'No'" class="addRemark"> -->
     <!-- Container for adding remark button -->
-    <ng-container *ngIf="!remarkSubmitted">
+    <!-- <ng-container *ngIf="!remarkSubmitted"> -->
         <!-- Button to trigger the remark popup -->
-        <button class="addRemarkBtn" (click)="popUpBox()">Add Remark</button>
-    </ng-container>
+        <!-- <button class="addRemarkBtn" (click)="popUpBox()">Add Remark</button>
+    </ng-container> -->
 
-    <!-- Popup box for adding a remark -->
-    <section class="remark-box" [hidden]="!showPopUpBox">
-        <!-- Content within the remark popup box -->
-        <section class="remark-content">
-            <!-- Textarea container for adding remarks -->
-            <section class="inputContainer">
-                <!-- Heading for the textarea section -->
-                <section class="textarea-heading">Add Remarks</section>
-                <!-- Textarea input field for adding remarks -->
-                <textarea id="message" rows="" cols="" placeholder="Add remarks here..." #inputField class="inputFieldSection" [maxLength]="maxLength" (keydown)="textAreaKeyDown($event)" (keydown.enter)="$event.preventDefault()"></textarea>
-            </section>
-            <!-- Section displaying maximum character limit for remarks -->
-            <section>
-                <p style="color: var(--quml-color-danger)">Maximum character limit {{maxLength}}</p>
-            </section>
+    <!--PopUp box-->
+    <!-- <section class="inputBox" [hidden]="!showPopUpBox"> -->
+        <!--Textarea container for adding remarks-->
+        <!-- <section>
+            <textarea id="message" #inputField class="textAreaContainer" [maxLength]="maxLength"></textarea>
         </section>
+    </section> -->
 
-        <!-- Container for cancel / add buttons -->
-        <section class="buttonsContainer">
-            <!-- Button to cancel and close the popup -->
-            <button class="cancle-button" (click)="popUpBox()">Cancel</button>
-            <!-- Button to submit the entered remark -->
-            <button class="submit-button" (click)="showRemark(inputField.value)">Add</button>
-        </section>
+<section *ngIf="showRemarks !== 'No'" class="addRemark">
+    <section>
+        <button class="addRemarkBtn" (click)="popUpBox()" *ngIf="showAddRemarkBtn == true">Add Remark</button>
+        <!-- <span *ngIf="showIcon == true" (click)="clearTextarea()">
+            <svg class="svg-icon" viewBox="0 0 20 20">
+                <path d="M17.114,3.923h-4.589V2.427c0-0.252-0.207-0.459-0.46-0.459H7.935c-0.252,0-0.459,0.207-0.459,0.459v1.496h-4.59c-0.252,0-0.459,0.205-0.459,0.459c0,0.252,0.207,0.459,0.459,0.459h1.51v12.732c0,0.252,0.207,0.459,0.459,0.459h10.29c0.254,0,0.459-0.207,0.459-0.459V4.841h1.511c0.252,0,0.459-0.207,0.459-0.459C17.573,4.127,17.366,3.923,17.114,3.923M8.394,2.886h3.214v0.918H8.394V2.886z M14.686,17.114H5.314V4.841h9.372V17.114z M12.525,7.306v7.344c0,0.252-0.207,0.459-0.46,0.459s-0.458-0.207-0.458-0.459V7.306c0-0.254,0.205-0.459,0.458-0.459S12.525,7.051,12.525,7.306M8.394,7.306v7.344c0,0.252-0.207,0.459-0.459,0.459s-0.459-0.207-0.459-0.459V7.306c0-0.254,0.207-0.459,0.459-0.459S8.394,7.051,8.394,7.306"></path>
+                </svg>
+        </span> -->
+    </section>
+    <section *ngIf="showIcon == true">
+        <span (click)="clearTextarea()">
+            <svg class="svg-icon" viewBox="0 0 20 20">
+                <path d="M17.114,3.923h-4.589V2.427c0-0.252-0.207-0.459-0.46-0.459H7.935c-0.252,0-0.459,0.207-0.459,0.459v1.496h-4.59c-0.252,0-0.459,0.205-0.459,0.459c0,0.252,0.207,0.459,0.459,0.459h1.51v12.732c0,0.252,0.207,0.459,0.459,0.459h10.29c0.254,0,0.459-0.207,0.459-0.459V4.841h1.511c0.252,0,0.459-0.207,0.459-0.459C17.573,4.127,17.366,3.923,17.114,3.923M8.394,2.886h3.214v0.918H8.394V2.886z M14.686,17.114H5.314V4.841h9.372V17.114z M12.525,7.306v7.344c0,0.252-0.207,0.459-0.46,0.459s-0.458-0.207-0.458-0.459V7.306c0-0.254,0.205-0.459,0.458-0.459S12.525,7.051,12.525,7.306M8.394,7.306v7.344c0,0.252-0.207,0.459-0.459,0.459s-0.459-0.207-0.459-0.459V7.306c0-0.254,0.207-0.459,0.459-0.459S8.394,7.051,8.394,7.306"></path>
+                </svg>
+        </span>
     </section>
 </section>
+    <section class="inputBox" [hidden]="!showPopUpBox">
+        <section>
+            <textarea id="message" #inputField class="textAreaContainer" rows="3" [maxLength]="maxLength"  (input)="onTextareaInput(inputField)"></textarea>
+        </section>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Popup box for adding a remark -->
+    <!--<section class="remark-box" [hidden]="!showPopUpBox"> -->
+        <!-- Content within the remark popup box -->
+    <!--    <section class="remark-content"> -->
+            <!-- Textarea container for adding remarks -->
+     <!--       <section class="inputContainer"> -->
+                <!-- Heading for the textarea section -->
+    <!--            <section class="textarea-heading">Add Remarks</section> -->
+                <!-- Textarea input field for adding remarks -->
+     <!--           <textarea id="message" rows="" cols="" placeholder="Add remarks here..." #inputField class="inputFieldSection" [maxLength]="maxLength" (keydown)="textAreaKeyDown($event)" (keydown.enter)="$event.preventDefault()"></textarea>
+            </section> -->
+            <!-- Section displaying maximum character limit for remarks -->
+            <!-- <section>
+                <p style="color: var(--quml-color-danger)">Maximum character limit {{maxLength}}</p>
+            </section>
+        </section> -->
+
+        <!-- Container for cancel / add buttons -->
+        <!-- <section class="buttonsContainer"> -->
+            <!-- Button to cancel and close the popup -->
+            <!-- <button class="cancle-button" (click)="popUpBox()">Cancel</button> -->
+            <!-- Button to submit the entered remark -->
+            <!-- <button class="submit-button" (click)="showRemark(inputField.value)">Add</button>
+        </section>
+    </section>
+</section> -->
 
 <!-- Show remark section -->
-<section *ngIf="remarkLength != 0">
+<!-- <section *ngIf="remarkLength != 0"> -->
     <!-- Component to display the submitted remarks -->
-    <quml-show-remark [inputFieldValue]="inputFieldValue" [remarkSubmitted]="remarkSubmitted" (valueEmitOfRemarks)="handlePopUpValue()"></quml-show-remark>
-</section>
+    <!-- <quml-show-remark [inputFieldValue]="inputFieldValue" [remarkSubmitted]="remarkSubmitted" (valueEmitOfRemarks)="handlePopUpValue()"></quml-show-remark>
+</section>  -->
 
 
