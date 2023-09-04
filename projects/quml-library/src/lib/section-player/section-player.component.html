@@ -37,11 +37,11 @@
         <!--<ngx-carousel-item *ngFor="let question of questions; let i= index" #questionSlide>-->
           <slide *ngFor="let question of questions; let i= index" #questionSlide>
             <div [id]="question.identifier">
-              <div *ngIf="question?.primaryCategory.toLowerCase() === 'multiple choice question'">
+              <!-- <div *ngIf="question?.primaryCategory.toLowerCase() === 'multiple choice question'">
                 <quml-mcq [shuffleOptions]='shuffleOptions' [question]='question' [replayed]="parentConfig?.isReplayed"
                   (optionSelected)="getOptionSelected($event)" [identifier]="question.id" [tryAgain]="tryAgainClicked">
                 </quml-mcq>
-              </div>
+              </div> -->
               <div *ngIf="question?.primaryCategory.toLowerCase() === 'subjective question'">
                 <quml-sa [questions]='question' [replayed]="parentConfig?.isReplayed" [baseUrl]="parentConfig?.baseUrl"
                   (showAnswerClicked)="sendData($event)" (sendData)="sendData($event)">
@@ -63,11 +63,12 @@
                   (showAnswerClicked)="sendData($event)" (sendData)="sendData($event)">
                 </quml-date-question>
               </div>
-              <div *ngIf="question?.primaryCategory.toLowerCase() === 'multiselect multiple choice '"></div>
+              <div *ngIf="question?.primaryCategory.toLowerCase() === 'multiselect multiple choice question'">
                 <quml-new-mcq-question [questions]='question' [replayed]="parentConfig?.isReplayed" [baseUrl]="parentConfig?.baseUrl" 
-                (showAnswerClicked)="sendData($event)" (sendData)="sendData($event)" >
+                  (showAnswerClicked)="sendData($event)" (sendData)="sendData($event)" >
                 </quml-new-mcq-question>
               </div>
+            </div>
           </slide>
          <!-- </ngx-carousel-item> -->
         </carousel> 

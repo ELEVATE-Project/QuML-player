@@ -62,6 +62,10 @@ input[type=file] {
   padding-bottom: 2px;
 }
 
+.iconCloseBtn:hover {
+  background-color: red;
+}
+
 .icon-container {
   display: flex;
   justify-content: flex-end;
@@ -84,4 +88,12 @@ input[type=file] {
   font-size: small;
   font-weight: 500;
   padding-bottom: 2px;
+}
+.file-container {
+  display: flex;
+  align-items: center;
+
+  section {
+    margin: 10px;
+  }
 }

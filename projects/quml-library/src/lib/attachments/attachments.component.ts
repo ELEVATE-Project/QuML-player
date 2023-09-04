@@ -18,6 +18,7 @@ export class AttachmentsComponent {
   pdfIconDisplay: boolean;
   imageIconDisplay: boolean;
   videoIconDisplay: boolean;
+  files:any = [];
 
   // Input property received from the parent component
   @Input() showEvidence: string;
@@ -64,6 +65,18 @@ export class AttachmentsComponent {
     console.log("closed");
   }
 
+  handleFile(event) {
+    console.log(event)
+    this.files.push(event.target.files[0])
+    console.log(event.target.files)
+  }
+  removeItem(index) {
+    this.files.splice(index,1)
+  }
+
+  openFile(file) {
+    const fileURL = URL.createObjectURL(file);
+    window.open(fileURL, '_blank');
+  }
+
 }
-
-

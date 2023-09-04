@@ -70,10 +70,15 @@
     display: flex;
     justify-content: space-between;
   }
-.question{
+
+::ng-deep .question{
   color: var(--primary-color);
   font-weight: 500;
   p{
-    font-size: 1.1rem !important;
+    font-size: 1.2rem !important;
   }
+}
+
+#submit-answer {
+  font-size: 15px;
 }

@@ -72,6 +72,8 @@ export class AddRemarksComponent {
   }
 
   clearTextarea(){
-    console.log("cleared");
+    this.inputFieldValue = '';
+    this.showPopUpBox = !this.showPopUpBox;
+    this.showAddRemarkBtn = !this.showAddRemarkBtn;
   }
 }

@@ -1,15 +1,28 @@
 <!-- Attachments Section -->
 <section *ngIf="showEvidence !== 'No'" class="attachments-container">
   <!-- Button to trigger handling terms form -->
-  <button class="file-input-btn" (click)="handletermsForm()">
+  <button class="file-input-btn" (click)='fileInput.click()' >
     + Files<!-- Plus sign icon for adding attachments -->
   </button>
-  
+
+  <div *ngIf="files.length > 0" class="file-container">
+    <section *ngFor="let file of files;let i=index" (click)="openFile(file)">
+      <svg height="60px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+      viewBox="0 0 512 512" xml:space="preserve">
+      <path style="fill:#E2E5E7;" d="M128,0c-17.6,0-32,14.4-32,32v448c0,17.6,14.4,32,32,32h320c17.6,0,32-14.4,32-32V128L352,0H128z"/>
+      <path style="fill:#B0B7BD;" d="M384,128h96L352,0v96C352,113.6,366.4,128,384,128z"/>
+      <polygon style="fill:#CAD1D8;" points="480,224 384,128 480,128 "/>
+      <path style="fill:#024f9d;" d="M416,416c0,8.8-7.2,16-16,16H48c-8.8,0-16-7.2-16-16V256c0-8.8,7.2-16,16-16h352c8.8,0,16,7.2,16,16
+      V416z"/></svg>
+      <!-- <img src="./../assets/image.svg" alt="image"> -->
+      <button class="iconCloseBtn" (click)='removeItem(i)'>x</button>
+    </section>
+  </div>
   <!-- Section for displaying the type label -->
   <!-- <section>
     <p class="type">Files</p>
   </section> -->
-  <section *ngIf="pdfIconDisplay == true" class="icons">
+  <!-- <section *ngIf="pdfIconDisplay == true" class="icons">
     <section class="icon-container">
     <svg height="60px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
     viewBox="0 0 512 512" xml:space="preserve">
@@ -32,7 +45,7 @@
     </svg> 
     <button class="iconCloseBtnPdf" (click)="closePdfIconHandle()">x</button>
   </section>
-</section>
+</section> -->
 
   <section *ngIf="imageIconDisplay == true" class="icons">
     <section>
@@ -58,6 +71,9 @@
   <!-- Component for displaying terms and conditions dialog box -->
   <quml-terms-condition-box [termsDialogOpen]="termsDialogOpen" (nonMatchedSizeEmit)="handleNonMatchedSize()" (imageIconEmit)="imageIconHandle($event)" (videoIconEmit)="videoIconEmit($event)" (pdfIconEmit)="pdfIconEmit($event)"></quml-terms-condition-box>
 </section>
+
+<input type="file" #fileInput (change)="handleFile($event)">
+
   
 
   
