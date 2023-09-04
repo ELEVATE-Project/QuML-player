@@ -24,6 +24,8 @@
   .hint-content {
     position: relative;
     text-align: center;
+    display:flex;
+    justify-content: space-between;
     margin: 7px;
   }
 
@@ -37,7 +39,7 @@
   background-color: var(--quml-color-danger);
   color: #eee;
   width: auto;
-  height: auto;
+  height: 30px;
   border-radius: 0;
   border: 1px solid var(--quml-btn-border);
 }
@@ -56,4 +58,6 @@ svg path{
   font-weight: 500;
   font-family: inherit;
   font-size: 14px;
+  position: relative;
+  left: 40%;
 }

@@ -13,10 +13,10 @@
 <!--Hint content-->
 <span class="hint-box" [hidden]="!showHintBox">
     <section class="hint-content">
+        <p class="hint-title">Hint Content</p>
         <section class="cross-btn">
             <button class="close-button" (click)="toggleHintBox()">&times;</button>
         </section>
-        <p class="hint-title">Hint Content</p>
     </section>
     <section *ngFor = "let hint of hints?.value?.nestedValue | keyvalue">
         <p >{{ hint.value.en }}</p>

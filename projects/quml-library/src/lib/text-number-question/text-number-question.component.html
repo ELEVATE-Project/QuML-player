@@ -12,7 +12,7 @@
                <section>
                 <quml-hint [showHintBox]="showHintBox" [hints]="hints"></quml-hint>
             </section>
-            
+
         </section>
             <!--Input for question-->
             <section>
@@ -26,7 +26,7 @@
         <quml-attachments [showEvidence]="showEvidence" ></quml-attachments>
    
        <!--Show answer Section-->
-        <section class="sa-button-container">
+        <!-- <section class="sa-button-container">
             <section *ngIf="!showAnswer" id="submit-answer" tabindex="0" class="sb-btn sb-btn-primary sb-btn-normal sb-btn-radius"
             aria-label="Show Answer" (click)="showAnswerToUser()" (keydown)="onEnter($event)">
                 Show Answer
@@ -34,14 +34,14 @@
             <section id="answer-container" [ngClass]="showAnswer ? 'option-container-blurred-out': 'option-container-blurred'">
                 <section class="sa-title" [attr.aria-hidden]="showAnswer ? null : true">
                     Answer
-            </section>
+            </section> -->
        
         <!--Section for Solutions-->
-        <ng-container *ngIf="solutions"> 
+        <!-- <ng-container *ngIf="solutions"> 
             <section class="solutions" *ngFor="let solution of solutions | keyvalue" [attr.aria-hidden]="showAnswer ? null : true">
                 <section [innerHTML]="solution.value | safeHtml" tabindex="-1"></section>
             </section>
-        </ng-container>
+        </ng-container> -->
 
     </section>
 </section>
