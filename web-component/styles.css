@@ -416,7 +416,7 @@
 
 html {
   font-family: inherit;
-  line-height: 1.10;
+  line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
@@ -1645,7 +1645,7 @@ h6, .sb-h6 {
 
 p,
 .sb-para {
-  font-size: 1.1rem;
+  font-size: var(--p-font-size);
   line-height: calc(var(--p-font-size) * var(--line-height-value));
 }
 
@@ -4673,7 +4673,6 @@ button.sb-btn:focus {
   text-transform: inherit;
   text-decoration: none;
 }
-
 .sb-btn:hover {
   opacity: 1;
 }
@@ -5074,8 +5073,8 @@ button.sb-btn:focus {
 
 .sb-btn-normal {
   height: 2rem;
-  padding: 0.5rem 1.5rem;
-  font-size: 13.5px;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
 }
 
 .sb-btn-sm {
@@ -5387,6 +5386,7 @@ html[dir=rtl] .sb-left-icon-btn i.icon {
 /*!*********************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[5].rules[0].oneOf[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[5].rules[0].oneOf[0].use[2]!./projects/quml-library/src/lib/assets/styles/quml-carousel.css?ngGlobalStyle ***!
   \*********************************************************************************************************************************************************************************************************************************************************************/
+
 html, body {
     height: 100%;
   }

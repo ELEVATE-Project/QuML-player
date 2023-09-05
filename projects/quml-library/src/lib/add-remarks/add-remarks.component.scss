@@ -36,6 +36,8 @@
 .addRemark{
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 8px;
+  margin-top: 8px;
 }
 
 .addRemarkBtn{
@@ -58,133 +60,15 @@
   margin: 8px 0;
 }
 
-.buttonsContainer{
-  display: flex;
-  justify-content: center;
-  position: relative;
-}
-
-.inputContainer{
-  margin: 20px;
-  width: auto;
-  height: auto;
-}
-
 .inputBox{
   width: 100%;
   height: auto;
-}
-.custom-file-input{
-  color: var(--quml-heder-text-color);
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-.inputFieldSection{
-  width: 100%;
-  display: flex;
-  position: relative;
-  border: 1px solid var(--quml-header-bg-color);
-  text-align: center;
-  padding: 1rem;
-  height: 80px;
-  top: 8px;
-  border-radius: 1rem;
-}
-
-input[type=file] {
-  display: none;
-}
-
-.submitContainer{
-  margin: 10px;
-}
-
-
-.cancle-button{
-  background: #f4f5f9;
-  color: black;
-  font-family: var(--font-stack-en);
-  font-weight: 400;
-  position: relative;
-  width: 100%;
-  border: 1px solid var(--quml-btn-border);
-  margin: 10px 15px;
-  cursor: pointer;
-  height: 2rem;
-  padding: 0.3rem;
-  font-size: 0.85rem;
-}
-
-.cancle-button:hover{
-  box-shadow: 0 2px 3px #0003;
-}
-
-.submit-button{
-  background:  var(--primary-color);
-  color: var( --quml-main-bg);
-  font-family: var(--font-stack-en);
-  font-weight: 400;
-  position: relative;
-  width: 100%;
-  border: 1px solid var(--quml-btn-border);
-  margin: 10px 15px;
-  cursor: pointer;
-  height: 2rem;
-  padding: 0.3rem;
-  font-size: 0.85rem
-}
-
-.submit-button:hover{
-  box-shadow: 0 2px 3px #0003;
-}
-
-.textarea-heading{
-  color: var(--primary-color);
-  font-size: 0.8rem;
-  font-weight: 500;
-  margin: 10px;
 }
 
 .textAreaContainer{
   width: 100%;
   border-radius: 9px;
   margin-bottom: 15px;
-}
-
-.remarksHeading{
-  color: var(--primary-color);
-  font-weight: 500;
-}
-
-.remarkValue{
-  display:flex;
-  justify-content: flex-start;
-  margin-bottom: 16px;
-}
-
-.remarkContainer{
-  background: #eae8d9;
-  width: auto;
-  display: flex;
-  justify-content: flex-start;
-  border-radius: 1rem;
-}
-
-.remarkValueText{
- margin: 20px;
- background: #eae8d9;
- white-space: normal;
- max-width: 100%;
- font-weight: 500;
-}
-
-.editIcon{
-  width: 2rem;
-  margin: 20px;
-  height: 1rem;
-  margin-left: 20px;
-  cursor: pointer;
 }
 
 svg path{

@@ -13,17 +13,9 @@ export class AddRemarksComponent {
   @Input() showRemarks: string; // Specifies the visibility of remarks
   @Input() maxLength: number; // Maximum character length for a remark
 
-  // State variable to track if a remark has been submitted
-  remarkSubmitted: boolean = false;
 
   // Variable to hold the value of the input field for remarks
   inputFieldValue: string;
-
-  // Variable to hold the length of the entered remark
-  remarkLength: number;
-
-  dustbinIcon: boolean = false;
-  showIcon: boolean = false;
   showAddRemarkBtn: boolean = true;
 
   // Function to toggle the visibility of the popup box
@@ -31,46 +23,12 @@ export class AddRemarksComponent {
     this.showPopUpBox = !this.showPopUpBox;
   }
 
-  // Function to handle the submission of a remark
-  showRemark(data: string) {
-    this.remarkLength = data.length;
-    
-    // If a remark is not empty, mark it as submitted and set the showRemarkValue flag
-    if (this.remarkLength != 0) {
-      this.remarkSubmitted = true;
-      this.showRemarkValue = true;
-    }
-    // Store the entered remark value and hide the popup box
-    this.inputFieldValue = data;
-    this.showPopUpBox = false;
-  }
-
-  // showRemark1(data: Text){
-  //   this.remarkLength = data.length;
-  //   this.dustbinIcon = true;
-  //   console.log(this.remarkLength);
-  // }
-
+  //Function for handling value of showAddRemarkBtn
   onTextareaInput(inputField: HTMLTextAreaElement) {
-   // Check if textarea has content
-   // this.showIcon = inputField.value.trim().length > 0;
     this.showAddRemarkBtn = false;
-    this.showIcon = true;
   }
 
-  // Function to handle keyboard events in the textarea
-  textAreaKeyDown(_event: KeyboardEvent) {
-    // Prevent the default behavior of the space key
-    if (_event.key === ' ') {
-      _event.preventDefault();
-    }
-  }
-
-  // Function to handle the popup value from a child component
-  handlePopUpValue() {
-    this.showPopUpBox = true;
-  }
-
+  //Function for clearing the remark field data and closing textarea
   clearTextarea(){
     this.inputFieldValue = '';
     this.showPopUpBox = !this.showPopUpBox;

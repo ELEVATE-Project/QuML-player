@@ -13,6 +13,7 @@ export class TermsConditionBoxComponent {
 
 // Input property to control the visibility of the terms and conditions dialog box
 @Input() termsDialogOpen: boolean;
+@Input() parentFileInput: ElementRef;
 
 // Output event to emit the non-matched size information
 @Output() nonMatchedSizeEmit = new EventEmitter<any>();
@@ -28,6 +29,17 @@ fileUpload: boolean;
 file: any;
 imagePopUp: boolean;
 enableFilesSection: boolean;
+nonMatchedSizeValue: string;
+
+pdfIconDisplay: boolean; //Variable to display pdf icon
+imageIconDisplay: boolean; //Variable to display image icon
+videoIconDisplay: boolean; //Variable to display video icon
+showUploadMessage: boolean; //Variable to display uploaded message
+files:any = []; // variable declared to store files inside files of type array
+
+// variables from parent component
+nonMatchedSize: boolean = false;
+
 
 // Function to cancel the terms and conditions dialog box
 cancelTermsDialog() {
@@ -36,7 +48,7 @@ cancelTermsDialog() {
 
 // Function to trigger the file input click event
 triggerInputClick() {
-  if (this.inputFileField) {
+  if(this.inputFileField){
     this.inputFileField.nativeElement.click();
   }
 }
@@ -49,90 +61,66 @@ logInForm(termsForm: NgForm) {
   }
 }
 
-// Function to handle the selection of a file
-// onFileSelected(event: Event) {
-  // this.termsDialogOpen = false;
-  // const inputElement = event.target as HTMLInputElement;
-  // if (inputElement.files && inputElement.files.length > 0) {
-  //   this.file = inputElement.files[0];
-  //   const maxSizeInBytes = (1024*1024*1024) ;//20480 ;
-    // Condition for matched file size
-    // if (this.file.size <= maxSizeInBytes) {
-    //   this.readFile(this.file);
-    //   this.fileName = this.file.name;
-    // } else {
-      // Emit event for non-matched file size
-//       this.nonMatchedSizeEmit.emit(true);
-//     }
-//   }
-// }
+handleFile(event) {
+  // Open a terms dialog or pop-up box
+  this.imageIconDisplay = false;
+  this.videoIconDisplay = false;
+  this.pdfIconDisplay = false;
+  this.termsDialogOpen = true;
 
-//Function for multiple upload of files
-onFileSelected(event: Event) {
+  const uploadedFile = event.target.files[0];
+
+  // Check if the file size is equal to or less than 20 KB (20 * 1024 bytes)
+  const maxSizeInBytes = 1024* 1024 * 1024;
+  if (uploadedFile.size <= maxSizeInBytes) {
+
+  // Check if file type is image
+  if(uploadedFile.type.startsWith('image/')){
+    this.imageIconDisplay = true;
+    this.files.push(uploadedFile);
+    this.imageIconEmit.emit(uploadedFile);
+  }
+
+  // Check if file type is video
+  if (uploadedFile.type.startsWith('video/')){
+    this.videoIconDisplay = true;
+    this.files.push(uploadedFile);
+    this.videoIconEmit.emit(uploadedFile);
+  }
+
+  // Check if file type is document
+  if(uploadedFile.type === 'application/msword' ||
+  uploadedFile.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+  uploadedFile.type === 'application/pdf'){
+    this.pdfIconDisplay = true;
+    this.files.push(uploadedFile);
+    this.pdfIconEmit.emit(uploadedFile);
+  }
+
+  setTimeout(()=>this.showUpload(), 500)
   this.termsDialogOpen = false;
-  const inputElement = event.target as HTMLInputElement;
-
-  if (inputElement.files && inputElement.files.length > 0) {
-    this.file = inputElement.files; 
-    const maxSizeInBytes = 1024 * 1024 * 1024; //(20480)
-    for (let i = 0; i < this.file.length; i++) {
-      const file = this.file[i];
-      if (file.size <= maxSizeInBytes) {
-        this.readFile(file);
-        this.fileName = file.name;
-      } else {
-        this.nonMatchedSizeEmit.emit(true);
-      }
-    }
+}
+ 
+ else {
+  // File size exceeds the limit
+  this.nonMatchedSize = true;
+  this.nonMatchedSizeValue = "File size exceeds the maximum limit (20 KB)";
   }
 }
 
-// Function to read and process the selected file
-readFile(file: File) {
-  const reader = new FileReader();
-  reader.onload = (event: any) => {
-    this.imageDataUrl = event.target.result;
-    this.selectFile = this.imageDataUrl;
-  };
-  reader.readAsDataURL(file);
+//Function to set value of showUploadMeassage as true
+showUpload(){
+  this.showUploadMessage = true;
 }
 
-// Function to check if the file type is an image
-isImageType(fileData: any): boolean {
-  if(fileData && fileData.startsWith('data:image')){
-    this.imagePopUp = true;
-    this.imageIconEmit.emit(true);
-    return true;
-  }
+//Function to remove files in array 
+removeItem(index) {
+  this.files.splice(index,1)
 }
 
-// Function to check if the file type is a video
-isVideoType(fileData: any): boolean {
-  if(fileData && fileData.startsWith('data:video')){
-    this.videoIconEmit.emit(true);
-    return true;
-  }
-}
-
-// Function to check if the file type is a document
-isDocumentType(fileData: any, fileName: string): boolean {
-  if(fileData && (
-    fileData.startsWith('data:application/msword') ||
-    fileData.startsWith('data:application/vnd.openxmlformats-officedocument.wordprocessingml.document') ||
-    fileData.startsWith('data:application/pdf')
-  )){
-    this.pdfIconEmit.emit(true);
-    return true;
-  }
-}
-
-// Function to handle the upload event
-handleUploadEmit() {
-  this.fileUpload = true;
-}
-
-// Function to handle the update event
-handleUpdateEmit(event: Event) {
-  this.onFileSelected(event);
+//Function to open file in new tab
+openFile(file) {
+  const fileURL = URL.createObjectURL(file);
+  window.open(fileURL, '_blank');
 }
 }

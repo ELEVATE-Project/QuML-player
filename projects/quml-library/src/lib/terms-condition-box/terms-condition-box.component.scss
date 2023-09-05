@@ -2,27 +2,6 @@
 @import'../../../../../projects/quml-library/src/lib/assets/styles/quml-parent.scss';
 
 
-.imageSection{
-  background-color: red;
-}
-
-.selectFileSection{
-  display: flex;
-  justify-content: center;
-}
-
-.imageFile{
-  vertical-align: middle;
-  border-style: none;
-  width: 25rem;
-}
-
-.videoFile{
-  vertical-align: middle;
-  border-style: none;
-  width: 50rem;
-}
-
 .crossContainer{
   display: flex;
   justify-content: flex-end;
@@ -63,27 +42,6 @@
 
 .form-check-input{
   margin-right: 20px;
-}
-
-
-.dialogBoxHeading{
-   display: flex;
-   justify-content: center;
-   color: #252420;
-   font-size: medium;
-   font-weight: bold;
-}
-
-.crossBar{
-  color: black;
-  border: none;
-  background-color: transparent;
-
-}
-
-.cross-button{
-  display: flex;
-  justify-content: flex-end;
 }
 
 .buttons-for-termBox{
@@ -146,19 +104,3 @@ label {
   margin-right: 10px;
 }
 
-.document-container{
-  display: flex;
-  justify-content: flex-start;
-  height: auto;
-  width: auto;
-  border: 1px solid var(--quml-btn-border);
-  border-radius: 1rem;
-}
-
-.svg-pdf-icon{
-  margin: 20px 40px 20px 40px ;
-}
-
-.document{
-  margin: 30px;
-}

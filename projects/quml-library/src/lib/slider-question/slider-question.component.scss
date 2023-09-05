@@ -17,18 +17,14 @@
   
   .question{
     color: var(--primary-color);
-    font-size: 0.8rem;
     font-weight: 500;
-    position: relative;
-    top: 6px;
-    left: 46%;
   }
 
   .quml-container{
     display: flex;
-  flex-direction: row; /* Horizontal layout */
-  justify-content: space-between; /* Space between children */
-  align-items: center; /* Center vertically */
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: space-between; 
   }
 
   .sa-title {
@@ -40,7 +36,7 @@
   }
 
   .slider-container{
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
 
   .slidecontainer {
@@ -119,3 +115,7 @@
     padding: 2px;
   }
 
+  input[type=range]{
+    margin-top: 1.5rem;
+    margin-bottom: 16px;
+  }
