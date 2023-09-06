@@ -22,7 +22,7 @@
         <quml-add-remarks [showPopUpBox]="showPopUpBox" [showRemarkValue]="showRemarkValue" [showRemarks]="showRemarks" [maxLength]="maxLength" (textAreaValue)="handleTextareaValue($event)" ></quml-add-remarks>
 
         <!--Attachments Button-->
-        <quml-attachments [showEvidence]="showEvidence" (selectFileEmit)="onSelectedFileSend($event)"></quml-attachments>
+        <quml-attachments [sizeLimit]="sizeLimit" [showEvidence]="showEvidence" (selectFileEmit)="onSelectedFileSend($event)"></quml-attachments>
  
     </section>
 </section>

@@ -37,7 +37,9 @@ export class DateQuestionComponent implements OnInit {
   showRemarks: boolean = false;
   maxLength: number;
   remark: string;
-  hints: any;
+
+  hints: any; //variable used for storing hint content
+  sizeLimit: any; // variable used for storing value of size limit for uploading files.
   
   selectedFile: File; // Variable to store selected file
 
@@ -70,6 +72,8 @@ export class DateQuestionComponent implements OnInit {
     this.solutions = _.isEmpty(this.questions?.solutions) ? null : this.questions?.solutions;
     this.questionName = this.questions?.editorState.question;
     this.hints = this.questions?.hints;
+    this.sizeLimit = this.questions?.evidence.sizeLimit;                                                                                     
+
   }
 
   // Toggles the visibility of the popup box

@@ -28,6 +28,8 @@ export class AttachmentsComponent {
   // Input property received from the parent component
   @Input() showEvidence: string;
 
+  @Input() sizeLimit: number;
+
   // Function to handle the terms and conditions form
   handletermsForm() {
     // Toggle the state of the terms and conditions dialog box
@@ -52,32 +54,13 @@ export class AttachmentsComponent {
     const uploadedFile = event.target.files[0];
 
     // Check if the file size is equal to or less than 20 KB (20 * 1024 bytes)
-    const maxSizeInBytes = 1024* 1024 * 1024;
+    const maxSizeInBytes = 20 * 1024;
     if (uploadedFile.size <= maxSizeInBytes) {
-
-    // Check if file type is image
-    if(uploadedFile.type.startsWith('image/')){
-      this.imageIconDisplay = true;
       this.files.push(uploadedFile);
-    }
 
-    // Check if file type is video
-    if (uploadedFile.type.startsWith('video/')){
-      this.videoIconDisplay = true;
-      this.files.push(uploadedFile);
-    }
-
-    // Check if file type is document
-    if(uploadedFile.type === 'application/msword' ||
-    uploadedFile.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
-    uploadedFile.type === 'application/pdf'){
-    this.pdfIconDisplay = true;
-    this.files.push(uploadedFile);
-    }
-
-    setTimeout(()=>this.showUpload(), 500)
-    this.termsDialogOpen = false;
-}
+      setTimeout(()=>this.showUpload(), 500)
+      this.termsDialogOpen = false;
+    } 
    
    else {
     // File size exceeds the limit

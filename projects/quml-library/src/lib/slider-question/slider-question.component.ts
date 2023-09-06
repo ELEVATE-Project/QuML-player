@@ -38,6 +38,7 @@ export class SliderQuestionComponent implements OnInit {
   showHintBox: boolean = false; // variable for showing hint-box
   maxLength: number; // variable for setting maxLength
   hints: any;
+  sizeLimit : any; // variable used for storing value of size limit for uploading files.
 
   //Slider value update on change 
   onSliderChange(value: string) {
@@ -66,6 +67,7 @@ export class SliderQuestionComponent implements OnInit {
     this.showEvidence = this.questions?.responseDeclaration.showEvidence;
     this.maxLength = this.questions?.remarks.maxLength;
     this.hints = this.questions?.hint;
+    this.sizeLimit = this.questions?.evidence.sizeLimit;
   }
 
   // Function to handle the popUp box

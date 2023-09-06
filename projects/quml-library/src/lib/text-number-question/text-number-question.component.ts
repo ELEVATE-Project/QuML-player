@@ -36,6 +36,7 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
   remark: string; // Variable used for setting value of datin remark.
   maxLength: number; // Variable used for setting max length value.
   hints: any; // Variable used for seeting value of hint. 
+  sizeLimit: any; // variable used for storing value of size limit for uploading files.
 
   //Hint box
   toggleHintBox() {
@@ -75,6 +76,7 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     this.showEvidence = this.questions?.responseDeclaration.showEvidence;
     this.maxLength = this.questions?.interactions.response1.validation.limit.maxLength;
     this.hints = this.questions?.hints;
+    this.sizeLimit = parseInt(this.questions?.evidence.sizeLimit);
   }
   
   // Handles keyboard accessibility for the component. 
