@@ -1,4 +1,3 @@
-
 import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import * as _ from 'lodash-es';
 
@@ -65,7 +64,7 @@ ngOnInit() {
 
 // Event handler for a click event
 onclick(_value: string) {
-  // Log the clicked value to the console
-  console.log(_value);
+  this.showAnswerClicked.emit({data:this.answer,question:this.questions,isCorrectAnswer:true})
 }
 }
+
