@@ -142,10 +142,10 @@ export class HeaderComponent implements OnInit, OnChanges, AfterViewInit, OnDest
 
   onAnswerKeyDown(event: KeyboardEvent) {
     /* istanbul ignore else */
-   /* if (event.key === 'Enter') {
+    if (event.key === 'Enter') {
       event.stopPropagation();
       this.showSolution.emit()
-    }*/
+    }
   }
 
   openProgressIndicatorPopup() {

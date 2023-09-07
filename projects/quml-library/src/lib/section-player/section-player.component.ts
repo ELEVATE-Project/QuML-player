@@ -10,7 +10,6 @@ import { eventName, pageId, TelemetryType, Cardinality, QuestionType } from '../
 import { DEFAULT_SCORE } from '../player-constants';
 import { UtilService } from '../util-service';
 
-
 @Component({
   selector: 'quml-section-player',
   templateUrl: './section-player.component.html',
@@ -30,8 +29,6 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
   @Output() showScoreBoard = new EventEmitter<any>();
 
   @ViewChild('myCarousel', { static: false }) myCarousel: CarouselComponent;
- // @ViewChild('myCarousel', { static: false }) myCarousel: SlickCarouselComponent;
-
   @ViewChild('imageModal', { static: true }) imageModal: ElementRef;
   @ViewChild('questionSlide', { static: false }) questionSlide: ElementRef;
 
@@ -121,18 +118,6 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
 
     this.viewerService.pauseVideo();
   }
-
-  /* for slick library */
-
- /* getCurrentSlideIndex():any {
-    console.log('Current Slide Index:', this.currentSlideIndex);
-    return (this.currentSlideIndex);
-  }*/
-
- /* getCurrentSlideIndex() {
-    const currentIndex = this.slickModal.currentIndex;
-    console.log('Current Slide Index:', currentIndex);
-  }*/
 
   ngOnChanges(changes: SimpleChanges): void {
     /* istanbul ignore else */
@@ -915,10 +900,10 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
 
   onAnswerKeyDown(event: KeyboardEvent) {
     /* istanbul ignore else */
-    /*if (event.key === 'Enter') {
+    if (event.key === 'Enter') {
       event.stopPropagation();
       this.getSolutions();
-    }*/
+    }
   }
 
   showAnswerClicked(event, question?) {
