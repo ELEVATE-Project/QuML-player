@@ -4,7 +4,6 @@ import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
 import { SunbirdPlayerSdkModule } from '@project-sunbird/sunbird-player-sdk-v9';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-
 import { MainPlayerComponent } from '../../../quml-library/src/lib/main-player/main-player.component';
 import { QumlLibraryComponent } from '../../../quml-library/src/lib/quml-library.component';
 import { McqComponent } from '../../../quml-library/src/lib/mcq/mcq.component';

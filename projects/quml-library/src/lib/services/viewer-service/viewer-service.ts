@@ -238,7 +238,6 @@ export class ViewerService {
     } else if (!currentIndex && !index) {
       indentifersForQuestions = this.identifiers.splice(0, this.threshold);
     }
-    console.log("Questions are called",)
     if (!_.isEmpty(indentifersForQuestions)) {
       const requests = [];
       const chunkArray = _.chunk(indentifersForQuestions, 10);
@@ -261,7 +260,6 @@ export class ViewerService {
     if (this.identifiers.length) {
       let questionIdentifier = this.identifiers.splice(0, this.threshold);
       this.questionCursor.getQuestion(questionIdentifier[0]).subscribe((question) => {
-        console.log('Question called')
         this.qumlQuestionEvent.emit(question);
       }, (error) => {
         this.qumlQuestionEvent.emit({

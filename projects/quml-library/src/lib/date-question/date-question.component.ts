@@ -1,7 +1,3 @@
-//  This component is used to display and handle date input question.
-//  It allows users to enter Date or auto detect date and optionally shows the correct answer.
-
-
 import { Component, EventEmitter, OnInit,AfterViewInit, Input, OnChanges, Output } from '@angular/core';
 import * as _ from 'lodash-es';
 
@@ -18,18 +14,15 @@ export class DateQuestionComponent implements OnInit {
   @Input() baseUrl: string;
 
   // Output events emitted to parent component
-  @Output() componentLoaded = new EventEmitter<any>();
   @Output() showAnswerClicked = new EventEmitter<any>();
-  @Output() sendData = new EventEmitter<any>();
 
-
-  showAnswer: any;  // Flag to control visibility of answer section
-  solutions: any; // Variable containing solution data for the question
-  question: any; // Contains the question content
-  answer: any; // The user's response to the question
-  showHintBox: boolean = false; // Flag to control the visibility of the hint box
-  questionName: any; // Rendering question name from question Data
-  showPopUpBox: boolean = false; // Variable used for input validation logic
+  showAnswer: any; 
+  solutions: any; 
+  question: any; 
+  answer: any; 
+  showHintBox: boolean = false; 
+  questionName: any; 
+  showPopUpBox: boolean = false; 
 
   // Variables related to evidence and remarks
   showEvidence: boolean = false;
@@ -37,12 +30,9 @@ export class DateQuestionComponent implements OnInit {
   showRemarks: boolean = false;
   maxLength: number;
   remark: string;
-
-  hints: any; //variable used for storing hint content
-  sizeLimit: any; // variable used for storing value of size limit for uploading files.
-  
-  selectedFile: File; // Variable to store selected file
-
+  hints: any; 
+  sizeLimit: any; 
+  selectedFile: File; 
 
   // Toggles the hint box visibility
   toggleHintBox() {

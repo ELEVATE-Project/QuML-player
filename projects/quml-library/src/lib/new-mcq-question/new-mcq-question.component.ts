@@ -11,33 +11,33 @@ export class NewMcqQuestionComponent implements OnInit {
 
   
 // Input properties
-@Input() replayed?: boolean; // Indicates if the question is being replayed
-@Input() questions?: any; // Contains the question data
-@Input() baseUrl: string; // Base URL for some functionality
-@Output() componentLoaded = new EventEmitter<any>(); // Event emitted when the component is loaded
-@Output() showAnswerClicked = new EventEmitter<any>(); // Event emitted when the "Show Answer" button is clicked
-@Output() sendData = new EventEmitter<any>(); // Event emitted to send data
+@Input() replayed?: boolean; 
+@Input() questions?: any; 
+@Input() baseUrl: string; 
+
+//Output properties
+@Output() showAnswerClicked = new EventEmitter<any>(); 
 
 // Variables for storing various properties
-showAnswer: any; // Stores the answer display status
-solutions: any; // Stores the question's solutions
-question: any; // Stores the question data
-answer: any; // Stores the answer data
-utilService: any; // Service for utility functions (not initialized here)
-showHintBox: boolean = false; // Indicates if the hint box should be displayed
-questionName: any; // Stores the question name
-primaryCategory: any; // Stores the primary category of the question
-showRemarks: any; // Indicates if remarks should be displayed
-showEvidence: any; // Indicates if evidence should be displayed
-maxLength: any; // Stores the maximum length for remarks
-showPopUpBox: boolean = false; // Indicates if a popup box should be displayed
-showRemarkValue: boolean = false; // Indicates if remark values should be displayed
-cardinality: any; // Stores the cardinality of the response
-options: any; // Stores response options
-value: any; // Stores the value of response options
-label: any; // Stores the label of response options
-hints: any; // Stores hints for the question
-sizeLimit: any; // Stores the size limit for uploading files
+showAnswer: any; 
+solutions: any; 
+question: any; 
+answer: any; 
+utilService: any; 
+showHintBox: boolean = false; 
+questionName: any; 
+primaryCategory: any;
+showRemarks: any; 
+showEvidence: any; 
+maxLength: any; 
+showPopUpBox: boolean = false; 
+showRemarkValue: boolean = false; 
+cardinality: any; 
+options: any; 
+value: any; 
+label: any; 
+hints: any; 
+sizeLimit: any; 
 
 // This method is called when the component is initialized
 ngOnInit() {

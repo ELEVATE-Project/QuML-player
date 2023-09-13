@@ -8,10 +8,10 @@ import { Component, Input } from '@angular/core';
 
 export class AddRemarksComponent {
   // Input properties received from parent component
-  @Input() showPopUpBox: boolean; // Controls the visibility of the popup box
-  @Input() showRemarkValue: boolean; // Indicates if a remark is shown
-  @Input() showRemarks: string; // Specifies the visibility of remarks
-  @Input() maxLength: number; // Maximum character length for a remark
+  @Input() showPopUpBox: boolean; 
+  @Input() showRemarkValue: boolean; 
+  @Input() showRemarks: string; 
+  @Input() maxLength: number; 
 
 
   // Variable to hold the value of the input field for remarks
