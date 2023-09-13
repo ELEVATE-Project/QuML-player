@@ -7,27 +7,21 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./attachments.component.scss']
 })
 export class AttachmentsComponent {
-  // State variable to track if the attached file exceeds the maximum size
+ 
   nonMatchedSize: boolean = false;
-
-  // State variable to control the opening of the terms and conditions dialog box
   termsDialogOpen: boolean = false;
-
-  // Variable to hold the message for non-matched size alert
   nonMatchedSizeValue: string;
-
-  pdfIconDisplay: boolean; //Variable to display pdf icon
-  imageIconDisplay: boolean; //Variable to display image icon
-  videoIconDisplay: boolean; //Variable to display video icon
-  showUploadMessage: boolean; //Variable to display uploaded message
-  files:any = []; // variable declared to store files inside files of type array
-  enableFilesSection: boolean; // variable to handle boolean value.
+  pdfIconDisplay: boolean;
+  imageIconDisplay: boolean; 
+  videoIconDisplay: boolean; 
+  showUploadMessage: boolean; 
+  files:any = []; 
+  enableFilesSection: boolean; 
 
   @ViewChild('fileinput') fileInput: ElementRef;
 
   // Input property received from the parent component
   @Input() showEvidence: string;
-
   @Input() sizeLimit: number;
 
   // Function to handle the terms and conditions form
