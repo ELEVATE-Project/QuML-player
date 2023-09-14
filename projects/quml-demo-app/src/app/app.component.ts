@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.getQuestionSet(this.contentId).subscribe(res => {
-        this.initializePlayer(res);
+      this.initializePlayer(res);
     });
   }
 
@@ -44,4 +44,3 @@ export class AppComponent implements OnInit {
   }
 
 }
-

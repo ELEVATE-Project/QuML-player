@@ -16,13 +16,13 @@ export class DateQuestionComponent implements OnInit {
   // Output events emitted to parent component
   @Output() showAnswerClicked = new EventEmitter<any>();
 
-  showAnswer: any; 
-  solutions: any; 
-  question: any; 
-  answer: any; 
-  showHintBox: boolean = false; 
-  questionName: any; 
-  showPopUpBox: boolean = false; 
+  showAnswer: any;
+  solutions: any;
+  question: any;
+  answer: any;
+  showHintBox: boolean = false;
+  questionName: any;
+  showPopUpBox: boolean = false;
 
   // Variables related to evidence and remarks
   showEvidence: boolean = false;
