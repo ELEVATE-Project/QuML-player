@@ -51,8 +51,6 @@ export class SliderQuestionComponent implements OnInit {
 
   constructor( public domSanitizer: DomSanitizer, private utilService: UtilService ) { }
 
-  
-  // Initializes the component with question data.
   ngOnInit() {
     this.question = this.questions?.body;
     this.min = parseInt(this.questions?.interactions.response1.validation.range.min);

@@ -31,13 +31,11 @@ imagePopUp: boolean;
 enableFilesSection: boolean;
 nonMatchedSizeValue: string;
 
-pdfIconDisplay: boolean; //Variable to display pdf icon
-imageIconDisplay: boolean; //Variable to display image icon
-videoIconDisplay: boolean; //Variable to display video icon
-showUploadMessage: boolean; //Variable to display uploaded message
-files:any = []; // variable declared to store files inside files of type array
-
-// variables from parent component
+pdfIconDisplay: boolean; 
+imageIconDisplay: boolean; 
+videoIconDisplay: boolean; 
+showUploadMessage: boolean; 
+files:any = []; 
 nonMatchedSize: boolean = false;
 
 

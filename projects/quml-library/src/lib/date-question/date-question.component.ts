@@ -55,7 +55,6 @@ export class DateQuestionComponent implements OnInit {
     this.showAnswerClicked.emit({ data: this.answer, question: this.questions, isCorrectAnswer: true });
   }
 
-  // Initializes component and sets question-related data
   ngOnInit() {
     this.question = this.questions?.body;
     this.answer = this.questions?.answer;

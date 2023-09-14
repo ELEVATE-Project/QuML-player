@@ -1,21 +1,54 @@
-# Attachments Component
+## Documentation
 
-# Description
-The AttachmentsComponent class appears to manage file attachments and related interactions. It includes state variables to track the terms and conditions dialog state and non-matched file sizes. The component responds to user interactions by toggling the dialog box and displaying alerts when file size limits are exceeded. The input property allows communication with the parent component, potentially affecting the behavior or content displayed by this component.
+## Properties:
 
-# Variables
-nonMatchedSize: boolean: A state variable indicating whether the attached file exceeds the maximum allowed size. It tracks if the attached file's size matches the condition.
+nonMatchedSize (boolean): Represents whether the size of the uploaded file matches the defined size criteria. By default, it is set to false.
 
-termsDialogOpen: boolean: A state variable controlling the visibility of the terms and conditions dialog box. It toggles the opening and closing of the dialog box.
+termsDialogOpen (boolean): Indicates whether the terms and conditions dialog is open or not. By default, it is set to false.
 
-nonMatchedSizeValue: string: A variable holding the message that will be displayed in the alert when a non-matched file size is detected.
+nonMatchedSizeValue (string): Contains a message indicating if the uploaded file exceeds the size limit.
 
-# Input Property
+pdfIconDisplay (boolean): Indicates whether a PDF icon should be displayed or not.
 
-showEvidence: string: An input property received from the parent component. It holds information related to showing evidence.
+imageIconDisplay (boolean): Indicates whether an image icon should be displayed or not.
 
-# Functions
-handletermsForm(): This function handles the terms and conditions form interaction. It toggles the state of the termsDialogOpen variable, effectively opening or closing the terms and conditions dialog box.
+videoIconDisplay (boolean): Indicates whether a video icon should be displayed or not.
 
-handleNonMatchedSize(): This function handles the case when the attached file's size exceeds the maximum allowed size. It sets the nonMatchedSize flag to true, indicating that the file size doesn't match the criteria. Additionally, it sets the nonMatchedSizeValue variable to hold a message indicating the reason for the non-matched size, such as exceeding the maximum size limit.
+showUploadMessage (boolean): Represents whether the message after file upload should be displayed.
 
+files (Array<any>): An array to hold the uploaded files.
+
+enableFilesSection (boolean): Indicates if the section displaying the uploaded files should be enabled or not.
+
+## ViewChild:
+fileInput (ElementRef): A reference to the file input element in the component's view.
+
+## Input Properties:
+
+showEvidence (string): Input property that specifies the type of evidence to show (e.g., 'pdf', 'image', etc.).
+
+sizeLimit (number): Input property that defines the maximum file size limit.
+## Methods:
+
+handletermsForm(): Toggles the visibility of the terms and conditions dialog box.
+
+handleNonMatchedSize(): Sets the nonMatchedSize to true and assigns an error message about file size limit to nonMatchedSizeValue.
+
+handleFile(event): Handles file upload. Checks if the file size is within the limit and pushes it to the files array. Otherwise, it shows a size error message.
+
+showUpload(): Sets showUploadMessage to true after a slight delay, showing that a file has been uploaded successfully.
+
+removeItem(index): Removes a file from the files array based on its index.
+
+openFile(file): Opens the uploaded file in a new browser tab.
+
+crossFunction(): Toggles the value of showUploadMessage, essentially used to hide or show the upload message.
+
+cancelTermsDialog(): Closes the terms and conditions dialog box.
+
+logInForm(termsForm: NgForm): Handles the submission of the terms and conditions form. Enables the files section if terms are accepted.
+
+handleTermsConditionBox(): Opens the terms and conditions dialog box.
+
+## About the component
+This component seems to be handling the upload and display of files, ensuring they're within a certain size, and ensuring the user accepts the terms and conditions before uploading. It provides visual feedback to the user on successful uploads, displays icons based on file type, and provides a method to open uploaded files. The error messages and dialogs help improve the user experience by providing informative feedback.

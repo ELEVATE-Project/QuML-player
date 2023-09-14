@@ -244,7 +244,7 @@ export class ViewerService {
       _.forEach(chunkArray, (value) => {
         requests.push(this.questionCursor.getQuestions(value, this.parentIdentifier));
       });
-    forkJoin(requests).subscribe(questions => {
+      forkJoin(requests).subscribe(questions => {
         _.forEach(questions, (value) => {
           this.qumlQuestionEvent.emit(value);
         });
@@ -301,4 +301,3 @@ export class ViewerService {
     videoElements.forEach((element: HTMLVideoElement) => element.pause());
   }
 }
-

@@ -64,7 +64,6 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     this.showAnswerClicked.emit({data:this.answer,question:this.questions,isCorrectAnswer:false})
   }
 
-  //Initializes the component with question data.
   ngOnInit() {
     this.question = this.questions?.body;
     this.answer = this.questions?.answer;
@@ -77,12 +76,10 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     this.sizeLimit = parseInt(this.questions?.evidence.sizeLimit);
   }
   
-  // Handles keyboard accessibility for the component. 
   ngAfterViewInit() {
     this.handleKeyboardAccessibility();
   }
 
-  // Reacts to changes in input properties.
   ngOnChanges() {
     if (this.replayed) {
       this.showAnswer = false;

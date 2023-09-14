@@ -39,16 +39,13 @@ label: any;
 hints: any; 
 sizeLimit: any; 
 
-// This method is called when the component is initialized
 ngOnInit() {
-  // Initialize component properties based on the provided question data
   this.question = this.questions?.body;
   this.answer = this.questions?.answer;
   this.solutions = _.isEmpty(this.questions?.solutions) ? null : this.questions?.solutions;
   this.questionName = this.questionName = this.questions?.editorState.question;
   this.primaryCategory = this.questions?.primaryCategory;
 
-  // Check the primary category to determine which properties to initialize
   if (this.primaryCategory == 'Multiselect Multiple Choice Question') {
     this.showRemarks = this.questions?.responseDeclaration.showRemarks;
     this.showEvidence = this.questions?.responseDeclaration.showEvidence;
@@ -62,8 +59,8 @@ ngOnInit() {
   }
 }
 
-// Event handler for a click event
-onclick(_value: string) {
+// Function for handling click event when any option is selected
+onOptionSelect(_value: string) {
   this.showAnswerClicked.emit({data:this.answer,question:this.questions,isCorrectAnswer:true})
 }
 }

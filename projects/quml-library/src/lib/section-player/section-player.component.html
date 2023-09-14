@@ -14,17 +14,14 @@
       <div class="lanscape-mode-left">
         <div class="current-slide" *ngIf="currentSlideIndex !== 0">
           {{myCarousel.getCurrentSlideIndex()}}/{{noOfQuestions}} 
-             <!--  {{slickModal.currentIndex}}  -->
         </div>
         <div *ngIf="currentSolutions && showUserSolution">
           <quml-ans (click)="getSolutions()" (keydown)="onAnswerKeyDown($event)"></quml-ans>
         </div>
       </div>
       <div class="landscape-content">
-       <!--<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (afterChange)="afterChange($event)" > -->
         <carousel class="landscape-center" [interval]="0" [showIndicators]="false" [noWrap]="true" #myCarousel
           (activeSlideChange)="activeSlideChange($event)"> 
-          <!--<ngx-carousel-item>-->
           <slide>
             <quml-startpage
               [instructions]="showRootInstruction ? parentConfig?.instructions : sectionConfig.metadata?.instructions"
@@ -33,15 +30,8 @@
               [contentName]="showRootInstruction ? parentConfig?.contentName : parentConfig?.isSectionsAvailable ? sectionConfig?.metadata?.name : parentConfig?.contentName">
             </quml-startpage>
           </slide>
-          <!--</ngx-carousel-item>-->
-        <!--<ngx-carousel-item *ngFor="let question of questions; let i= index" #questionSlide>-->
           <slide *ngFor="let question of questions; let i= index" #questionSlide>
             <div [id]="question.identifier">
-              <!-- <div *ngIf="question?.primaryCategory.toLowerCase() === 'multiple choice question'">
-                <quml-mcq [shuffleOptions]='shuffleOptions' [question]='question' [replayed]="parentConfig?.isReplayed"
-                  (optionSelected)="getOptionSelected($event)" [identifier]="question.id" [tryAgain]="tryAgainClicked">
-                </quml-mcq>
-              </div> -->
               <div *ngIf="question?.primaryCategory.toLowerCase() === 'subjective question'">
                 <quml-sa [questions]='question' [replayed]="parentConfig?.isReplayed" [baseUrl]="parentConfig?.baseUrl"
                   (showAnswerClicked)="sendData($event)" (sendData)="sendData($event)">
@@ -70,9 +60,7 @@
               </div>
             </div>
           </slide>
-         <!-- </ngx-carousel-item> -->
         </carousel> 
-      <!--</ngx-slick-carousel>-->
       </div>
       <div class="lanscape-mode-right">
         <ul>
@@ -138,9 +126,6 @@
               (click)="disableNext = true; onScoreBoardClicked()" (keydown)="onScoreBoardEnter($event)">
               <img src="./assets/flag_inactive.svg" alt="Flag logo: Show scoreboard">
             </li>
-            <!-- <li class="requiresSubmit" *ngIf="loadScoreBoard && parentConfig.requiresSubmit">
-              <img src="./assets/flag_active.svg" alt="">
-            </li> -->
           </ng-container>
         </ul>
       </div>

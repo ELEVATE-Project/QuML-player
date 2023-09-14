@@ -17,9 +17,7 @@
               <button type="button" (click)="cancelTermsDialog()" class="doNotUplaodBtn">Do not Upload</button>
               <!-- Button to submit and upload with conditions -->
               <button type="submit" class="uploadBtn" [disabled]="termsForm.value.termsField!=true" (click)="inputFileField.click()">Upload</button>
-              <!-- <button type="submit" class="uploadBtn" [disabled]="termsForm.value.termsField!=true" (click)="triggerInputClick()">Upload</button> -->
               <!-- Hidden file input for selecting files -->
-              <!-- <input type="file" #inputFileField style="display: none" (change)="onFileSelected($event)" accept=".png, .doc, .mov, .pdf, .vid, .jpg, .img" multiple/> -->
               <input type="file" #inputFileField style="display: none" (change)="handleFile($event)" accept=".png, .doc, .mov, .pdf, .vid, .jpg, .img" multiple/>
           </section>
       </form>

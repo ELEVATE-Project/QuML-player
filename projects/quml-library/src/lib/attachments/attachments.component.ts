@@ -80,7 +80,7 @@ export class AttachmentsComponent {
   }
 
   //function to handle the value of showUploadMessage
-  closefunction(){
+  crossFunction(){
     this.showUploadMessage = !this.showUploadMessage;
   }
 

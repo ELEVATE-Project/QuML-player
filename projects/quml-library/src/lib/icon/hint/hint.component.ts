@@ -13,6 +13,8 @@ export class HintComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  // function for handling the toggleHintBox
   toggleHintBox() {
     this.showHintBox = !this.showHintBox;
   }

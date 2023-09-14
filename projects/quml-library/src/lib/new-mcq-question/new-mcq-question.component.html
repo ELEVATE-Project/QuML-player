@@ -18,7 +18,7 @@
   <div class="container" *ngFor="let option of options ; let i = index" >
     <div class="optionsTypes">
       <label class="option-container">
-        <input type="radio" [value]= "option.value" (click)="onclick(option.value)" name="'option'+i" #valueRef />
+        <input type="radio" [value]= "option.value" (click)="onOptionSelect(option.value)" name="'option'+i" #valueRef />
         <p [innerHtml] = "option.label | safeHtml" class="optionValue"></p>
       </label>
     </div>
@@ -31,7 +31,7 @@
   <div class="container" *ngFor="let option of options ; let i = index" >
     <div class="optionsTypes">
       <label class="option-container">
-        <input type="checkbox" [value]= "option.value" (click)="onclick(option.value)" name="'option'+i" #valueRef />
+        <input type="checkbox" [value]= "option.value" (click)="onOptionSelect(option.value)" name="'option'+i" #valueRef />
         <p [innerHtml] = "option.label | safeHtml" class="optionValue"></p>
       </label>
     </div>
