@@ -60,7 +60,6 @@ logInForm(termsForm: NgForm) {
 }
 
 handleFile(event) {
-  // Open a terms dialog or pop-up box
   this.imageIconDisplay = false;
   this.videoIconDisplay = false;
   this.pdfIconDisplay = false;
@@ -72,21 +71,21 @@ handleFile(event) {
   const maxSizeInBytes = 1024* 1024 * 1024;
   if (uploadedFile.size <= maxSizeInBytes) {
 
-  // Check if file type is image
+  // if file type is image sets and emit the variable values
   if(uploadedFile.type.startsWith('image/')){
     this.imageIconDisplay = true;
     this.files.push(uploadedFile);
     this.imageIconEmit.emit(uploadedFile);
   }
 
-  // Check if file type is video
+  // if file type is video sets and emit the variable values
   if (uploadedFile.type.startsWith('video/')){
     this.videoIconDisplay = true;
     this.files.push(uploadedFile);
     this.videoIconEmit.emit(uploadedFile);
   }
 
-  // Check if file type is document
+  // if file type is document sets and emit the variable values
   if(uploadedFile.type === 'application/msword' ||
   uploadedFile.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
   uploadedFile.type === 'application/pdf'){
