@@ -34,7 +34,6 @@ export class AppComponent implements OnInit {
   }
 
   getPlayerEvents(event) {
-
     // Store the metaData locally
     if (event.eid === 'END') {
       let qumlMetaDataConfig = event.metaData;
@@ -44,3 +43,4 @@ export class AppComponent implements OnInit {
   }
 
 }
+

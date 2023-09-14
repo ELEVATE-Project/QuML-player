@@ -132,7 +132,7 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
     this.viewerService.raiseHeartBeatEvent(eventName.startPageLoaded, 'impression', 0);
   }
   
-  sendData(data){
+  handleSendData(data){
     this.focusOnNextButton();
     this.active = true;
     this.progressBarClass[this.myCarousel.getCurrentSlideIndex() - 1].class = 'correct';
@@ -947,7 +947,7 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
             score = val.score || 0;
             if (val.score) {
               this.progressBarClass[currentIndex].class = 'partial';
-            }""
+            }
           }
         });
       }

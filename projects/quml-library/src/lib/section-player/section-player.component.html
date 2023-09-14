@@ -34,23 +34,23 @@
             <div [id]="question.identifier">
               <div *ngIf="question?.primaryCategory.toLowerCase() === 'subjective question'">
                 <quml-sa [questions]='question' [replayed]="parentConfig?.isReplayed" [baseUrl]="parentConfig?.baseUrl"
-                  (showAnswerClicked)="sendData($event)" (sendData)="sendData($event)">
+                  (showAnswerClicked)="handleSendData($event)" (sendData)="handleSendData($event)">
                 </quml-sa>
               </div>
               <div *ngIf="question?.primaryCategory.toLowerCase() === 'text'">
                 <quml-text-number-question [questions]='question' [replayed]="parentConfig?.isReplayed" [baseUrl]="parentConfig?.baseUrl" 
-                  (showAnswerClicked)="sendData($event)" (sendData)="sendData($event)">
+                  (showAnswerClicked)="handleSendData($event)" (sendData)="handleSendData($event)">
               </quml-text-number-question>
               
               </div>
               <div *ngIf="question?.primaryCategory.toLowerCase() === 'slider'">
                 <quml-slider-question [questions]='question' [replayed]="parentConfig?.isReplayed" [baseUrl]="parentConfig?.baseUrl" 
-                  (showAnswerClicked)="sendData($event)" (sendData)="sendData($event)">
+                  (showAnswerClicked)="handleSendData($event)" (sendData)="handleSendData($event)">
               </quml-slider-question>
               </div>
               <div *ngIf="question?.primaryCategory.toLowerCase() === 'date'">
                 <quml-date-question [questions]='question' [replayed]="parentConfig?.isReplayed" [baseUrl]="parentConfig?.baseUrl" 
-                  (showAnswerClicked)="sendData($event)" (sendData)="sendData($event)">
+                  (showAnswerClicked)="handleSendData($event)" (sendData)="handleSendData($event)">
                 </quml-date-question>
               </div>
               <div *ngIf="question?.primaryCategory.toLowerCase() === 'multiselect multiple choice question'">
