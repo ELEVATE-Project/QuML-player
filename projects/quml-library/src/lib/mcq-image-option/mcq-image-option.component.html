@@ -5,7 +5,7 @@
   [ngClass]="{'disabled': mcqOption.isDisabled === true}"></div>
     <div class="container">
       <input type="radio" *ngIf="cardinality==='single'" name="radio" [checked]="mcqOption.selected" id="option-checkbox" tabindex="-1" (click)="optionClicked($event, mcqOption)">
-      <input type="checkbox" *ngIf="cardinality==='multiple'" name="checkbox" [checked]="mcqOption.selected" id="option-checkbox"
+      <input type="checkbox" *ngIf="cardinality==='multiple'" name="checkbox" [checked]="mcqOption.selected" id="option-checkbox" (click)="optionClicked($event, mcqOption)"
       tabindex="-1" [disabled]="mcqOption?.isDisabled">
       <span [ngClass]="{'radiomark': cardinality==='single','checkmark':cardinality==='multiple'}" tabindex="-1"></span>
     </div>

@@ -46,6 +46,12 @@ import { TextNumberQuestionComponent } from '../../../quml-library/src/lib/text-
 import { SliderQuestionComponent } from '../../../quml-library/src/lib/slider-question/slider-question.component';
 import { NewMcqQuestionComponent } from 'projects/quml-library/src/lib/new-mcq-question/new-mcq-question.component';
 import { DateQuestionComponent } from 'projects/quml-library/src/lib/date-question/date-question.component';
+import { AddRemarksComponent } from 'projects/quml-library/src/lib/add-remarks/add-remarks.component';
+import { AttachmentsComponent } from 'projects/quml-library/src/lib/attachments/attachments.component';
+import { ImagePreviewComponent } from 'projects/quml-library/src/lib/image-preview/image-preview.component';
+import { ShowRemarkComponent } from 'projects/quml-library/src/lib/show-remark/show-remark.component';
+import { TermsConditionBoxComponent } from 'projects/quml-library/src/lib/terms-condition-box/terms-condition-box.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -88,14 +94,20 @@ import { DateQuestionComponent } from 'projects/quml-library/src/lib/date-questi
         TextNumberQuestionComponent,
         SliderQuestionComponent,
         NewMcqQuestionComponent,
-        DateQuestionComponent
+        DateQuestionComponent,
+        AddRemarksComponent,
+        AttachmentsComponent,
+        TermsConditionBoxComponent,
+        ShowRemarkComponent,
+        ImagePreviewComponent
     ],
     imports: [
         BrowserModule,
         CommonModule,
         CarouselModule.forRoot(),
         SunbirdPlayerSdkModule,
-        HttpClientModule
+        HttpClientModule,
+        FormsModule
     ],
     providers: [{ provide: QuestionCursor, useClass: QuestionCursorImplementationService }]
 })

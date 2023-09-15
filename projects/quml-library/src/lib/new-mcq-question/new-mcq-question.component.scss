@@ -1,0 +1,78 @@
+@import '../../../../../node_modules/@project-sunbird/sb-styles/assets/mixins/mixins';
+@import'../../../../../projects/quml-library/src/lib/assets/styles/quml-parent.scss';
+
+.quml-head-container{
+  background: var(--quml-main-bg);
+  display: flow-root;
+  border: 1px solid var(--quml-btn-border);
+  padding: 2.5rem;
+  height: 100%;
+  margin-bottom: 2rem;
+  margin-right: 1rem;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  border-radius: 2rem;
+  box-shadow: 5px 5px 4px var(--quml-btn-border);
+}
+
+.sa-title {
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 500;
+    margin: 16px 0;
+    clear: both;
+}
+
+.question{
+  color: var(--primary-color);
+  font-size: var(--p-font-size);
+  font-weight: 500;
+}
+
+.optionTypes{
+    padding: 2rem;
+}
+
+.quml-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.optionsTypes input[type="radio"] {
+    background: var(--primary-color);
+    color: var(--primary-color);
+    width: 15px;
+    position: relative;
+    height: 1rem;
+    top: 2px;
+  }
+
+  .optionsTypes input[type="checkbox"] {
+    background: var(--primary-color);
+    color: var(--primary-color);
+    width: 15px;
+    position: relative;
+    height: 1rem;
+    top: 2px;
+  }
+
+.mcqOptions{
+  font-family: var(--font-stack-en);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gray-800);
+  text-align: left;
+}
+
+.option-container {
+  display: inline-flex; 
+  height: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.optionValue{
+  margin-left: 1rem;
+  font-weight: 500;
+}
+  

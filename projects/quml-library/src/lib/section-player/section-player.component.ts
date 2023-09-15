@@ -99,6 +99,26 @@ export class SectionPlayerComponent implements OnChanges, AfterViewInit {
     public errorService: ErrorService
   ) { }
 
+  afterChange(event: any) {
+    this.currentSlideIndex = event.currentSlide;
+    this.initialSlideDuration = new Date().getTime();
+    this.isAssessEventRaised = false;
+    const questionElement = document.querySelector('li.progressBar-border') as HTMLElement;
+    const progressBarContainer = document.querySelector(".lanscape-mode-right") as HTMLElement;
+
+    /* istanbul ignore else */
+    if (progressBarContainer && questionElement && !this.parentConfig.isReplayed) {
+      this.utilService.scrollParentToChild(progressBarContainer, questionElement);
+    }
+
+    const contentElement: HTMLElement = document.querySelector(".landscape-content");
+    if (contentElement) {
+      contentElement.scrollTop = 0;
+    }
+
+    this.viewerService.pauseVideo();
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     /* istanbul ignore else */
     if (changes && Object.values(changes)[0].firstChange) {

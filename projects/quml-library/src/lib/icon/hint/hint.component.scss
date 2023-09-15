@@ -1,0 +1,61 @@
+
+  .hint-icon{
+    display: flex;
+    width: 13px;
+    cursor: pointer;
+  }
+
+  .hint-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid var(--quml-btn-border);
+    padding: 10px;
+    border-radius: 1rem;
+    width: 28rem;
+    height: 14rem;
+    z-index: 1;
+  }
+  
+  .hint-content {
+    position: relative;
+    text-align: center;
+    display:flex;
+    justify-content: space-between;
+    margin: 7px;
+  }
+
+.cross-btn{
+  display: flex;
+  justify-content: flex-end;
+}
+.close-button{
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--quml-color-danger);
+  color: #eee;
+  width: auto;
+  height: 30px;
+  border-radius: 0;
+  border: 1px solid var(--quml-btn-border);
+}
+
+.hint-area{
+  display: flex;
+  justify-content: flex-end;
+}
+
+svg path{
+ fill: var(--primary-color);
+}
+
+.hint-title{
+  color: var(--primary-color);
+  font-weight: 500;
+  font-family: inherit;
+  font-size: 14px;
+  position: relative;
+  left: 40%;
+}

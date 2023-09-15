@@ -16,6 +16,7 @@ export class McqComponent implements OnInit, AfterViewInit {
   @Input() shuffleOptions?: boolean;
   @Input() question?: any;
   @Input() identifier: any;
+  @Input() questions?: any; 
   @Input() layout?: string;
   @Input() replayed: boolean;
   @Input() tryAgain?: boolean;

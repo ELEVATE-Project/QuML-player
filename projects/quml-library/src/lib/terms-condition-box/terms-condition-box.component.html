@@ -1,0 +1,27 @@
+<!-- New code for dialog box -->
+<section *ngIf="termsDialogOpen" class="terms-form">
+  <!-- Dialog box for terms and conditions form -->
+  <section class="termsConditionForm">
+      <form #termsForm="ngForm" (ngSubmit)="logInForm(termsForm)">
+        <section class="crossContainer">
+          <button class="crossSection" (click)="cancelTermsDialog()">x</button>
+        </section>
+          <!-- Checkbox for confirming terms and policies -->
+          <label>
+              <input type="checkbox" class="form-check-input" name="termsField" ngModel />
+              <p class="termsContent">I confirm that the Content submitted by me comply with the terms and policies of Sunbird, including <a href="#">Sunbird's Content Policy</a>. I have made sure that I do not violate others' copyright, privacy, or third party rights.</p>
+          </label>
+          <!-- Buttons for the dialog box -->
+          <section class="buttons-for-termBox">
+              <!-- Button to cancel and not upload -->
+              <button type="button" (click)="cancelTermsDialog()" class="doNotUplaodBtn">Do not Upload</button>
+              <!-- Button to submit and upload with conditions -->
+              <button type="submit" class="uploadBtn" [disabled]="termsForm.value.termsField!=true" (click)="inputFileField.click()">Upload</button>
+              <!-- Hidden file input for selecting files -->
+              <input type="file" #inputFileField style="display: none" (change)="handleFile($event)" accept=".png, .doc, .mov, .pdf, .vid, .jpg, .img" multiple/>
+          </section>
+      </form>
+  </section>
+</section>
+
+

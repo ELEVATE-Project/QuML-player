@@ -1,14 +1,5 @@
-/**
- * @name TextNumberQuestionComponent
- * @description This component is used to display and handle a text or number input question.
- * It allows users to enter their response and optionally shows the correct answer.
- **/
-
-
 import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import * as _ from 'lodash-es';
-import { UtilService } from '../util-service';
 
 
 @Component({
@@ -18,28 +9,33 @@ import { UtilService } from '../util-service';
 })
 export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterViewInit {
 
-  @Input() replayed?: boolean; //@description Boolean flag to indicate if the question is replayed.
-  @Input() questions?: any; //@description Contains the question data.
-  @Input() baseUrl: string; //@description The base URL for the component.
-  @Output() componentLoaded = new EventEmitter<any>(); //@description EventEmitter to emit the component loaded event.
-  @Output() showAnswerClicked = new EventEmitter<any>(); //@description EventEmitter to emit the show answer clicked event.
-  @Output() sendData = new EventEmitter<any>(); //@description EventEmitter to emit the user's response data to the parent component.
+  @Input() replayed?: boolean; 
+  @Input() questions?: any; 
+  @Input() baseUrl: string; 
+  @Output() showAnswerClicked = new EventEmitter<any>(); 
   
-  showAnswer: any; //@description Boolean flag to control the visibility of the answer section.
-  solutions: any; //@description Object containing solution data for the question.
-  question: any; //@description Contains the question content.
-  answer: any; //@description The user's response to the question.
-  inputArray:any=[]; //@description Array to store character codes for input validation.
-  charCode: any= '';//@description The character code for the current input.
-  arr: any ='';//  @description The character code for the current input.
-  showHintBox: boolean = false; // @description A variable used for input validation logic.
+  showAnswer: any; 
+  solutions: any; 
+  question: any; 
+  answer: any; 
+  inputArray:any=[]; 
+  charCode: any= '';
+  arr: any ='';
+  showHintBox: boolean = false; 
   utilService: any; 
-  questionName: any; // @description of question name.
+  questionName: any; 
+  showPopUpBox: boolean = false; 
+  showRemarkValue: boolean = false; 
+  showRemarks: string ; 
+  showEvidence: string ; 
+  remark: string; 
+  maxLength: number; 
+  hints: any;  
+  sizeLimit: any; 
 
   //Hint box
   toggleHintBox() {
     this.showHintBox = !this.showHintBox;
-    console.log(1);
   }
   
   //Input Box logic for accepting number and text 
@@ -60,31 +56,27 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     }
   }
 
-  //Data from Child to Parent
+  //Datafrom Child to Parent
   sendDataToParent(data) {
     this.showAnswerClicked.emit({data:this.answer,question:this.questions,isCorrectAnswer:false})
   }
 
-  //Lifecycle hook. Initializes the component with question data.
-  
   ngOnInit() {
-    console.log(this.questions);
     this.question = this.questions?.body;
     this.answer = this.questions?.answer;
     this.solutions = _.isEmpty(this.questions?.solutions) ? null : this.questions?.solutions;
     this.questionName = this.questions?.editorState.question;
+    this.showRemarks = this.questions?.responseDeclaration.showRemarks;
+    this.showEvidence = this.questions?.responseDeclaration.showEvidence;
+    this.maxLength = this.questions?.interactions.response1.validation.limit.maxLength;
+    this.hints = this.questions?.hints;
+    this.sizeLimit = parseInt(this.questions?.evidence.sizeLimit);
   }
-  
-  
-   // Lifecycle hook. Handles keyboard accessibility for the component.
   
   ngAfterViewInit() {
     this.handleKeyboardAccessibility();
   }
 
-  
-   // Lifecycle hook. Reacts to changes in input properties.
-   
   ngOnChanges() {
     if (this.replayed) {
       this.showAnswer = false;
@@ -93,9 +85,7 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     }
   }
 
-  
-   // Shows the correct answer to the user.
-  
+  // Shows the correct answer to the user.
   showAnswerToUser() {
     this.showAnswer = true;
     this.showAnswerClicked.emit({
@@ -104,8 +94,7 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
   }
 
   
-  // Handles the 'Enter' key press event.
-  
+  // Handles the 'Enter' key press event.  
   onEnter(event) {
     /* istanbul ignore else */
     if (event.keyCode === 13) {
@@ -114,16 +103,16 @@ export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterView
     }
   }
 
-   // Sets tabindex to -1 for certain elements to handle keyboard accessibility.
-   
+  // Sets tabindex to -1 for certain elements to handle keyboard accessibility.
   handleKeyboardAccessibility() {
     const elements = Array.from(document.getElementsByClassName('option-body') as HTMLCollectionOf<Element>);
     elements.forEach((element: HTMLElement) => {
-      /* istanbul ignore else */
+
+    /* istanbul ignore else */
       if (element.offsetHeight) {
         const children = Array.from(element.querySelectorAll("a"));
         children.forEach((child: HTMLElement) => {
-            child.setAttribute('tabindex', '-1');
+        child.setAttribute('tabindex', '-1');
         });
       }
     });

@@ -1,21 +1,25 @@
 @import '../../../../../node_modules/@project-sunbird/sb-styles/assets/mixins/mixins';
-@import '../../../../../projects/quml-library/src/lib/assets/styles/quml-parent.css';
+@import'../../../../../projects/quml-library/src/lib/assets/styles/quml-parent.scss';
+
 
   .quml-head-container{
     background: var(--quml-main-bg);
     display: flow-root;
-    border-radius: 0.25rem;
     border: 1px solid var(--quml-btn-border);
-    padding: 1rem;
+    padding: 2.5rem;
     height: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     margin-right: 1rem;
     margin-top: 2rem;
+    margin-left: 1rem;
+    border-radius: 2rem;
+    box-shadow: 5px 5px 4px var(--quml-btn-border);
   }
+
 
   .sa-title {
     color: var(--primary-color);
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 500;
     margin: 16px 0;
     clear: both;
@@ -58,62 +62,22 @@
     text-align: center;
     padding: 1rem;
     margin-bottom: 16px;
+    margin-top: 16px;
   }
 
-  .hint-button{
-    background: var(--primary-color);
-    color: var(--quml-btn-color);
-    font-size: 12px;
-    font-weight: 500;
-    width: 3.75rem;
-    height: 2.25rem;
-    border: 1px solid var(--quml-btn-border);
-    border-radius: 1rem;
-    cursor: pointer;
-  }
-
-  .hint-icon{
+  .quml-container{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    position: relative;
-    margin-top: 10px;
+    justify-content: space-between;
   }
 
-  .hint-box {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    border: 1px solid var(--quml-btn-border);
-    padding: 10px;
-    border-radius: 1rem;
-    width: 28rem;
-    height: 14rem;
-  }
-  
-  .hint-content {
-    position: relative;
-    text-align: center;
-    margin: 7px;
-  }
-
-  .submit-btn{
-    background: var(--primary-color);
-    color: var(--quml-btn-color);
-    font-size: 12px;
-    font-weight: 500;
-    width: 3.75rem;
-    height: 2.25rem;
-    border: 1px solid var(--quml-btn-border);
-    border-radius: 1rem;
-    cursor: pointer;
-  }
-
-.question{
+::ng-deep .question{
   color: var(--primary-color);
-  font-size: 12px;
   font-weight: 500;
+  p{
+    font-size: 1.2rem !important;
+  }
 }
 
+#submit-answer {
+  font-size: 15px;
+}

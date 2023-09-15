@@ -32,11 +32,6 @@
           </slide>
           <slide *ngFor="let question of questions; let i= index" #questionSlide>
             <div [id]="question.identifier">
-              <div *ngIf="question?.primaryCategory.toLowerCase() === 'multiple choice question'">
-                <quml-mcq [shuffleOptions]='shuffleOptions' [question]='question' [replayed]="parentConfig?.isReplayed"
-                  (optionSelected)="getOptionSelected($event)" [identifier]="question.id" [tryAgain]="tryAgainClicked">
-                </quml-mcq>
-              </div>
               <div *ngIf="question?.primaryCategory.toLowerCase() === 'subjective question'">
                 <quml-sa [questions]='question' [replayed]="parentConfig?.isReplayed" [baseUrl]="parentConfig?.baseUrl"
                   (showAnswerClicked)="handleSendData($event)" (sendData)="handleSendData($event)">
@@ -57,6 +52,11 @@
                 <quml-date-question [questions]='question' [replayed]="parentConfig?.isReplayed" [baseUrl]="parentConfig?.baseUrl" 
                   (showAnswerClicked)="handleSendData($event)" (sendData)="handleSendData($event)">
                 </quml-date-question>
+              </div>
+              <div *ngIf="question?.primaryCategory.toLowerCase() === 'multiselect multiple choice question'">
+                <quml-new-mcq-question [questions]='question' [replayed]="parentConfig?.isReplayed" [baseUrl]="parentConfig?.baseUrl" 
+                  (showAnswerClicked)="handleSendData($event)" (sendData)="handleSendData($event)" >
+                </quml-new-mcq-question>
               </div>
             </div>
           </slide>
@@ -126,9 +126,6 @@
               (click)="disableNext = true; onScoreBoardClicked()" (keydown)="onScoreBoardEnter($event)">
               <img src="./assets/flag_inactive.svg" alt="Flag logo: Show scoreboard">
             </li>
-            <!-- <li class="requiresSubmit" *ngIf="loadScoreBoard && parentConfig.requiresSubmit">
-              <img src="./assets/flag_active.svg" alt="">
-            </li> -->
           </ng-container>
         </ul>
       </div>

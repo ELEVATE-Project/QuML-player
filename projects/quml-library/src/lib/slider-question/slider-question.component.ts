@@ -10,24 +10,35 @@ import { UtilService } from '../util-service';
 })
 export class SliderQuestionComponent implements OnInit {
 
+  // Input properties received from parent component
   @Input() questions?: any;
   @Input() replayed?: boolean;
   @Input() baseUrl: string;
-  @Output() componentLoaded = new EventEmitter<any>();
-  @Output() showAnswerClicked = new EventEmitter<any>();
-  @Output() sendData = new EventEmitter<any>();
 
-  showAnswer = false;
-  solutions: any;
-  question: any;
-  answer: any;
-  min:number = 0;
-  max:number = 0;
-  step:number = 0;
-  questionName: any;
-  sliderValue: number = 50;
+  // Output events emitted to parent component
+  @Output() showAnswerClicked = new EventEmitter<any>(); 
 
-  //Slider value
+  showAnswer: false; 
+  solutions: any; 
+  question: any; 
+  answer: any; 
+  min: number = 0; 
+  max: number = 0;
+  step: number = 0; 
+  questionName: any;  
+  sliderValue: number = 50; 
+  showPopUpBox: boolean = false; 
+  showRemarks: string ; 
+  showEvidence: string ; 
+  showRemarkValue: boolean = false; 
+  inputField: HTMLInputElement | undefined;  
+  remark: string; 
+  showHintBox: boolean = false; 
+  maxLength: number; 
+  hints: any;
+  sizeLimit : any; 
+
+  //Slider value update on change 
   onSliderChange(value: string) {
     this.sliderValue = parseInt(value);
   }
@@ -41,7 +52,6 @@ export class SliderQuestionComponent implements OnInit {
   constructor( public domSanitizer: DomSanitizer, private utilService: UtilService ) { }
 
   ngOnInit() {
-    console.log(this.questions);
     this.question = this.questions?.body;
     this.min = parseInt(this.questions?.interactions.response1.validation.range.min);
     this.max = parseInt(this.questions?.interactions.response1.validation.range.max);
@@ -49,5 +59,27 @@ export class SliderQuestionComponent implements OnInit {
     this.answer = this.questions?.answer;
     this.solutions = this.questions?.solutions.length == 0 ? null : this.questions?.solutions;
     this.questionName = this.questions?.editorState.question;
+    this.showRemarks = this.questions?.responseDeclaration.showRemarks;
+    this.showEvidence = this.questions?.responseDeclaration.showEvidence;
+    this.maxLength = this.questions?.remarks.maxLength;
+    this.hints = this.questions?.hint;
+    this.sizeLimit = this.questions?.evidence.sizeLimit;
   }
+
+  // Function to handle the popUp box
+  popUpBox(){
+    this.showPopUpBox = !this.showPopUpBox;
+  }
+  
+  // Function for setting the values of variables 
+  showRemark(){
+    this.showRemarkValue = true;
+    this.showPopUpBox = false;
+  }
+
+  // Function for storing the value of remark with data
+  handleTextareaValue(data: string){
+    this.remark = data;
+  }
+
 }

@@ -1,20 +1,16 @@
 import { Component, EventEmitter, OnInit,AfterViewInit, Input, OnChanges, Output } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import * as _ from 'lodash-es';
-import { UtilService } from '../util-service';
-
 
 @Component({
   selector: 'quml-date-question',
   templateUrl: './date-question.component.html',
-  styleUrls: ['./date-question.component.css']
+  styleUrls: ['./date-question.component.scss']
 })
 export class DateQuestionComponent implements OnInit {
 
   @Input() replayed?: boolean;
   @Input() questions?: any;
   @Input() baseUrl: string;
-  @Output() componentLoaded = new EventEmitter<any>();
   @Output() showAnswerClicked = new EventEmitter<any>();
   @Output() sendData = new EventEmitter<any>();
 
@@ -23,37 +19,62 @@ export class DateQuestionComponent implements OnInit {
   question: any;
   answer: any;
   showHintBox: boolean = false;
-  utilService: any;
   questionName: any;
+  showPopUpBox: boolean = false;
 
+  // Variables related to evidence and remarks
+  showEvidence: boolean = false;
+  showRemarkValue: boolean = false;
+  showRemarks: boolean = false;
+  maxLength: number;
+  remark: string;
+  hints: any; 
+  sizeLimit: any; 
+  selectedFile: File; 
 
-  //Hint Box
+  // Toggles the hint box visibility
   toggleHintBox() {
     this.showHintBox = !this.showHintBox;
-    console.log(1);
   }
 
-  //AutoDetect Logic 
+  // Logic for auto-detecting and populating the date
   autoDetectDate(inputElement: HTMLInputElement) {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
     const month = ("0" + (currentDate.getMonth() + 1)).slice(-2);
     const day = ("0" + currentDate.getDate()).slice(-2);
-    const formattedDate = `${year}-${month}-${day}`
+    const formattedDate = `${year}-${month}-${day}`;
     inputElement.value = formattedDate;
-    this.sendDataToParent(formattedDate)
+    this.sendDataToParent(formattedDate);
   }
 
-  //Data from Child to Parent
+  // Emits data from child to parent component
   sendDataToParent(data) {
-    this.showAnswerClicked.emit({data:this.answer,question:this.questions,isCorrectAnswer:true})
+    this.showAnswerClicked.emit({ data: this.answer, question: this.questions, isCorrectAnswer: true });
   }
 
   ngOnInit() {
-    console.log(this.questions);
     this.question = this.questions?.body;
     this.answer = this.questions?.answer;
     this.solutions = _.isEmpty(this.questions?.solutions) ? null : this.questions?.solutions;
     this.questionName = this.questions?.editorState.question;
+    this.hints = this.questions?.hints;
+    this.sizeLimit = this.questions?.evidence.sizeLimit;                                                                                     
+
+  }
+
+  // Toggles the visibility of the popup box
+  popUpBox() {
+    this.showPopUpBox = !this.showPopUpBox;
+  }
+
+  // Handles the value from the textarea for remarks
+  handleTextareaValue(data: string) {
+    this.remark = data;
+  }
+
+  // Handles the selected file from attachments component
+  onSelectedFileSend(file: File) {
+    this.selectedFile = file;
   }
 }

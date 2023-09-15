@@ -6,6 +6,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { QuestionCursorImplementationService } from './question-cursor-implementation.service';
 import { QumlLibraryModule, QuestionCursor } from '@project-sunbird/sunbird-quml-player';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     QumlLibraryModule,
     CarouselModule.forRoot(),
-    HttpClientModule
+    HttpClientModule, 
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [{
     provide: QuestionCursor,

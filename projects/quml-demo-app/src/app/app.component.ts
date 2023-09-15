@@ -8,9 +8,8 @@ import { DataService } from './services/data.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  contentId = 'do_21384412186000588811184';
+  contentId = 'do_21385324226288844813406';
   playerConfig: any;
-
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
@@ -43,6 +42,5 @@ export class AppComponent implements OnInit {
     }
   }
 
-  getTelemetryEvents(event) {
-  }
 }
+

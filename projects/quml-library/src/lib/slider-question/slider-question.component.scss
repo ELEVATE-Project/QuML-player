@@ -1,41 +1,40 @@
 @import '../../../../../node_modules/@project-sunbird/sb-styles/assets/mixins/mixins';
-@import '../../../../../projects/quml-library/src/lib/assets/styles/quml-parent.css';
+@import'../../../../../projects/quml-library/src/lib/assets/styles/quml-parent.scss';
 
   .slider-head-container{
     background: var(--quml-main-bg);
     display: flow-root;
-    border-radius: 0.25rem;
     border: 1px solid var(--quml-btn-border);
-    padding: 1rem;
-    align-items: center;
-    justify-content: space-between;
+    padding: 2.5rem;
     height: 100%;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     margin-right: 1rem;
     margin-top: 2rem;
+    margin-left: 1rem;
+    border-radius: 2rem;
+    box-shadow: 5px 5px 4px var(--quml-btn-border);
   }
   
   .question{
     color: var(--primary-color);
-    display: flex;
-    justify-content: center;
-    font-size: 12px;
     font-weight: 500;
   }
 
-
+  .quml-container{
+    display: flex;
+    justify-content: space-between; 
+  }
 
   .sa-title {
     color: var(--primary-color);
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 500;
     margin: 16px 0;
     clear: both;
   }
 
   .slider-container{
-    margin-top: 2.5rem;
+    margin-top: 2rem;
   }
 
   .slidecontainer {
@@ -114,15 +113,7 @@
     padding: 2px;
   }
 
-  .submit-btn{
-    background: var(--primary-color);
-    color: var(--quml-btn-color);
-    font-size: 12px;
-    font-weight: 500;
-    position: relative;
-    width: 3.75rem;
-    height: 2.25rem;
-    border: 1px solid var(--quml-btn-border);
-    border-radius: 1rem;
-    cursor: pointer;
+  input[type=range]{
+    margin-top: 1.5rem;
+    margin-bottom: 16px;
   }

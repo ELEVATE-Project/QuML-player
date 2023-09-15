@@ -1,0 +1,72 @@
+<!-- Attachments Section -->
+<section *ngIf="showEvidence !== 'No'" class="attachments-container">
+  <!-- Button to trigger handling terms form -->
+  <button class="file-input-btn" (click)='handleTermsConditionBox()' >
+    + Files<!-- Plus sign icon for adding attachments -->
+  </button>
+
+  <!-- Container for displaying uploaded files -->
+  <div *ngIf="files.length > 0" class="file-container">
+    <section *ngFor="let file of files;let i= index" (click)="openFile(file)">
+
+      <!-- SVG icon for file -->
+      <svg xmlns="http://www.w3.org/2000/svg" fill="#024f9d;" stroke="#024f9d"viewBox="0 0 50 50" width="50px" height="50px"><path fill= "#024f9d" 
+        d="M 30.398438 2 L 7 2 L 7 48 L 43 48 L 43 14.601563 Z M 30 15 L 30 4.398438 L 40.601563 15 Z"/></svg>
+
+      <!-- Button to remove the file -->
+      <button class="iconCloseBtn" (click)='removeItem(i)'>x</button>
+    </section> 
+  </div>
+
+  <!--Upload Box -->
+  <section *ngIf="showUploadMessage == true" class="uploadBox">
+
+    <!-- Container for the close button -->
+    <section class="cross-container">
+      <button (click)="crossFunction()" class="cross-btn">x</button>
+    </section>
+
+    <!-- Container for the success message content -->
+    <section >
+      <section class="messageContainer">
+        <p class="message"> Evidence Uploaded Successfully</p>
+      </section>
+
+      <!-- Container for the "OK" button -->
+      <section class="btn-section">
+        <button class="ok-button" (click)="crossFunction()">OK</button>
+      </section>
+    </section>
+  </section>
+
+</section>
+
+ <input type="file" #fileInput (change)="handleFile($event)"> 
+
+  <!-- Section to show alert for non-matched size -->
+  <section *ngIf="nonMatchedSize">
+    <p class="alert">{{nonMatchedSizeValue}}</p>
+  </section>
+  
+<!--terms dialog box-->
+ <section *ngIf="termsDialogOpen" class="terms-form">
+  <!-- Dialog box for terms and conditions form -->
+  <section class="termsConditionForm">
+      <form #termsForm="ngForm" (ngSubmit)="logInForm(termsForm)">
+        <section class="crossContainer">
+          <button class="crossSection" (click)="cancelTermsDialog()">x</button>
+        </section>
+          <!-- Checkbox for confirming terms and policies -->
+          <label>
+              <input type="checkbox" class="form-check-input" name="termsField" ngModel />
+              <p class="termsContent">I confirm that the Content submitted by me comply with the terms and policies of Sunbird, including <a href="#">Sunbird's Content Policy</a>. I have made sure that I do not violate others' copyright, privacy, or third party rights.</p>
+          </label>
+          <!-- Buttons for the dialog box -->
+          <section class="buttons-for-termBox"> 
+              <!-- Button to cancel and not upload -->
+              <button type="button" (click)="cancelTermsDialog()" class="doNotUplaodBtn">Do not Upload</button>
+              <!-- Button to submit and upload with conditions -->
+              <button type="submit" class="uploadBtn" [disabled]="termsForm.value.termsField!=true" (click)="fileInput.click()">Upload</button>
+          </section>
+      </form>
+  </section>

@@ -1,0 +1,62 @@
+
+.submit-button{
+    background:  var(--primary-color);
+    color: var( --quml-main-bg);
+    font-family: var(--font-stack-en);
+    font-weight: 400;
+    position: relative;
+    width: 100%;
+    border: 1px solid var(--quml-btn-border);
+    margin: 10px 15px;
+    cursor: pointer;
+    height: 2rem;
+    padding: 0.3rem;
+    font-size: 0.85rem
+  }
+  
+  .textarea-heading{
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin: 10px;
+  }
+  
+  .remarksHeading{
+    color: var(--primary-color);
+    font-weight: 500;
+  }
+  
+  .remarkValue{
+    display:flex;
+    justify-content: flex-start;
+    margin-bottom: 16px;
+  }
+  
+  .remarkContainer{
+    background: #eae8d9;
+    width: auto;
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 1rem;
+  }
+  
+  .remarkValueText{
+   margin: 20px;
+   background: #eae8d9;
+   white-space: normal;
+   max-width: 100%;
+   font-weight: 500;
+  }
+  
+  .editIcon{
+    width: 2rem;
+    margin: 20px;
+    height: 1rem;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  
+  svg path{
+    fill: #6c6962;
+  }
+
