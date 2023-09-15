@@ -55,7 +55,7 @@
               </div>
               <div *ngIf="question?.primaryCategory.toLowerCase() === 'multiselect multiple choice question'">
                 <quml-new-mcq-question [questions]='question' [replayed]="parentConfig?.isReplayed" [baseUrl]="parentConfig?.baseUrl" 
-                  (showAnswerClicked)="sendData($event)" (sendData)="sendData($event)" >
+                  (showAnswerClicked)="handleSendData($event)" (sendData)="handleSendData($event)" >
                 </quml-new-mcq-question>
               </div>
             </div>
