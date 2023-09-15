@@ -9,12 +9,9 @@ import * as _ from 'lodash-es';
 })
 export class TextNumberQuestionComponent implements OnInit, OnChanges, AfterViewInit {
 
-  // Input properties received from parent component
   @Input() replayed?: boolean; 
   @Input() questions?: any; 
   @Input() baseUrl: string; 
-
-  // Output events emitted to parent component
   @Output() showAnswerClicked = new EventEmitter<any>(); 
   
   showAnswer: any; 
