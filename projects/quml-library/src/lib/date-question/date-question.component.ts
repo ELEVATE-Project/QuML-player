@@ -8,13 +8,11 @@ import * as _ from 'lodash-es';
 })
 export class DateQuestionComponent implements OnInit {
 
-  // Input properties received from parent component
   @Input() replayed?: boolean;
   @Input() questions?: any;
   @Input() baseUrl: string;
-
-  // Output events emitted to parent component
   @Output() showAnswerClicked = new EventEmitter<any>();
+  @Output() sendData = new EventEmitter<any>();
 
   showAnswer: any;
   solutions: any;
