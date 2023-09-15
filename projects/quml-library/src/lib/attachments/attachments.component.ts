@@ -19,21 +19,17 @@ export class AttachmentsComponent {
   enableFilesSection: boolean; 
 
   @ViewChild('fileinput') fileInput: ElementRef;
-
-  // Input property received from the parent component
   @Input() showEvidence: string;
   @Input() sizeLimit: number;
 
   // Function to handle the terms and conditions form
   handletermsForm() {
-    // Toggle the state of the terms and conditions dialog box
     this.termsDialogOpen = !this.termsDialogOpen;
   }
 
   // Function to handle non-matched file size
   handleNonMatchedSize() {
     this.nonMatchedSize = true;
-    
     // Set the message for non-matched size alert
     this.nonMatchedSizeValue = "File limit exceeds its maximum size (20 KB)";
   }
