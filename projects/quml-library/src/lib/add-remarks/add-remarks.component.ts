@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 
 export class AddRemarksComponent {
-  // Input properties received from parent component
+
   @Input() showPopUpBox: boolean; 
   @Input() showRemarkValue: boolean; 
   @Input() showRemarks: string; 

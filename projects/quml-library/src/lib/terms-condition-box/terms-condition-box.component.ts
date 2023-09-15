@@ -8,20 +8,13 @@ import { NgForm } from '@angular/forms';
 })
 export class TermsConditionBoxComponent {
 
-// ViewChild to get a reference to the file input element
 @ViewChild('inputFileField') inputFileField!: ElementRef<HTMLInputElement>;
-
-// Input property to control the visibility of the terms and conditions dialog box
 @Input() termsDialogOpen: boolean;
 @Input() parentFileInput: ElementRef;
-
-// Output event to emit the non-matched size information
 @Output() nonMatchedSizeEmit = new EventEmitter<any>();
 @Output() imageIconEmit = new EventEmitter<any>();
 @Output() videoIconEmit = new EventEmitter<any>();
 @Output() pdfIconEmit = new EventEmitter<any>();
-
-// Variables to store information about the selected file
 selectFile: File;
 fileName: string;
 imageDataUrl: File;
