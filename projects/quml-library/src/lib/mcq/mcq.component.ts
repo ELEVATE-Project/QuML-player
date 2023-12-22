@@ -15,10 +15,10 @@ declare var katex: any;
 export class McqComponent implements OnInit, AfterViewInit {
   @Input() shuffleOptions?: boolean;
   @Input() question?: any;
-  @Input() identifier: any;
+  @Input() identifier?: any;
   @Input() questions?: any; 
   @Input() layout?: string;
-  @Input() replayed: boolean;
+  @Input() replayed?: boolean;
   @Input() tryAgain?: boolean;
   @Output() componentLoaded = new EventEmitter<any>();
   @Output() answerChanged = new EventEmitter<any>();
