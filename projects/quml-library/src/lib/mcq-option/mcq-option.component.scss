@@ -24,31 +24,13 @@
 }
 
 .quml-option {
-  // position: relative;
-  // background-color:var(--quml-option-card-bg);
-  // padding: 0.25rem;
-  // border-radius: 0.25rem;
-  // border: 0.0625rem solid var(--quml-btn-border);
-  // padding: 1rem;
-  // box-shadow: 0 0.125rem 0.75rem 0 var(--quml-color-primary-shade);
-  // display: flex;
-  // align-items: center;
-  // justify-content: space-between;
-  // height: 100%;
-  // gap: 0.5rem;
- //  margin-bottom: 16px;
  font-family: var(--font-stack-en);
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
     color: var(--gray-800);
     text-align: left;
-    // background: #E5EDF5;
     display: flex;
-
-  // .option {
-  //   flex: 1;
-  // }
 }
 .quml-option--selected {
   border: 0.125rem solid var(--primary-color);
@@ -68,7 +50,7 @@
 }
 
 .container {
-  // padding-right: 0px !important;
+
   display: inline-flex;
   height: 1.5rem;
   margin-top: .5rem;
@@ -76,13 +58,8 @@
 }
 
 
-/* Create a custom checkbox button */
+
 .checkmark {
-  // display: block;
-  // height: 1.25rem;
-  // width: 1.25rem;
-  // border: 0.125rem solid var(--quml-checkmark);
-  // background: var(--primary-color);
     color: var(--primary-color);
     width: 15px;
     position: relative;
@@ -90,7 +67,7 @@
     top: 2px;
 }
 
-/* Create a custom radio button */
+
 .radiomark {
   display: block;
   height: 1.25rem;
@@ -99,14 +76,14 @@
   border: 0.125rem solid var(--quml-checkmark);
 }
 
-/* Hide the browser's default radio button */
+
 .container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
 
-/* When the checkmark button is checked, add a blue background */
+
 .container input:checked~.checkmark, .quml-option--selected .checkmark {
   position: relative;
   background-color: var(--quml-option-selected-checkmark);
